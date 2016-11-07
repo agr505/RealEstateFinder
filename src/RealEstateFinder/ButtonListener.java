@@ -13,6 +13,7 @@ public class ButtonListener implements ActionListener{
     ButtonListener (Application app,LoginSignupPage loginsignup){
         application=app;
        loginsignuppage=loginsignup;
+    
     }
     
    
@@ -21,7 +22,7 @@ public class ButtonListener implements ActionListener{
        
         if(e.getActionCommand().equals("Login")){
             
-           application.authenticate(loginsignuppage.getName(), loginsignuppage.getPass());
+           application.authenticate(loginsignuppage.getusernameinput(), loginsignuppage.getpasswordinput());
         }
 }
 }

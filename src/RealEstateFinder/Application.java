@@ -21,6 +21,7 @@ public class Application {
       LoginSignupPage loginsignuppage=new LoginSignupPage(this);
       accounts= new LinkedList<Account>();
       accounts.add(new Account("joe","bob"));
+     
       
   }
   public LinkedList<Account> getaccounts()
@@ -44,7 +45,8 @@ public class Application {
        for(int i=0;i<getaccounts().size();i++)
        {
        System.out.println(accountslist.get(i).getusername()+accountslist.get(i).getpassword());
-           if(accountslist.get(i).getusername().compareTo(username)==0&&accountslist.get(i).getpassword().compareTo(password)==0)
+       
+           if(accountslist.get(i).getusername().equals(username)&&accountslist.get(i).getpassword().equals(password))
            {
                System.out.println("Authenticated!!!!!!!!!!");
            }
@@ -56,6 +58,5 @@ public class Application {
        }
    }
    
-    
-    
+ 
 }
