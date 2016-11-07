@@ -8,18 +8,20 @@ import java.awt.event.ActionListener;
  * @author User
  */
 public class ButtonListener implements ActionListener{
-  
-    ButtonListener (){
-        
-       
+  Application application;
+  LoginSignupPage loginsignuppage;
+    ButtonListener (Application app,LoginSignupPage loginsignup){
+        application=app;
+       loginsignuppage=loginsignup;
     }
     
    
     @Override
      public void actionPerformed(ActionEvent e){
-        System.out.println("gtrtrgtgessed");
+       
         if(e.getActionCommand().equals("Login")){
-            System.out.println("button pressed");
+            
+           application.authenticate(loginsignuppage.getName(), loginsignuppage.getPass());
         }
 }
 }

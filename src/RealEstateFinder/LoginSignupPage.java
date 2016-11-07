@@ -27,11 +27,11 @@ public class LoginSignupPage extends JFrame {
     JPanel panel = new JPanel();
     
     
-    LoginSignupPage(){
+    LoginSignupPage(Application app){
         
         panel.add(tf1);
         panel.add(tf2);
-         logButton.addActionListener(new ButtonListener());
+         logButton.addActionListener(new ButtonListener(app,this));
         panel.add(logButton);
         this.add(panel);
         this.setName("Frame");
