@@ -11,4 +11,8 @@ package RealEstateFinder;
  */
 public class Customer extends Account{
     
+     Customer(String username, String password) {
+        super(username, password);
+    }
+    
 }

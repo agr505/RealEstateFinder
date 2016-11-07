@@ -11,4 +11,20 @@ package RealEstateFinder;
  */
 public class Account {
     
+    String username;
+    String password;
+    public Account(String uname,String pass)
+          {
+              username=uname;
+              password=pass;
+              
+          }
+    public String u()
+    {
+        return username;
+    }
+     public String p()
+    {
+        return password;
+    }
 }

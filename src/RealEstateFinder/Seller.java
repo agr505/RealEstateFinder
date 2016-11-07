@@ -10,5 +10,11 @@ package RealEstateFinder;
  * @author Aaron
  */
 public class Seller extends Account{
-    //comment
+
+   
+    Seller(String username, String password) {
+       super(username, password);
+    }
+
+  
 }
