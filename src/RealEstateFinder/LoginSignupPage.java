@@ -5,7 +5,11 @@
  */
 package RealEstateFinder;
 
-import javax.swing.JFrame;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import javax.swing.*;
 
 /**
  *
@@ -13,7 +17,34 @@ import javax.swing.JFrame;
  */
 public class LoginSignupPage extends JFrame {
     
-    public void setNum(){
-        System.out.println("RealEstateFinder.LoginSignupPage.setNum()");
+    JTextField tf1 = new JTextField(12);
+    JTextField tf2 = new JTextField(12);
+    
+    JButton logButton = new JButton("Login");
+    JLabel logLable = new JLabel("Log-In");
+    JPanel panel = new JPanel();
+    
+    
+    LoginSignupPage(){
+        
+        panel.add(tf1);
+        panel.add(tf2);
+        panel.add(logButton);
+        this.add(panel);
+        this.setName("Frame");
+        this.pack();
+        this.setVisible(true);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    public String gettName(){
+        return tf1.getText();
+    }
+    
+    public String getPass(){
+        return tf2.getText();
+    }
+    
+   
+        
     }
 }
