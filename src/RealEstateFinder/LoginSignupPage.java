@@ -13,4 +13,7 @@ import javax.swing.JFrame;
  */
 public class LoginSignupPage extends JFrame {
     
+    public void setNum(){
+        System.out.println("RealEstateFinder.LoginSignupPage.setNum()");
+    }
 }
