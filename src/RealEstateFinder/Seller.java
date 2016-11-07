@@ -9,14 +9,6 @@ package RealEstateFinder;
  *
  * @author Aaron
  */
-public class Application {
-
-    /**
-     * @param args the command line arguments
-     */
-    
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public class Seller extends Account{
     
 }
