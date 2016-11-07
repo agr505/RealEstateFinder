@@ -36,7 +36,7 @@ public class Application {
        LinkedList<Account> accountslist=getaccounts();
        for(int i=0;i<getaccounts().size();i++)
        {
-           if(accountslist.get(i).u()==username&&accountslist.get(i).p()==password)
+           if(accountslist.get(i).getusername().equals(username)&&accountslist.get(i).getpassword().equals(password))
            {
                System.out.println("Authenticated!!!!!!!!!!");
            }
