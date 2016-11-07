@@ -48,8 +48,9 @@ public class Application {
        }
    }
     public static void main(String[] args) {
-        // TODO code application logic here
-        ViewController c = new ViewController();
+     LoginSignupPage loginsignuppage=new LoginSignupPage();
+     
+   
     }
     
 }

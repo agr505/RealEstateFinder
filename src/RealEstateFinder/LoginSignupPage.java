@@ -21,6 +21,8 @@ public class LoginSignupPage extends JFrame {
     JTextField tf2 = new JTextField(12);
     
     JButton logButton = new JButton("Login");
+   
+   
     JLabel logLable = new JLabel("Log-In");
     JPanel panel = new JPanel();
     
@@ -29,6 +31,7 @@ public class LoginSignupPage extends JFrame {
         
         panel.add(tf1);
         panel.add(tf2);
+         logButton.addActionListener(new ButtonListener());
         panel.add(logButton);
         this.add(panel);
         this.setName("Frame");
@@ -47,4 +50,4 @@ public class LoginSignupPage extends JFrame {
    
         
     }
-}
+
