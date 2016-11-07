@@ -13,7 +13,7 @@ import java.util.LinkedList;
  * @author Aaron
  */
 public class Application {
-
+//comment
    private LinkedList<Account> accounts;
     
   public LinkedList<Account> getaccounts()
