@@ -49,6 +49,14 @@ public class Application {
            if(accountslist.get(i).getusername().equals(username)&&accountslist.get(i).getpassword().equals(password))
            {
                System.out.println("Authenticated!!!!!!!!!!");
+               if(accountslist.get(i) instanceof Seller)
+               {
+                   
+               }
+               else if(accountslist.get(i) instanceof Customer)
+               {
+                   
+               }
            }
            else
            {
