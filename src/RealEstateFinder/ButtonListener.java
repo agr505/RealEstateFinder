@@ -10,12 +10,19 @@ import java.awt.event.ActionListener;
 public class ButtonListener implements ActionListener{
   Application application;
   LoginSignupPage loginsignuppage;
+  SignUpPage signuppage;
     ButtonListener (Application app,LoginSignupPage loginsignup){
         application=app;
        loginsignuppage=loginsignup;
-    
+    signuppage=null;
     }
-    
+  
+     ButtonListener (Application app, SignUpPage signup){
+        application=app;
+         signuppage=signup;
+       loginsignuppage=null;
+   
+    }
    
     @Override
      public void actionPerformed(ActionEvent e){
@@ -23,6 +30,10 @@ public class ButtonListener implements ActionListener{
         if(e.getActionCommand().equals("Login")){
             
            application.authenticate(loginsignuppage.getusernameinput(), loginsignuppage.getpasswordinput());
+        }
+        else if(e.getActionCommand().equals("Sign Up")){
+            
+          System.out.println("Worked");
         }
 }
 }

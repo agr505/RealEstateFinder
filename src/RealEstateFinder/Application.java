@@ -18,7 +18,9 @@ public class Application {
     
   public Application()
   {
-      LoginSignupPage loginsignuppage=new LoginSignupPage(this);
+      
+      LoginSignupPage loginsignuppage=new LoginSignupPage(this);  
+      SignUpPage signuppage=new  SignUpPage(this);  
       accounts= new LinkedList<Account>();
       accounts.add(new Account("joe","bob"));
      
