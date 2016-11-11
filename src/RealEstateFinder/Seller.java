@@ -5,13 +5,21 @@
  */
 package RealEstateFinder;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Aaron
  */
 public class Seller extends Account{
 
-   
+    public Seller(ArrayList<String> ownedproperties, String uname, String pass) {
+        super(uname, pass);
+        this.ownedproperties = ownedproperties;
+    }
+
+    private ArrayList<String> ownedproperties;
+    
     Seller(String username, String password) {
        super(username, password);
     }
