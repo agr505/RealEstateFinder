@@ -5,6 +5,9 @@
  */
 package RealEstateFinder;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.LinkedList;
 
 
@@ -23,6 +26,11 @@ public class Application {
       SignUpPage signuppage=new  SignUpPage(this);  
       accounts= new LinkedList<Account>();
       accounts.add(new Account("joe","bob"));
+      
+     // try {
+     // createProperties();
+      //}catch(IOException e){  
+      //}
      
       
   }
@@ -66,6 +74,20 @@ public class Application {
            }
               
        }
+   }
+   public void createProperties() throws IOException {
+       
+      Property p1 = new Property("First property", "Image name", "text" );
+      Property p2 = new Property("2nd property", "Image name", "text" );
+      Property p3 = new Property("3rd property", "Image name", "text" );
+      
+      ObjectOutputStream out = new ObjectOutputStream(
+                new FileOutputStream ("property.txt"));
+      out.writeObject(p1);
+       out.writeObject(p2);
+        out.writeObject(p3);
+        out.close();
+      
    }
    
  
