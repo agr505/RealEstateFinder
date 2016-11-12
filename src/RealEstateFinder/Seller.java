@@ -13,6 +13,10 @@ import java.util.ArrayList;
  */
 public class Seller extends Account{
 
+    public ArrayList<String> getOwnedproperties() {
+        return ownedproperties;
+    }
+
     public Seller(ArrayList<String> ownedproperties, String uname, String pass) {
         super(uname, pass);
         this.ownedproperties = ownedproperties;

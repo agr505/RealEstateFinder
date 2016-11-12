@@ -18,6 +18,7 @@ import java.util.LinkedList;
 public class Application {
 //comment
    private LinkedList<Account> accounts;
+   private Account loggedinaccount;
     
   public Application()
   {
@@ -26,7 +27,7 @@ public class Application {
       SignUpPage signuppage=new  SignUpPage(this);  
       accounts= new LinkedList<Account>();
       accounts.add(new Account("joe","bob"));
-      
+      loggedinaccount=null;
      // try {
      // createProperties();
       //}catch(IOException e){  
@@ -42,6 +43,7 @@ public class Application {
   {
       if(isseller==true)
       {
+          //Need code for getting text input about properties owned and having ownedproperties as a parameter to Seller Constructor
           accounts.add(new Seller(username,password));
       }
       else 
@@ -58,10 +60,11 @@ public class Application {
        
            if(accountslist.get(i).getusername().equals(username)&&accountslist.get(i).getpassword().equals(password))
            {
+                loggedinaccount=accountslist.get(i);
                System.out.println("Authenticated!!!!!!!!!!");
                if(accountslist.get(i) instanceof Seller)
                {
-                   
+                  
                }
                else if(accountslist.get(i) instanceof Customer)
                {
@@ -74,6 +77,11 @@ public class Application {
            }
               
        }
+   }
+   
+   public Account provideLoggedinAccount()
+   {
+       return loggedinaccount;
    }
    public void createProperties() throws IOException {
        

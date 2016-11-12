@@ -37,4 +37,8 @@ public class PropertyContainer {
             private int current = 0;
          };
    }
+    public void addProperty(Property property)
+    {
+        properties.add(property);
+    }
 }
