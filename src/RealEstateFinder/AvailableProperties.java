@@ -8,6 +8,7 @@ package RealEstateFinder;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -15,14 +16,16 @@ import java.util.Iterator;
  *
  * @author Aaron
  */
-public class AvailableProperties extends PropertyContainer{
+public class AvailableProperties extends PropertyContainer {
 
     private Application application;
     private Favorites favorites;
-    public AvailableProperties(Application app,Favorites fav) 
+    
+    public AvailableProperties(Application app,Favorites fav) throws ClassNotFoundException, IOException
     {
         application=app;
         favorites=fav;
+        loadProperties();
     }
     
     public void loadProperties() throws IOException, ClassNotFoundException{

@@ -5,11 +5,13 @@
  */
 package RealEstateFinder;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Aaron
  */
-public class Property implements  Cloneable{
+public class Property implements  Cloneable, Serializable {
 
     public Property(String name, String picture, String text) {
         this.name = name;
