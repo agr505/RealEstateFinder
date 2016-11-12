@@ -22,12 +22,17 @@ public class Application {
     
   public Application()
   {
-      
+         loggedinaccount=null;
       LoginSignupPage loginsignuppage=new LoginSignupPage(this);  
       SignUpPage signuppage=new  SignUpPage(this);  
       accounts= new LinkedList<Account>();
+      Favorites favorites=new Favorites();
+      AvailableProperties availableproperties=new AvailableProperties(this,favorites);
+      
+      
+      
+      
       accounts.add(new Account("joe","bob"));
-      loggedinaccount=null;
      // try {
      // createProperties();
       //}catch(IOException e){  

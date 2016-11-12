@@ -18,10 +18,11 @@ import java.util.Iterator;
 public class AvailableProperties extends PropertyContainer{
 
     private Application application;
-    public AvailableProperties(Application app) 
+    private Favorites favorites;
+    public AvailableProperties(Application app,Favorites fav) 
     {
         application=app;
-        
+        favorites=fav;
     }
     
     public void loadProperties() throws IOException, ClassNotFoundException{
@@ -45,7 +46,7 @@ public class AvailableProperties extends PropertyContainer{
         
        Iterator<Property> iter= getProperties();
        
-       PropertyContainer propertycontainer=new PropertyContainer();
+       PropertyContainer matchedproperties=new PropertyContainer();
        
        
         for(int i=0;i<ownedproperties.size();i++)
@@ -54,9 +55,24 @@ public class AvailableProperties extends PropertyContainer{
           {
              if( iter.next().getName().equals(ownedproperties.get(i)))
              {
+                 matchedproperties.addProperty(iter.next());
                  
+                 //SellerPropertyListingsPage.UpdateView(matchedproperties);
+               
              }
           }
         }
     }
-}
+    public void addtoFav(String propertyname) throws CloneNotSupportedException
+    {       
+        Iterator<Property> iter= getProperties();
+         while(iter.hasNext())
+          {
+             if( iter.next().getName().equals(propertyname))
+             {
+                   favorites.addProperty(iter.next().clone());
+                            
+             }
+       
+    }
+}}

@@ -9,7 +9,7 @@ package RealEstateFinder;
  *
  * @author Aaron
  */
-public class Property {
+public class Property implements  Cloneable{
 
     public Property(String name, String picture, String text) {
         this.name = name;
@@ -28,9 +28,16 @@ public class Property {
     public String getText() {
         return text;
     }
+    
+    @Override
+    public Property clone() throws CloneNotSupportedException 
+    {
+        return (Property)super.clone();     
+    }
      private String name;
    private String picture;
    private String text;
+   
    
          
 }
