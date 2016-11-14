@@ -41,11 +41,18 @@ public class CustomerPropertiesPage extends JFrame{
         // panel.add(p2);
         this.setTitle("Customer View Description");
         this.pack();
-        this.setVisible(true);
+         this.setVisible(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    
+    public void routetopage()
+    {
+        this.setVisible(true);
+    }
+     public void leavepage()
+    {
+        this.setVisible(false);
+    }  
 }
 
 class PropertyPanel extends JPanel{

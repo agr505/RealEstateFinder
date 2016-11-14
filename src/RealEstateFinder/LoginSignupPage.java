@@ -47,7 +47,13 @@ public class LoginSignupPage extends JFrame {
         return tf2.getText();
     }
     
-   
-        
+   public void routetopage()
+    {
+        this.setVisible(true);
+    }
+     public void leavepage()
+    {
+        this.setVisible(false);
+    }   
     }
 

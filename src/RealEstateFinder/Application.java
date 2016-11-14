@@ -20,19 +20,21 @@ public class Application {
 //comment
    private LinkedList<Account> accounts;
    private Account loggedinaccount;
+   private  LoginSignupPage loginsignuppage;
+   private   CustomerPropertiesPage customerpropertiespage;
     
   public Application() throws ClassNotFoundException, IOException
   {
          loggedinaccount=null;
          createProperties();
-      LoginSignupPage loginsignuppage=new LoginSignupPage(this);  
+      loginsignuppage=new LoginSignupPage(this);  
       SignUpPage signuppage=new  SignUpPage(this);  
       accounts= new LinkedList<Account>();
       Favorites favorites=new Favorites();
       AvailableProperties availableproperties=new AvailableProperties(this,favorites);
       
        
-      CustomerPropertiesPage cpp = new CustomerPropertiesPage(availableproperties);
+       customerpropertiespage = new CustomerPropertiesPage(availableproperties);
      
       
       
@@ -72,6 +74,10 @@ public class Application {
            {
                 loggedinaccount=accountslist.get(i);
                System.out.println("Authenticated!!!!!!!!!!");
+               
+               loginsignuppage.leavepage();
+               customerpropertiespage.routetopage();
+                       
                if(accountslist.get(i) instanceof Seller)
                {
                   

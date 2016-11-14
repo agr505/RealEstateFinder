@@ -46,7 +46,7 @@ public class SignUpPage extends JFrame{
         this.add(panel);
         this.setName("Frame");
         this.pack();
-        this.setVisible(true);
+        this.setVisible(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     public String getusernameinput(){
@@ -56,5 +56,13 @@ public class SignUpPage extends JFrame{
     public String getpasswordinput(){
         return password.getText();
     }
+      public void routetopage()
+    {
+        this.setVisible(true);
+    }
+     public void leavepage()
+    {
+        this.setVisible(false);
+    }  
     
 }
