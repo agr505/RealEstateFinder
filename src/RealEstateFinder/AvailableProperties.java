@@ -20,66 +20,57 @@ public class AvailableProperties extends PropertyContainer {
 
     private Application application;
     private Favorites favorites;
-    
-    public AvailableProperties(Application app,Favorites fav) throws ClassNotFoundException, IOException
-    {
+
+    public AvailableProperties(Application app, Favorites fav) throws ClassNotFoundException, IOException {
         super();
-        application=app;
-        favorites=fav;
+        application = app;
+        favorites = fav;
         loadProperties();
     }
-    
-    public void loadProperties() throws IOException, ClassNotFoundException{
-        
-          ObjectInputStream in = new ObjectInputStream(
-            new FileInputStream("property.txt"));
 
-        for(int i =0;i<3;i++)
-        {
-           Property p= (Property) in.readObject();
+    public void loadProperties() throws IOException, ClassNotFoundException {
+
+        ObjectInputStream in = new ObjectInputStream(
+                new FileInputStream("property.txt"));
+
+        for (int i = 0; i < 3; i++) {
+            Property p = (Property) in.readObject();
             System.out.println(p.getName());
-        addProperty(p);
-        } 
-        
+            addProperty(p);
+        }
+
         in.close();
-        
+
     }
-    
-    public void matchownedProperties()
-    {
-        Seller seller=(Seller)application.provideLoggedinAccount();
-        
-        ArrayList<String> ownedproperties=seller.getOwnedproperties();
-        
-       Iterator<Property> iter= getProperties();
-       
-       PropertyContainer matchedproperties=new PropertyContainer();
-       
-       
-        for(int i=0;i<ownedproperties.size();i++)
-        {
-          while(iter.hasNext())
-          {
-             if( iter.next().getName().equals(ownedproperties.get(i)))
-             {
-                 matchedproperties.addProperty(iter.next());
-                 
-                 //SellerPropertyListingsPage.UpdateView(matchedproperties);
-               
-             }
-          }
+
+    public void matchownedProperties() {
+        Seller seller = (Seller) application.provideLoggedinAccount();
+
+        ArrayList<String> ownedproperties = seller.getOwnedproperties();
+
+        Iterator<Property> iter = getProperties();
+
+        PropertyContainer matchedproperties = new PropertyContainer();
+
+        for (int i = 0; i < ownedproperties.size(); i++) {
+            while (iter.hasNext()) {
+                if (iter.next().getName().equals(ownedproperties.get(i))) {
+                    matchedproperties.addProperty(iter.next());
+
+                    //SellerPropertyListingsPage.UpdateView(matchedproperties);
+                }
+            }
         }
     }
-    public void addtoFav(String propertyname) throws CloneNotSupportedException
-    {       
-        Iterator<Property> iter= getProperties();
-         while(iter.hasNext())
-          {
-             if( iter.next().getName().equals(propertyname))
-             {
-                   favorites.addProperty(iter.next().clone());
-                            
-             }
-       
+
+    public void addtoFav(String propertyname) throws CloneNotSupportedException {
+        Iterator<Property> iter = getProperties();
+        while (iter.hasNext()) {
+            if (iter.next().getName().equals(propertyname)) {
+                favorites.addProperty(iter.next().clone());
+
+            }
+
+        }
     }
-}}
+}
