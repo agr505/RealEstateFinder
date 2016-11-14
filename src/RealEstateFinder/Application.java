@@ -34,9 +34,6 @@ public class Application {
        
       CustomerPropertiesPage cpp = new CustomerPropertiesPage(availableproperties);
      
-      
-      
-      
       accounts.add(new Account("joe","bob"));
      // try {
      // createProperties();

@@ -26,19 +26,19 @@ public class CustomerPropertiesPage extends JFrame{
     CustomerPropertiesPage(AvailableProperties ref){
         ap = ref;
         
-         Iterator <Property> iter = ap.getProperties();
-         while(iter.hasNext())
-         {
-             String x = iter.next().getName();
-             PropertyPanel p = new PropertyPanel(x); 
+         //Iterator <Property> iter = ap.getProperties();
+         //while(iter.hasNext())
+         //{
+            // String x = iter.next().getName();
+            PropertyPanel p = new PropertyPanel("FD"); 
              //panel.add(p);
-         }
+        // }
         //PropertyPanel pp= new PropertyPanel();
        // PropertyPanel p2= new PropertyPanel();
 
         this.add(panel);
         //panel.add(p);
-        // panel.add(p2);
+         panel.add(p);
         this.setTitle("Customer View Description");
         this.pack();
         this.setVisible(true);

@@ -44,8 +44,9 @@ public class SignUpPage extends JFrame{
         signUp.addActionListener(new ButtonListener(app,this));
         panel.add(signUp);
         this.add(panel);
-        this.setName("Frame");
-        this.pack();
+        this.setTitle("SignUp");
+        //this.pack();
+        this.setSize(250,400);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
