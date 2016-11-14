@@ -34,7 +34,7 @@ public class LoginSignupPage extends JFrame {
          logButton.addActionListener(new ButtonListener(app,this));
         panel.add(logButton);
         this.add(panel);
-        this.setName("Frame");
+        this.setTitle("LogIn");
         this.pack();
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

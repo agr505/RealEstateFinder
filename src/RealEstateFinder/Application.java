@@ -36,9 +36,6 @@ public class Application {
        
        customerpropertiespage = new CustomerPropertiesPage(availableproperties);
      
-      
-      
-      
       accounts.add(new Account("joe","bob"));
      // try {
      // createProperties();
