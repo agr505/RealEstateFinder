@@ -13,6 +13,10 @@ import java.util.Iterator;
  * @author Aaron
  */
 public class PropertyContainer {
+
+    public PropertyContainer() {
+        this.properties = new ArrayList<Property>();
+    }
     private ArrayList<Property> properties;
     
     

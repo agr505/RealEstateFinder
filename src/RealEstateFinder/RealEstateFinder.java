@@ -5,12 +5,14 @@
  */
 package RealEstateFinder;
 
+import java.io.IOException;
+
 /**
  *
  * @author Aaron
  */
 public class RealEstateFinder {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException, IOException {
      
      Application app=new Application();
    

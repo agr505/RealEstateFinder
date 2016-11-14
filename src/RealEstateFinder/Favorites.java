@@ -11,6 +11,7 @@ package RealEstateFinder;
  */
 public class Favorites extends PropertyContainer{
 
+    
    
    
     
