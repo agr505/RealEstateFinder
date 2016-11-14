@@ -12,22 +12,21 @@ import java.awt.event.ActionListener;
  *
  * @author Aaron
  */
-public class ViewPropertyButtonListener  implements ActionListener{
+public class ViewPropertyButtonListener implements ActionListener {
 
     public String propertyname;
-   ViewPropertyButtonListener (String pname){
-       this.propertyname=pname;
+
+    ViewPropertyButtonListener(String pname) {
+        this.propertyname = pname;
     }
-  
-   
-   
+
     @Override
-     public void actionPerformed(ActionEvent e){
-       
-        if(e.getActionCommand().equals("View Property Description")){
-           
-           System.out.println("You selected "+propertyname);
+    public void actionPerformed(ActionEvent e) {
+
+        if (e.getActionCommand().equals("View Property Description")) {
+
+            System.out.println("You selected " + propertyname);
         }
-        
-}
+
+    }
 }

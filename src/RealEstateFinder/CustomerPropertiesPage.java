@@ -47,16 +47,26 @@ public class CustomerPropertiesPage extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+     public void routetopage()
+    {
+        this.setVisible(true);
+    }
+    
+     public void leavepage()
+    {
+        this.setVisible(false);
+    }
    
     
 }
 
 class PropertyPanel extends JPanel{
     
+    JButton b;
     PropertyPanel(String x){
         
         this.setLayout(new BorderLayout());
-        JButton b = new JButton("Property Description");
+        b = new JButton("View Property Description");
         JButton xx = new JButton("button");
         
         JLabel n = new JLabel(x);
@@ -66,6 +76,7 @@ class PropertyPanel extends JPanel{
         this.setBackground(Color.white);
         this.setPreferredSize(new Dimension(200,100));
         
+        b.addActionListener(new ViewPropertyButtonListener(x));   
       
     }
 }
