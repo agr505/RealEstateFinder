@@ -33,16 +33,7 @@ public class AvailableProperties extends PropertyContainer {
         
           ObjectInputStream in = new ObjectInputStream(
             new FileInputStream("property.txt"));
-          System.out.println("FDFDFDFDSFSD");
-          
-<<<<<<< HEAD
-        while (in.readObject()!= null){
-            System.out.println("THIS IS "+ in);
-            super.addProperty((Property) in.readObject());
-            System.out.println("THIS IS "+ in);
-            
-        }
-=======
+
         for(int i =0;i<3;i++)
         {
            Property p= (Property) in.readObject();
@@ -50,7 +41,6 @@ public class AvailableProperties extends PropertyContainer {
         addProperty(p);
         } 
         
->>>>>>> origin/master
         in.close();
         
     }
