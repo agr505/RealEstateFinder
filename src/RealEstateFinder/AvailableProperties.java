@@ -23,6 +23,7 @@ public class AvailableProperties extends PropertyContainer {
     
     public AvailableProperties(Application app,Favorites fav) throws ClassNotFoundException, IOException
     {
+        super();
         application=app;
         favorites=fav;
         loadProperties();
@@ -33,10 +34,13 @@ public class AvailableProperties extends PropertyContainer {
           ObjectInputStream in = new ObjectInputStream(
             new FileInputStream("property.txt"));
           
-        while (in.readObject()!= null){
-            super.addProperty((Property) in.readObject());
-            
-        }
+        for(int i =0;i<3;i++)
+        {
+           Property p= (Property) in.readObject();
+            System.out.println(p.getName());
+        addProperty(p);
+        } 
+        
         in.close();
         
     }
