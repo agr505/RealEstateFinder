@@ -44,16 +44,16 @@ public class SignUpPage extends JFrame{
         signUp.addActionListener(new ButtonListener(app,this));
         panel.add(signUp);
         this.add(panel);
-<<<<<<< HEAD
+
         this.setName("Frame");
         this.pack();
         this.setVisible(false);
-=======
+
         this.setTitle("SignUp");
         //this.pack();
         this.setSize(250,400);
         this.setVisible(true);
->>>>>>> origin/master
+
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     public String getusernameinput(){
