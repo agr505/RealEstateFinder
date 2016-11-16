@@ -5,6 +5,8 @@
  */
 package RealEstateFinder;
 
+import java.util.Iterator;
+
 /**
  *
  * @author Aaron
@@ -12,7 +14,17 @@ package RealEstateFinder;
 public class Favorites extends PropertyContainer{
 
     
-   
+   public boolean containsproperty(String propertyname)
+   {
+       Iterator<Property> iter = getProperties();
+         while (iter.hasNext()) {
+                if (iter.next().getName().equals(propertyname)) {
+                   return true;
+                }
+                
+            }
+         return false;
+   }
    
     
 }
