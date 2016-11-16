@@ -71,3 +71,4 @@ public class ViewPropertyButtonListener implements ActionListener {
 
     }
 }
+}
