@@ -33,8 +33,11 @@ public class CustomerPropertiesPage extends JFrame{
          Iterator <Property> iter = ap.getProperties();
          while(iter.hasNext())
          {
-             String x = iter.next().getName();
-            PropertyPanel p = new PropertyPanel(x); 
+             Property property = iter.next();
+             String x = property.getName();
+             String y = property.getPicture();
+             String z = property.getText();
+            PropertyPanel p = new PropertyPanel(x,y,z); 
              panel.add(p);
              
         }
@@ -63,18 +66,26 @@ public class CustomerPropertiesPage extends JFrame{
 class PropertyPanel extends JPanel{
     
     JButton b;
-    PropertyPanel(String x){
+    PropertyPanel(String x, String y, String z){
         
         this.setLayout(new BorderLayout());
         b = new JButton("View Property Description");
         //JButton xx = new JButton("button");
+        JLabel jl = new JLabel();
+        jl.setIcon(new ImageIcon(y));
         
+        JLabel description = new JLabel(z); 
         JLabel n = new JLabel(x);
         this.add(n, BorderLayout.NORTH);
+        this.add(jl, BorderLayout.WEST);
+        this.add(description, BorderLayout.CENTER);
+        validate();
         
         this.add(b, BorderLayout.SOUTH);
         this.setBackground(Color.white);
-        this.setPreferredSize(new Dimension(200,100));
+        this.setPreferredSize(new Dimension(250,150));
+        
+        
         
         b.addActionListener(new ViewPropertyButtonListener(x));   
       
