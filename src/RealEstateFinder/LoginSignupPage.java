@@ -36,7 +36,7 @@ public class LoginSignupPage extends JFrame {
         this.add(panel);
         this.setTitle("LogIn");
         this.pack();
-        //this.setVisible(true);
+        this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     public String getusernameinput(){

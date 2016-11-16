@@ -24,9 +24,12 @@ public class Seller extends Account{
 
     private ArrayList<String> ownedproperties;
     
-    Seller(String username, String password) {
-       super(username, password);
-    }
-
-  
+    // Seller(String username, String password, textField) 
+    //
+    Seller(String username, String password, ArrayList<String> properties) {
+        //getting the properties seperated by comma and adding to ownedProperties
+        super(username, password);
+        
+        ownedproperties = properties;
+    } 
 }
