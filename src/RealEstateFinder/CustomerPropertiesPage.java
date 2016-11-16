@@ -29,14 +29,13 @@ public class CustomerPropertiesPage extends JFrame{
       
     CustomerPropertiesPage(AvailableProperties ref){
         ap = ref;
-        
+        panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
          Iterator <Property> iter = ap.getProperties();
          while(iter.hasNext())
          {
              String x = iter.next().getName();
             PropertyPanel p = new PropertyPanel(x); 
              panel.add(p);
-             
         }
      
 
@@ -56,6 +55,8 @@ public class CustomerPropertiesPage extends JFrame{
     {
         this.setVisible(false);
     }
+     
+     
    
     
 }
@@ -67,7 +68,7 @@ class PropertyPanel extends JPanel{
         
         this.setLayout(new BorderLayout());
         b = new JButton("View Property Description");
-        JButton xx = new JButton("button");
+        //JButton xx = new JButton("button");
         
         JLabel n = new JLabel(x);
         this.add(n, BorderLayout.NORTH);
