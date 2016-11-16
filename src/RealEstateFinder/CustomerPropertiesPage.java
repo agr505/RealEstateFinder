@@ -36,7 +36,6 @@ public class CustomerPropertiesPage extends JFrame{
              String x = iter.next().getName();
             PropertyPanel p = new PropertyPanel(x); 
              panel.add(p);
-             
         }
      
 
@@ -56,6 +55,8 @@ public class CustomerPropertiesPage extends JFrame{
     {
         this.setVisible(false);
     }
+     
+     
    
     
 }

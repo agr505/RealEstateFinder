@@ -48,19 +48,7 @@ public class SignUpPage extends JFrame{
         this.setTitle("SignUp");
         //this.pack();
         this.setSize(250,400);
-       // this.setVisible(true);
-
-
-        this.setName("Frame");
-        this.pack();
-        this.setVisible(false);
-
-        this.setTitle("SignUp");
-        //this.pack();
-        this.setSize(250,400);
         this.setVisible(true);
-
-
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     public String getusernameinput(){
