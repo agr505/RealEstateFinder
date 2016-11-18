@@ -11,18 +11,31 @@ import java.util.ArrayList;
  *
  * @author Aaron
  */
+
+
+//********************** has two constructors
 public class Seller extends Account{
 
+    private InterestedCustomers interestedcustomers;
+      private ArrayList<String> ownedproperties;
+      
+     Seller(ArrayList<String> ownedproperties, String uname, String pass, InterestedCustomers interestedcust) {
+        super(uname, pass);
+        this.ownedproperties = ownedproperties;
+        interestedcustomers=interestedcust;
+    }
+    
     public ArrayList<String> getOwnedproperties() {
         return ownedproperties;
     }
+public InterestedCustomers getInterestedCustomers()
+{
+    return interestedcustomers;//interestedcustomers needs to be initialized in constructor
+}
+    
+    
 
-    public Seller(ArrayList<String> ownedproperties, String uname, String pass) {
-        super(uname, pass);
-        this.ownedproperties = ownedproperties;
-    }
-
-    private ArrayList<String> ownedproperties;
+  
     
     // Seller(String username, String password, textField) 
     //

@@ -44,7 +44,7 @@ public class InterestedCustomers {
     {
         customers.add(customer);
     }
-    public boolean containscustomer(Customer customer)
+    public boolean containsCustomer(Customer customer)
     {
         Iterator<Customer> iter = getCustomers();
         while (iter.hasNext()) {

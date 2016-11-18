@@ -33,7 +33,7 @@ public class AvailableProperties extends PropertyContainer {
         ObjectInputStream in = new ObjectInputStream(
                 new FileInputStream("property.txt"));
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 2; i++) {
             Property p = (Property) in.readObject();
             System.out.println(p.getName());
             addProperty(p);
@@ -63,11 +63,11 @@ public class AvailableProperties extends PropertyContainer {
         }
     }
 
-    public void addtoFav(String propertyname) throws CloneNotSupportedException {
+    public void addtoFav(String propertyname){
         Iterator<Property> iter = getProperties();
         while (iter.hasNext()) {
             if (iter.next().getName().equals(propertyname)) {
-                favorites.addProperty(iter.next().clone());
+                favorites.addProperty(iter.next());
 
             }
 

@@ -22,6 +22,7 @@ public class Application {
     private Account loggedinaccount;
     private LoginSignupPage loginsignuppage;
     private CustomerPropertiesPage customerpropertiespage;
+  
 
     public Application() throws ClassNotFoundException, IOException {
         loggedinaccount = null;
@@ -95,7 +96,7 @@ public class Application {
                 }
             } else {
                 System.out.println("Account not found!!!!!!!!");
-<<<<<<< HEAD
+
            }
               
        }
@@ -115,61 +116,29 @@ public class Application {
                 new FileOutputStream ("property.txt"));
       out.writeObject(p1);
        out.writeObject(p2);
-||||||| merged common ancestors
+
            }
               
-       }
-   }
-   
-   public Account provideLoggedinAccount()
-   {
-       return loggedinaccount;
-   }
-   public void createProperties() throws IOException {
        
-      Property p1 = new Property("First property", "Image name", "text" );
-      Property p2 = new Property("2nd property", "Image name", "text" );
-      Property p3 = new Property("3rd property", "Image name", "text" );
-      
-      ObjectOutputStream out = new ObjectOutputStream(
-                new FileOutputStream ("property.txt"));
-      out.writeObject(p1);
-       out.writeObject(p2);
-=======
-            }
+   
+   
+  
 
-        }
-    }
+  
 
-    public Account provideLoggedinAccount() {
-        return loggedinaccount;
-    }
+    
 
-    public void createProperties() throws IOException {
-
-        Property p1 = new Property("First property", "Image name", "text");
-        Property p2 = new Property("2nd property", "Image name", "text");
-        Property p3 = new Property("3rd property", "Image name", "text");
-
-        ObjectOutputStream out = new ObjectOutputStream(
-                new FileOutputStream("property.txt"));
-        out.writeObject(p1);
-        out.writeObject(p2);
->>>>>>> origin/master
-        out.writeObject(p3);
-        out.close();
-
-    }
+    
 
     public void contactSeller(String propName) {
         System.out.println(propName + "was selected");
         Customer loggedIncustomer = (Customer) provideLoggedinAccount();
         //System.out.println(loggedIncustomer.getusername()+ " Is logged in");
 
-        Seller propertyOwner = (Seller)findOwner(propName);
+        Seller propertyOwner = (Seller)findowner(propName);
 
     }
-    public Seller findOwner(String propName){
+    public Seller findowner(String propName){
         
         for (int i = 0; i < accounts.size(); i++) {
           
@@ -188,5 +157,12 @@ public class Application {
         } 
         return null;
     }
-
+    public boolean hascontactedcustomer(String propertyname)
+    {
+        Seller s=findowner(propertyname);
+        Customer c=(Customer)provideLoggedinAccount();
+        c.updatepropertyinterestedin(propertyname);
+         InterestedCustomers interestedcustomers=s.getInterestedCustomers();
+        return interestedcustomers.containsCustomer(c);
+    }
 }

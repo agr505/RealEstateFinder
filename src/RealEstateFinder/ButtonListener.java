@@ -31,7 +31,7 @@ public class ButtonListener implements ActionListener{
             
            application.authenticate(loginsignuppage.getusernameinput(), loginsignuppage.getpasswordinput());
         }
-        else if(e.getActionCommand().equals("Sign Up")){
+        else if(e.getActionCommand().equals("Sign Up")){//need to work on**************
             
           System.out.println("Worked");
         }

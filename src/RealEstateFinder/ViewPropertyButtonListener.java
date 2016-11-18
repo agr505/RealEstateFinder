@@ -18,6 +18,7 @@ public class ViewPropertyButtonListener implements ActionListener {
     public String propertyname;
     public Favorites favorites;
     public Application app;
+
     ViewPropertyButtonListener(String pname) {
         this.propertyname = pname;
     }
@@ -28,47 +29,43 @@ public class ViewPropertyButtonListener implements ActionListener {
         if (e.getActionCommand().equals("View Property Description")) {
 
             System.out.println("You selected " + propertyname);
-            
-            
-            if(app.provideLoggedinAccount()instanceof Customer)
-            {
-                PropertyDescriptionPageStrategy customerstrategy=new PropertyDescriptionPageStrategy() {
+
+            if (app.provideLoggedinAccount() instanceof Customer) {
+                PropertyDescriptionPageStrategy customerstrategy = new PropertyDescriptionPageStrategy() {
                     @Override
                     public JPanel buildview(JPanel jpanel) {
-                      
-                       if(!favorites.containsproperty(propertyname)){
-                        return null;//attach addtofavorites button
-                        
+
+                        if (!favorites.containsproperty(propertyname)) {
+                            return null;//attach addtofavorites button
+
+                        } else if (favorites.containsproperty(propertyname)&&app.hascontactedcustomer(propertyname)==false) {
+                            return null;//attach contactseller button
+                        } else if (favorites.containsproperty(propertyname)&&app.hascontactedcustomer(propertyname)) {
+                            return null;//no buttons on panel
+                        }
+                        return null;
                     }
-                       else if(favorites.containsproperty(propertyname))
-                               {
-                                   return null;//attach contactseller button
-                               }
-                        else if(favorites.containsproperty(propertyname))
-                               {
-                                   return null;//no buttons on panel
-                               }
-                    return null;   
-                };
-                    
-            };
+                ;
+
+            }  ;
             }
-            else if(app.provideLoggedinAccount()instanceof Seller)
-             {
-                PropertyDescriptionPageStrategy sellerstrategy=new PropertyDescriptionPageStrategy() {
+            else if (app.provideLoggedinAccount() instanceof Seller) {
+                PropertyDescriptionPageStrategy sellerstrategy = new PropertyDescriptionPageStrategy() {
                     @Override
                     public JPanel buildview(JPanel jpanel) {
-                      //always attach update button
-                      return null;
-                };
-            };
+                        //always attach update button
+                        return null;
+                    }
+                ;
+            }
+        
+    
+;
+
+}
             
-            
-            
-            
-            
-        }
 
     }
 }
+    
 }
