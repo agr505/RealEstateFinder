@@ -20,9 +20,11 @@ public class PropertyDescriptionPageListener  implements ActionListener{
     AvailableProperties availableproperties;
     UpdatePropertyPage updatepropertyppage;
     
-    PropertyDescriptionPageListener(String name, Application apRef){
+    PropertyDescriptionPageListener(String name, Application apRef, AvailableProperties availableProps){
         this.name = name;
         app = apRef;
+        availableproperties = availableProps;
+        //need to initialize the availabe properties reference
     }
 
     @Override
@@ -33,7 +35,9 @@ public class PropertyDescriptionPageListener  implements ActionListener{
         }
         else if(e.getActionCommand().equals("Add to Favorites"))
                 {
+                    System.out.println(name);
                     availableproperties.addtoFav((propertyname));
+                    System.out.println(name+ " is being added to favorites");
                 }
         else if(e.getActionCommand().equals("Update Property"))
                 {

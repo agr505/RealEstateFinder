@@ -23,6 +23,7 @@ import javax.swing.BoxLayout;
 public class CustomerPropertiesPage extends JFrame{
     Favorites favorites;
     AvailableProperties availableproperties;
+    
     JPanel panel = new JPanel();
     JButton viewDescButton = new JButton("View Description");
     JLabel label = new JLabel();
@@ -40,7 +41,7 @@ public class CustomerPropertiesPage extends JFrame{
              String x = property.getName();
              String y = property.getPicture();
              String z = property.getText();
-            PropertyPanel p = new PropertyPanel(x,y,z,app,favorites,propertydescriptionpage ); 
+            PropertyPanel p = new PropertyPanel(x,y,z,app,favorites,propertydescriptionpage, availableproperties ); 
              panel.add(p);
         }
      
@@ -70,7 +71,7 @@ public class CustomerPropertiesPage extends JFrame{
 class PropertyPanel extends JPanel{
     
     JButton b;
-    PropertyPanel(String x, String y, String z,Application app,Favorites fav,PropertyDescriptionPage propertydescriptionpage){
+    PropertyPanel(String x, String y, String z,Application app,Favorites fav,PropertyDescriptionPage propertydescriptionpage,AvailableProperties availableProps ){
         
         this.setLayout(new BorderLayout());
         
@@ -92,7 +93,7 @@ class PropertyPanel extends JPanel{
         
         
       
-        b.addActionListener(new ViewPropertyButtonListener(x,propertydescriptionpage,fav,app));   
+        b.addActionListener(new ViewPropertyButtonListener(x,propertydescriptionpage,fav,app, availableProps));   
       
     }
 }

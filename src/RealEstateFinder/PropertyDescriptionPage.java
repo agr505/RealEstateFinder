@@ -13,29 +13,30 @@ import javax.swing.*;
  */
 public class PropertyDescriptionPage  extends JFrame{
     
-    JButton contactSellerButton;
+    //JButton contactSellerButton;
     
     PropertyDescriptionPage(Application apRef){
         
-        contactSellerButton = new JButton("Contact Seller");
+        //contactSellerButton = new JButton("Contact Seller");
         //this.add(contactSellerButton);
-        String name = "First property";
+       // String name = "First property";
         
-        contactSellerButton.addActionListener(new contactSellerButtonListener(name, apRef));
+       // contactSellerButton.addActionListener(new contactSellerButtonListener(name, apRef));
         
   
-        this.setVisible(true);
-        this.setTitle("Property Desc. Page");
-        this.pack();
-       // this.setSize(250,400); 
+        this.setTitle("Property Description Page");
+        //this.pack();
+       this.setSize(250,400); 
        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
     }
     public void usestrategy(PropertyDescriptionPageStrategy strategy)
     {
-        JPanel jpanel=new JPanel();
+       JPanel jpanel=new JPanel();
+    
         JPanel j = strategy.buildview(jpanel);
         this.add(j);
+        this.setVisible(true);
     }
     
 }

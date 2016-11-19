@@ -20,13 +20,15 @@ public class ViewPropertyButtonListener implements ActionListener {
     public Favorites favorites;
     public Application application;
     public PropertyDescriptionPage propertydescriptionpage;
+    public AvailableProperties availableProperties;
   
 
-    ViewPropertyButtonListener(String pname,PropertyDescriptionPage propertydescriptionp,Favorites fav,Application app) {
+    ViewPropertyButtonListener(String pname,PropertyDescriptionPage propertydescriptionp,Favorites fav,Application app, AvailableProperties availableprops) {
         this.propertyname = pname;
         propertydescriptionpage=propertydescriptionp;
         favorites=fav;
         application=app;
+        availableProperties=availableprops;
     }
 
     @Override
@@ -45,22 +47,27 @@ public class ViewPropertyButtonListener implements ActionListener {
                    
 
                         if (!favorites.containsproperty(propertyname)) {
-                            
+                            //if (jpanel.)
                             JButton fddtoFavorites = new JButton("Add to Favorites");
+                            fddtoFavorites.addActionListener(new PropertyDescriptionPageListener(propertyname, application, availableProperties));
                             jpanel.add(fddtoFavorites);
-                            
                             return jpanel;//attach addtofavorites button
 
                         } else if (favorites.containsproperty(propertyname)&&application.hascontactedcustomer(propertyname)==false) {
-                            return null;//attach contactseller button
+                            
+                            JButton contactSeller = new JButton("Contact Seller");
+                            jpanel.add(contactSeller);
+                            return jpanel;//attach contactseller button
+                            
                         } else if (favorites.containsproperty(propertyname)&&application.hascontactedcustomer(propertyname)) {
-                            return null;//no buttons on panel
+                            
+                        
+                            return jpanel;//no buttons on panel, just description
                         }
                         return null;
-                    }
-                ;
+                    };
 
-            }  ;
+            };
                 propertydescriptionpage.usestrategy(customerstrategy);
             }
             else if (application.provideLoggedinAccount() instanceof Seller) {
@@ -68,7 +75,9 @@ public class ViewPropertyButtonListener implements ActionListener {
                     @Override
                     public JPanel buildview(JPanel jpanel) {
                         //always attach update button
-                        return null;
+                        JButton updateProperty = new JButton("Update Property");
+                        jpanel.add(updateProperty);
+                        return jpanel;
                     };
                     
             };
