@@ -13,6 +13,10 @@ import java.util.Iterator;
  */
 public class Favorites extends PropertyContainer{
 
+    Favorites()
+    {
+        super();
+    }
     
    public boolean containsproperty(String propertyname)
    {

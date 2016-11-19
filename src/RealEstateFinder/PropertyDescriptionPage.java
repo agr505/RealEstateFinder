@@ -18,13 +18,12 @@ public class PropertyDescriptionPage  extends JFrame{
     PropertyDescriptionPage(Application apRef){
         
         contactSellerButton = new JButton("Contact Seller");
-        this.add(contactSellerButton);
+        //this.add(contactSellerButton);
         String name = "First property";
         
         contactSellerButton.addActionListener(new contactSellerButtonListener(name, apRef));
         
   
-        this.pack();
         this.setVisible(true);
         this.setTitle("Property Desc. Page");
         this.pack();
@@ -34,8 +33,9 @@ public class PropertyDescriptionPage  extends JFrame{
     }
     public void usestrategy(PropertyDescriptionPageStrategy strategy)
     {
-        JPanel jpanel=null;
-        JPanel j=strategy.buildview(jpanel);
+        JPanel jpanel=new JPanel();
+        JPanel j = strategy.buildview(jpanel);
+        this.add(j);
     }
     
 }

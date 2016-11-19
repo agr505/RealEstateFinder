@@ -21,23 +21,26 @@ import javax.swing.BoxLayout;
  * @author User
  */
 public class CustomerPropertiesPage extends JFrame{
-    
-    AvailableProperties ap;
+    Favorites favorites;
+    AvailableProperties availableproperties;
     JPanel panel = new JPanel();
     JButton viewDescButton = new JButton("View Description");
     JLabel label = new JLabel();
-      
-    CustomerPropertiesPage(AvailableProperties ref){
-        ap = ref;
+      Application application;
+    CustomerPropertiesPage(AvailableProperties avproperties,Application app,Favorites fav){
+        availableproperties = avproperties;
+       application=app;
+       favorites=fav;
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
-         Iterator <Property> iter = ap.getProperties();
+     PropertyDescriptionPage propertydescriptionpage   =new PropertyDescriptionPage(app);
+         Iterator <Property> iter = availableproperties.getProperties();
          while(iter.hasNext())
          {
              Property property = iter.next();
              String x = property.getName();
              String y = property.getPicture();
              String z = property.getText();
-            PropertyPanel p = new PropertyPanel(x,y,z); 
+            PropertyPanel p = new PropertyPanel(x,y,z,app,favorites,propertydescriptionpage ); 
              panel.add(p);
         }
      
@@ -67,9 +70,10 @@ public class CustomerPropertiesPage extends JFrame{
 class PropertyPanel extends JPanel{
     
     JButton b;
-    PropertyPanel(String x, String y, String z){
+    PropertyPanel(String x, String y, String z,Application app,Favorites fav,PropertyDescriptionPage propertydescriptionpage){
         
         this.setLayout(new BorderLayout());
+        
         b = new JButton("View Property Description");
         //JButton xx = new JButton("button");
         JLabel jl = new JLabel();
@@ -87,8 +91,8 @@ class PropertyPanel extends JPanel{
         this.setPreferredSize(new Dimension(250,150));
         
         
-        
-        b.addActionListener(new ViewPropertyButtonListener(x));   
+      
+        b.addActionListener(new ViewPropertyButtonListener(x,propertydescriptionpage,fav,app));   
       
     }
 }

@@ -32,9 +32,9 @@ public class Application {
         accounts = new LinkedList<Account>();
         Favorites favorites = new Favorites();
         AvailableProperties availableproperties = new AvailableProperties(this, favorites);
-        PropertyDescriptionPage pdp = new PropertyDescriptionPage(this);
+      //  PropertyDescriptionPage pdp = new PropertyDescriptionPage(this);
 
-        customerpropertiespage = new CustomerPropertiesPage(availableproperties);
+        customerpropertiespage = new CustomerPropertiesPage(availableproperties,this,favorites);
         
         accounts.add(new Customer("joe", "bob"));
         // try {
