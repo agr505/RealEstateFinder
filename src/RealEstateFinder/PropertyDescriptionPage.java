@@ -32,5 +32,10 @@ public class PropertyDescriptionPage  extends JFrame{
        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
     }
+    public void usestrategy(PropertyDescriptionPageStrategy strategy)
+    {
+        JPanel jpanel=null;
+        JPanel j=strategy.buildview(jpanel);
+    }
     
 }

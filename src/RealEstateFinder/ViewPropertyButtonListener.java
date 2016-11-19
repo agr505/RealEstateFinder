@@ -18,7 +18,7 @@ public class ViewPropertyButtonListener implements ActionListener {
     public String propertyname;
     public Favorites favorites;
     public Application app;
-
+    public PropertyDescriptionPage propertydescriptionpage;
     ViewPropertyButtonListener(String pname) {
         this.propertyname = pname;
     }
@@ -48,6 +48,7 @@ public class ViewPropertyButtonListener implements ActionListener {
                 ;
 
             }  ;
+                propertydescriptionpage.usestrategy(customerstrategy);
             }
             else if (app.provideLoggedinAccount() instanceof Seller) {
                 PropertyDescriptionPageStrategy sellerstrategy = new PropertyDescriptionPageStrategy() {
@@ -55,17 +56,22 @@ public class ViewPropertyButtonListener implements ActionListener {
                     public JPanel buildview(JPanel jpanel) {
                         //always attach update button
                         return null;
-                    }
-                ;
-            }
+                    };
+                    
+            };
+               propertydescriptionpage.usestrategy(sellerstrategy);         
         
     
 ;
+                
 
 }
             
 
     }
 }
+    
+    
+    
     
 }
