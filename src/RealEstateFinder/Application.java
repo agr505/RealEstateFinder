@@ -116,18 +116,11 @@ public class Application {
                 new FileOutputStream ("property.txt"));
       out.writeObject(p1);
        out.writeObject(p2);
+       out.writeObject(p3);
 
            }
               
-       
-   
-   
-  
-
-  
-
-    
-
+      
     
 
     public void contactSeller(String propName) {
