@@ -22,21 +22,23 @@ public class Application {
     private Account loggedinaccount;
     private LoginSignupPage loginsignuppage;
     private CustomerPropertiesPage customerpropertiespage;
-  
-
+    
+    private Favorites favorites;
+private    InterestedCustomers interestedcustomers;
     public Application() throws ClassNotFoundException, IOException {
         loggedinaccount = null;
         createProperties();
         loginsignuppage = new LoginSignupPage(this);
         SignUpPage signuppage = new SignUpPage(this);
         accounts = new LinkedList<Account>();
-        Favorites favorites = new Favorites();
+        favorites = new Favorites();
         AvailableProperties availableproperties = new AvailableProperties(this, favorites);
-      //  PropertyDescriptionPage pdp = new PropertyDescriptionPage(this);
+          interestedcustomers = new InterestedCustomers();
+        //  PropertyDescriptionPage pdp = new PropertyDescriptionPage(this);
 
-        customerpropertiespage = new CustomerPropertiesPage(availableproperties,this,favorites);
-        
-        accounts.add(new Customer("joe", "bob"));
+        customerpropertiespage = new CustomerPropertiesPage(availableproperties, this, favorites);
+
+        accounts.add(new Customer("joe", "bob", favorites));
         // try {
         // createProperties();
         //}catch(IOException e){  
@@ -56,10 +58,11 @@ public class Application {
             //accounts.add(new Seller(username,password, textField));
 
             ArrayList<String> arr = delimiterinput(propertyInput);
-
-            accounts.add(new Seller(username, password, arr));
+          
+            accounts.add(new Seller(username, password, arr, interestedcustomers));
         } else {
-            accounts.add(new Customer(username, password));
+            accounts.add(new Customer("joe", "bob", favorites));
+            // accounts.add(new Customer(username, password));
         }
     }
 
@@ -97,72 +100,60 @@ public class Application {
             } else {
                 System.out.println("Account not found!!!!!!!!");
 
-           }
-              
-       }
-   }
-   
-   public Account provideLoggedinAccount()
-   {
-       return loggedinaccount;
-   }
-   public void createProperties() throws IOException {
-       
-      Property p1 = new Property("First property", "src\\img\\NYC_Empire_State_Building.jpg", "Empire State Building");
-      Property p2 = new Property("Second property", "src\\img\\White_House_02.jpg", "The White House" );
-      Property p3 = new Property("Third property", "src\\img\\Eiffel_Tower_01.jpg", "Eiffel Tower" );
-      
-      ObjectOutputStream out = new ObjectOutputStream(
-                new FileOutputStream ("property.txt"));
-      out.writeObject(p1);
-       out.writeObject(p2);
+            }
 
-           }
-              
-       
-   
-   
-  
+        }
+    }
 
-  
+    public Account provideLoggedinAccount() {
+        return loggedinaccount;
+    }
 
-    
+    public void createProperties() throws IOException {
 
-    
+        Property p1 = new Property("First property", "src\\img\\NYC_Empire_State_Building.jpg", "Empire State Building");
+        Property p2 = new Property("Second property", "src\\img\\White_House_02.jpg", "The White House");
+        Property p3 = new Property("Third property", "src\\img\\Eiffel_Tower_01.jpg", "Eiffel Tower");
+
+        ObjectOutputStream out = new ObjectOutputStream(
+                new FileOutputStream("property.txt"));
+        out.writeObject(p1);
+        out.writeObject(p2);
+
+    }
 
     public void contactSeller(String propName) {
         System.out.println(propName + "was selected");
         Customer loggedIncustomer = (Customer) provideLoggedinAccount();
         //System.out.println(loggedIncustomer.getusername()+ " Is logged in");
 
-        Seller propertyOwner = (Seller)findowner(propName);
+        Seller propertyOwner = (Seller) findowner(propName);
 
     }
-    public Seller findowner(String propName){
-        
+
+    public Seller findowner(String propName) {
+
         for (int i = 0; i < accounts.size(); i++) {
-          
-            if(accounts.get(i) instanceof Seller)
-            {
-                Seller s=(Seller)accounts.get(i);
-             for (int j = 0; j <s.getOwnedproperties().size();j++)
-             {
-                 if (s.getOwnedproperties().get(j).equals(propName)){
-                     System.out.println(propName+ " Was owned by");
-                     return s;
-                 }
-             }
+
+            if (accounts.get(i) instanceof Seller) {
+                Seller s = (Seller) accounts.get(i);
+                for (int j = 0; j < s.getOwnedproperties().size(); j++) {
+                    if (s.getOwnedproperties().get(j).equals(propName)) {
+                        System.out.println(propName + " Was owned by");
+                        return s;
+                    }
+                }
+            }
+
         }
-            
-        } 
         return null;
     }
-    public boolean hascontactedcustomer(String propertyname)
-    {
-        Seller s=findowner(propertyname);
-        Customer c=(Customer)provideLoggedinAccount();
+
+    public boolean hascontactedcustomer(String propertyname) {
+        Seller s = findowner(propertyname);
+        Customer c = (Customer) provideLoggedinAccount();
         c.updatepropertyinterestedin(propertyname);
-         InterestedCustomers interestedcustomers=s.getInterestedCustomers();
+        InterestedCustomers interestedcustomers = s.getInterestedCustomers();
         return interestedcustomers.containsCustomer(c);
     }
 }

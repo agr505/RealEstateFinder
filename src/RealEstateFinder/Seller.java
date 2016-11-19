@@ -19,7 +19,7 @@ public class Seller extends Account{
     private InterestedCustomers interestedcustomers;
       private ArrayList<String> ownedproperties;
       
-     Seller(ArrayList<String> ownedproperties, String uname, String pass, InterestedCustomers interestedcust) {
+     Seller( String uname, String pass,ArrayList<String> ownedproperties, InterestedCustomers interestedcust) {
         super(uname, pass);
         this.ownedproperties = ownedproperties;
         interestedcustomers=interestedcust;
@@ -39,10 +39,10 @@ public InterestedCustomers getInterestedCustomers()
     
     // Seller(String username, String password, textField) 
     //
-    Seller(String username, String password, ArrayList<String> properties) {
+   /* Seller(String username, String password, ArrayList<String> properties) {
         //getting the properties seperated by comma and adding to ownedProperties
         super(username, password);
         
         ownedproperties = properties;
-    } 
+    } */
 }

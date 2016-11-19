@@ -11,8 +11,10 @@ package RealEstateFinder;
  */
 public class Customer extends Account{
     private String latestpropertyinterestedin;
-     Customer(String username, String password) {
+    private Favorites favorites;
+     Customer(String username, String password,Favorites fav) {
         super(username, password);
+        favorites=fav;
         latestpropertyinterestedin=null;
     }
      public void updatepropertyinterestedin(String latestproperty)
