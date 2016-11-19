@@ -21,14 +21,13 @@ public class ViewPropertyButtonListener implements ActionListener {
     public Application application;
     public PropertyDescriptionPage propertydescriptionpage;
     public AvailableProperties availableProperties;
-  
 
-    ViewPropertyButtonListener(String pname,PropertyDescriptionPage propertydescriptionp,Favorites fav,Application app, AvailableProperties availableprops) {
+    ViewPropertyButtonListener(String pname, PropertyDescriptionPage propertydescriptionp, Favorites fav, Application app, AvailableProperties availableprops) {
         this.propertyname = pname;
-        propertydescriptionpage=propertydescriptionp;
-        favorites=fav;
-        application=app;
-        availableProperties=availableprops;
+        propertydescriptionpage = propertydescriptionp;
+        favorites = fav;
+        application = app;
+        availableProperties = availableprops;
     }
 
     @Override
@@ -37,14 +36,12 @@ public class ViewPropertyButtonListener implements ActionListener {
         if (e.getActionCommand().equals("View Property Description")) {
 
             System.out.println("You selected " + propertyname);
-          
 
-           if (application.provideLoggedinAccount() instanceof Customer){
-       
+            if (application.provideLoggedinAccount() instanceof Customer) {
+
                 PropertyDescriptionPageStrategy customerstrategy = new PropertyDescriptionPageStrategy() {
                     @Override
                     public JPanel buildview(JPanel jpanel) {
-                   
 
                         if (!favorites.containsproperty(propertyname)) {
                             //if (jpanel.)
@@ -53,24 +50,23 @@ public class ViewPropertyButtonListener implements ActionListener {
                             jpanel.add(fddtoFavorites);
                             return jpanel;//attach addtofavorites button
 
-                        } else if (favorites.containsproperty(propertyname)&&application.hascontactedcustomer(propertyname)==false) {
-                            
+                        } else if (favorites.containsproperty(propertyname) && application.hascontactedcustomer(propertyname) == false) {
+
                             JButton contactSeller = new JButton("Contact Seller");
                             jpanel.add(contactSeller);
                             return jpanel;//attach contactseller button
-                            
-                        } else if (favorites.containsproperty(propertyname)&&application.hascontactedcustomer(propertyname)) {
-                            
-                        
+
+                        } else if (favorites.containsproperty(propertyname) && application.hascontactedcustomer(propertyname)) {
+
                             return jpanel;//no buttons on panel, just description
                         }
                         return null;
-                    };
+                    }
+                ;
 
-            };
+                };
                 propertydescriptionpage.usestrategy(customerstrategy);
-            }
-            else if (application.provideLoggedinAccount() instanceof Seller) {
+            } else if (application.provideLoggedinAccount() instanceof Seller) {
                 PropertyDescriptionPageStrategy sellerstrategy = new PropertyDescriptionPageStrategy() {
                     @Override
                     public JPanel buildview(JPanel jpanel) {
@@ -78,22 +74,16 @@ public class ViewPropertyButtonListener implements ActionListener {
                         JButton updateProperty = new JButton("Update Property");
                         jpanel.add(updateProperty);
                         return jpanel;
-                    };
-                    
-            };
-               propertydescriptionpage.usestrategy(sellerstrategy);         
-        
-    
-;
-                
+                    }
+                ;
 
-}
-            
+                };
+               propertydescriptionpage.usestrategy(sellerstrategy);
+                ;
 
+            }
+
+        }
     }
-}
-    
-    
-    
-    
+
 }

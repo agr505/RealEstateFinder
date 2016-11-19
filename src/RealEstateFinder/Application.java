@@ -38,6 +38,10 @@ private    InterestedCustomers interestedcustomers;
 
         customerpropertiespage = new CustomerPropertiesPage(availableproperties, this, favorites);
 
+      //  PropertyDescriptionPage pdp = new PropertyDescriptionPage(this);
+      FavoritesPage fp = new FavoritesPage();
+
+
         accounts.add(new Customer("joe", "bob", favorites));
         // try {
         // createProperties();
@@ -100,6 +104,7 @@ private    InterestedCustomers interestedcustomers;
             } else {
                 System.out.println("Account not found!!!!!!!!");
 
+
             }
 
         }
@@ -109,18 +114,30 @@ private    InterestedCustomers interestedcustomers;
         return loggedinaccount;
     }
 
-    public void createProperties() throws IOException {
+   
 
-        Property p1 = new Property("First property", "src\\img\\NYC_Empire_State_Building.jpg", "Empire State Building");
-        Property p2 = new Property("Second property", "src\\img\\White_House_02.jpg", "The White House");
-        Property p3 = new Property("Third property", "src\\img\\Eiffel_Tower_01.jpg", "Eiffel Tower");
+           
+              
+      
+   
 
-        ObjectOutputStream out = new ObjectOutputStream(
-                new FileOutputStream("property.txt"));
-        out.writeObject(p1);
-        out.writeObject(p2);
+   public void createProperties() throws IOException {
+       
+      Property p1 = new Property("First property", "src\\img\\NYC_Empire_State_Building.jpg", "Empire State Building");
+      Property p2 = new Property("Second property", "src\\img\\White_House_02.jpg", "The White House" );
+      Property p3 = new Property("Third property", "src\\img\\Eiffel_Tower_01.jpg", "Eiffel Tower" );
+      
+      ObjectOutputStream out = new ObjectOutputStream(
+                new FileOutputStream ("property.txt"));
+      out.writeObject(p1);
+       out.writeObject(p2);
+       out.writeObject(p3);
 
-    }
+           }
+              
+      
+    
+
 
     public void contactSeller(String propName) {
         System.out.println(propName + "was selected");
