@@ -22,9 +22,10 @@ public class Application {
     private Account loggedinaccount;
     private LoginSignupPage loginsignuppage;
     private CustomerPropertiesPage customerpropertiespage;
-    
+
     private Favorites favorites;
-private    InterestedCustomers interestedcustomers;
+    private InterestedCustomers interestedcustomers;
+
     public Application() throws ClassNotFoundException, IOException {
         loggedinaccount = null;
         createProperties();
@@ -33,14 +34,13 @@ private    InterestedCustomers interestedcustomers;
         accounts = new LinkedList<Account>();
         favorites = new Favorites();
         AvailableProperties availableproperties = new AvailableProperties(this, favorites);
-          interestedcustomers = new InterestedCustomers();
+        interestedcustomers = new InterestedCustomers();
         //  PropertyDescriptionPage pdp = new PropertyDescriptionPage(this);
 
         customerpropertiespage = new CustomerPropertiesPage(availableproperties, this, favorites);
 
-      //  PropertyDescriptionPage pdp = new PropertyDescriptionPage(this);
-      FavoritesPage fp = new FavoritesPage();
-
+        //  PropertyDescriptionPage pdp = new PropertyDescriptionPage(this);
+        FavoritesPage fp = new FavoritesPage();
 
         accounts.add(new Customer("joe", "bob", favorites));
         // try {
@@ -62,7 +62,7 @@ private    InterestedCustomers interestedcustomers;
             //accounts.add(new Seller(username,password, textField));
 
             ArrayList<String> arr = delimiterinput(propertyInput);
-          
+
             accounts.add(new Seller(username, password, arr, interestedcustomers));
         } else {
             accounts.add(new Customer("joe", "bob", favorites));
@@ -104,7 +104,6 @@ private    InterestedCustomers interestedcustomers;
             } else {
                 System.out.println("Account not found!!!!!!!!");
 
-
             }
 
         }
@@ -114,30 +113,19 @@ private    InterestedCustomers interestedcustomers;
         return loggedinaccount;
     }
 
-   
+    public void createProperties() throws IOException {
 
-           
-              
-      
-   
+        Property p1 = new Property("First property", "src\\img\\NYC_Empire_State_Building.jpg", "Empire State Building");
+        Property p2 = new Property("Second property", "src\\img\\White_House_02.jpg", "The White House");
+        Property p3 = new Property("Third property", "src\\img\\Eiffel_Tower_01.jpg", "Eiffel Tower");
 
-   public void createProperties() throws IOException {
-       
-      Property p1 = new Property("First property", "src\\img\\NYC_Empire_State_Building.jpg", "Empire State Building");
-      Property p2 = new Property("Second property", "src\\img\\White_House_02.jpg", "The White House" );
-      Property p3 = new Property("Third property", "src\\img\\Eiffel_Tower_01.jpg", "Eiffel Tower" );
-      
-      ObjectOutputStream out = new ObjectOutputStream(
-                new FileOutputStream ("property.txt"));
-      out.writeObject(p1);
-       out.writeObject(p2);
-       out.writeObject(p3);
+        ObjectOutputStream out = new ObjectOutputStream(
+                new FileOutputStream("property.txt"));
+        out.writeObject(p1);
+        out.writeObject(p2);
+        out.writeObject(p3);
 
-           }
-              
-      
-    
-
+    }
 
     public void contactSeller(String propName) {
         System.out.println(propName + "was selected");
