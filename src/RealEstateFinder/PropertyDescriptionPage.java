@@ -11,32 +11,28 @@ import javax.swing.*;
  *
  * @author User
  */
-public class PropertyDescriptionPage  extends JFrame{
-    
+public class PropertyDescriptionPage extends JFrame {
+
     //JButton contactSellerButton;
-    
-    PropertyDescriptionPage(Application apRef){
-        
+    PropertyDescriptionPage(Application apRef) {
+
         //contactSellerButton = new JButton("Contact Seller");
         //this.add(contactSellerButton);
-       // String name = "First property";
-        
-       // contactSellerButton.addActionListener(new contactSellerButtonListener(name, apRef));
-        
-  
+        // String name = "First property";
+        // contactSellerButton.addActionListener(new contactSellerButtonListener(name, apRef));
         this.setTitle("Property Description Page");
         //this.pack();
-       this.setSize(250,400); 
-       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+        this.setSize(250, 400);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }
-    public void usestrategy(PropertyDescriptionPageStrategy strategy)
-    {
-       JPanel jpanel=new JPanel();
-    
+
+    public void usestrategy(PropertyDescriptionPageStrategy strategy) {
+        JPanel jpanel = new JPanel();
+
         JPanel j = strategy.buildview(jpanel);
         this.add(j);
         this.setVisible(true);
     }
-    
+
 }

@@ -33,6 +33,7 @@ public class Application {
         Favorites favorites = new Favorites();
         AvailableProperties availableproperties = new AvailableProperties(this, favorites);
       //  PropertyDescriptionPage pdp = new PropertyDescriptionPage(this);
+      FavoritesPage fp = new FavoritesPage();
 
         customerpropertiespage = new CustomerPropertiesPage(availableproperties,this,favorites);
         
