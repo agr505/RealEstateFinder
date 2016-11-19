@@ -34,13 +34,16 @@ public class Application {
         accounts = new LinkedList<Account>();
         favorites = new Favorites();
         AvailableProperties availableproperties = new AvailableProperties(this, favorites);
+        
+        
+        
         interestedcustomers = new InterestedCustomers();
         //  PropertyDescriptionPage pdp = new PropertyDescriptionPage(this);
 
         customerpropertiespage = new CustomerPropertiesPage(availableproperties, this, favorites);
 
         //  PropertyDescriptionPage pdp = new PropertyDescriptionPage(this);
-        FavoritesPage fp = new FavoritesPage();
+        FavoritesPage fp = new FavoritesPage(favorites, availableproperties);
 
         accounts.add(new Customer("joe", "bob", favorites));
         // try {
