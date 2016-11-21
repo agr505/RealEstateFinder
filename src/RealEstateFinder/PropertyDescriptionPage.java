@@ -28,6 +28,7 @@ public class PropertyDescriptionPage extends JFrame {
     }
 
     public void usestrategy(PropertyDescriptionPageStrategy strategy) {
+        
         JPanel jpanel = new JPanel();
 
         JPanel j = strategy.buildview(jpanel);

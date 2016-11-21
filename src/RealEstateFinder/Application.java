@@ -124,9 +124,9 @@ public class Application {
 
     public void createProperties() throws IOException {
 
-        Property p1 = new Property("First property", "src\\img\\NYC_Empire_State_Building.jpg", "Empire State Building");
-        Property p2 = new Property("Second property", "src\\img\\White_House_02.jpg", "The White House");
-        Property p3 = new Property("Third property", "src\\img\\Eiffel_Tower_01.jpg", "Eiffel Tower");
+        Property p1 = new Property("Firstproperty", "src\\img\\NYC_Empire_State_Building.jpg", "Empire State Building");
+        Property p2 = new Property("Secondproperty", "src\\img\\White_House_02.jpg", "The White House");
+        Property p3 = new Property("Thirdproperty", "src\\img\\Eiffel_Tower_01.jpg", "Eiffel Tower");
 
         ObjectOutputStream out = new ObjectOutputStream(
                 new FileOutputStream("property.txt"));

@@ -24,6 +24,7 @@ public class PropertyContainer {
     {
        return new
          Iterator<Property>()          {
+             private int current = 0;
             public boolean hasNext()
             {
                return current < properties.size();
@@ -32,17 +33,22 @@ public class PropertyContainer {
             {
                 return properties.get(current++);
             }
-
+  public Property returncurrent()
+            {
+                return properties.get(current);
+            }
             public void remove()
              {
                throw new UnsupportedOperationException();
         }
  
-            private int current = 0;
+            
          };
    }
     public void addProperty(Property property)
     {
         properties.add(property);
+        
+        
     }
 }

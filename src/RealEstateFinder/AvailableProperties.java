@@ -68,11 +68,14 @@ public void assignFavorites(Favorites fav)
 
     public void addtoFav(String propertyname){
         Iterator<Property> iter = getProperties();
-         System.out.println("avprop!!!!!!!!!!!!!");
+       
         while (iter.hasNext()) {
-            System.out.println("this name is "+iter.next().getName());
-            if (iter.next().getName().equals(propertyname)) {
-                favorites.add(iter.next());
+         //   System.out.println("this name is "+iter.next().getName()+"and parap="+propertyname);
+      Property p=iter.next();
+            if (p.getName().equals(propertyname)) {
+                   
+
+                favorites.add(p);
 
             }
 

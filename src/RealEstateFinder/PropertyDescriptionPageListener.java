@@ -16,7 +16,7 @@ public class PropertyDescriptionPageListener implements ActionListener {
 
     private String name;
     private Application app;
-    private String propertyname;
+  
     AvailableProperties availableproperties;
     UpdatePropertyPage updatepropertyppage;
 
@@ -32,12 +32,12 @@ public class PropertyDescriptionPageListener implements ActionListener {
         if (e.getActionCommand().equals("Contact Seller")) {
             System.out.println(name);
             app.contactSeller(name);
-        } else if (e.getActionCommand().equals("Add to Favorites")) {
-            System.out.println(name);
-            availableproperties.addtoFav(propertyname);
+        } else if (e.getActionCommand().equals("Add to Favorites")) {  
             System.out.println(name + " is being added to favorites");
+            availableproperties.addtoFav(name);
+           
         } else if (e.getActionCommand().equals("Update Property")) {
-            updatepropertyppage.routetopage((propertyname));
+            updatepropertyppage.routetopage(name);
         }
     }
 }
