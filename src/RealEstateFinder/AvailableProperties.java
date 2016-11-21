@@ -67,7 +67,7 @@ public class AvailableProperties extends PropertyContainer {
         Iterator<Property> iter = getProperties();
         while (iter.hasNext()) {
             if (iter.next().getName().equals(propertyname)) {
-                favorites.addProperty(iter.next());
+                favorites.add(iter.next());
 
             }
 
