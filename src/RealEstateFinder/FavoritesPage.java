@@ -18,13 +18,19 @@ import javax.swing.*;
 public class FavoritesPage extends JFrame {
 
     AvailableProperties availableproperties;
+    Favorites favorites;
     JPanel panel = new JPanel();
 
-    FavoritesPage(Favorites favorites, AvailableProperties availabelProps) {
+    FavoritesPage(Favorites fav, AvailableProperties availabelProps) {
 
         availableproperties = availabelProps;
+        this.favorites = fav;
+        //if (favorites.getProperties())
         
-        Iterator<Property> iter = availableproperties.getProperties();
+        Iterator<Property> iter = favorites.getProperties();
+        
+        
+        
 
         while (iter.hasNext()) {
             Property property = iter.next();
@@ -38,7 +44,7 @@ public class FavoritesPage extends JFrame {
         this.add(panel);
         this.setTitle("Favorites Page");
         //this.pack();
-        
+
         this.setSize(300, 200);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
