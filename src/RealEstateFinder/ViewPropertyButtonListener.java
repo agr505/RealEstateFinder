@@ -8,6 +8,7 @@ package RealEstateFinder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -41,6 +42,7 @@ public class ViewPropertyButtonListener implements ActionListener {
 
                 PropertyDescriptionPageStrategy customerstrategy = new PropertyDescriptionPageStrategy() {
                     @Override
+                    
                     public JPanel buildview(JPanel jpanel) {
 
                         if (!favorites.containsproperty(propertyname)) {
@@ -48,6 +50,7 @@ public class ViewPropertyButtonListener implements ActionListener {
                             JButton fddtoFavorites = new JButton("Add to Favorites");
                             fddtoFavorites.addActionListener(new PropertyDescriptionPageListener(propertyname, application, availableProperties));
                             jpanel.add(fddtoFavorites);
+                            
                             return jpanel;//attach addtofavorites button
 
                         } else if (favorites.containsproperty(propertyname) && application.hascontactedcustomer(propertyname) == false) {
@@ -69,6 +72,7 @@ public class ViewPropertyButtonListener implements ActionListener {
             } else if (application.provideLoggedinAccount() instanceof Seller) {
                 PropertyDescriptionPageStrategy sellerstrategy = new PropertyDescriptionPageStrategy() {
                     @Override
+                    
                     public JPanel buildview(JPanel jpanel) {
                         //always attach update button
                         JButton updateProperty = new JButton("Update Property");

@@ -6,7 +6,7 @@
 package RealEstateFinder;
 
 import javax.swing.JMenu;
-import javax.swing.JMenuBar;
+import javax.swing.*;
 
 /**
  *
@@ -14,13 +14,27 @@ import javax.swing.JMenuBar;
  */
 public class CustomerNavigationBar extends JMenuBar{
 
-   /* public CustomerNavigationBar() {
-        JMenu availablproperties=new  JMenu();
-        this.add(availableproperties);
-         JMenu Favorites=new  JMenu();
-        this.add(Favorites);
-         JMenu logout=new  JMenu();
-        this.add(AvailablePropertiesPageMenu);
-    }*/
+
+    CustomerNavigationBar(){
+        
+        JMenuBar bar =new  JMenuBar();
+        
+        JMenu availablproperties, logout, favorites;
+        
+        availablproperties = new JMenu("Home/Available Properties");
+        this.add(availablproperties);
+        availablproperties.addSeparator();
+        
+        favorites = new JMenu("Favorites");
+        this.add(favorites);
+        favorites.addSeparator();
+        
+        logout =new  JMenu("Log Out");
+        this.add(logout);
+        logout.addSeparator();
+        
+       // this.setSize(20, 10);
+        //this.setVisible(true);
+    }
     
 }
