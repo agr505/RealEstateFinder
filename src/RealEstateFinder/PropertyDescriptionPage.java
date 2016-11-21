@@ -14,7 +14,7 @@ import javax.swing.*;
 public class PropertyDescriptionPage extends JFrame {
 
     //JButton contactSellerButton;
-    PropertyDescriptionPage(Application apRef) {
+    PropertyDescriptionPage() {
 
         //contactSellerButton = new JButton("Contact Seller");
         //this.add(contactSellerButton);

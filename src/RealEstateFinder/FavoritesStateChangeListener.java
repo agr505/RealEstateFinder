@@ -9,9 +9,33 @@ package RealEstateFinder;
  *
  * @author Aaron
  */
-public class FavoritesStateChangeListener {
+public class FavoritesStateChangeListener  {
+    FavoritesPage favoritespage;
+    PropertyDescriptionPage propertydescriptionpage;
+    PropertyDescriptionPageStrategyProvider strategyprovider;
+    FavoritesStateChangeListener(FavoritesPage favpage)
+    {
+        favoritespage=favpage;
+        propertydescriptionpage=null;
+    }
+    FavoritesStateChangeListener(PropertyDescriptionPage propertydespage,PropertyDescriptionPageStrategyProvider strategyprov)
+    {
+        propertydescriptionpage=propertydespage;
+       strategyprovider=strategyprov;
+         favoritespage=null;
+    }
      void stateChanged(FavoritesStateEvent event) {
         Favorites favorites = event.getSource();
+      if(favoritespage!=null)
+      {
+          System.out.println("!!!!!!!!!!!!!");
+          favoritespage.createview(favorites);
+      }
+      else if(propertydescriptionpage!=null)
+      {
+          
+          strategyprovider.createview(favorites);
+      }
      
     }
 }

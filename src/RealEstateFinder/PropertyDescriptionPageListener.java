@@ -34,7 +34,7 @@ public class PropertyDescriptionPageListener implements ActionListener {
             app.contactSeller(name);
         } else if (e.getActionCommand().equals("Add to Favorites")) {
             System.out.println(name);
-            availableproperties.addtoFav((propertyname));
+            availableproperties.addtoFav(propertyname);
             System.out.println(name + " is being added to favorites");
         } else if (e.getActionCommand().equals("Update Property")) {
             updatepropertyppage.routetopage((propertyname));

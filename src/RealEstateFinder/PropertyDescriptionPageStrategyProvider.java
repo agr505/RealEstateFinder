@@ -77,4 +77,54 @@ public class PropertyDescriptionPageStrategyProvider {
 
         }
     }
+      public void createview(Favorites fav) {
+
+        System.out.println("You selected " + propertyname);
+
+        if (application.provideLoggedinAccount() instanceof Customer) {
+
+            PropertyDescriptionPageStrategy customerstrategy = new PropertyDescriptionPageStrategy() {
+                @Override
+                public JPanel buildview(JPanel jpanel) {
+
+                    if (!fav.containsproperty(propertyname)) {
+                        //if (jpanel.)
+                        JButton fddtoFavorites = new JButton("Add to Favorites");
+                        fddtoFavorites.addActionListener(new PropertyDescriptionPageListener(propertyname, application, availableProperties));
+                        jpanel.add(fddtoFavorites);
+                        return jpanel;//attach addtofavorites button
+
+                    } else if (fav.containsproperty(propertyname) && application.hascontactedcustomer(propertyname) == false) {
+
+                        JButton contactSeller = new JButton("Contact Seller");
+                        jpanel.add(contactSeller);
+                        return jpanel;//attach contactseller button
+
+                    } else if (fav.containsproperty(propertyname) && application.hascontactedcustomer(propertyname)) {
+
+                        return jpanel;//no buttons on panel, just description
+                    }
+                    return null;
+                }
+            ;
+
+            };
+                propertydescriptionpage.usestrategy(customerstrategy);
+        } else if (application.provideLoggedinAccount() instanceof Seller) {
+            PropertyDescriptionPageStrategy sellerstrategy = new PropertyDescriptionPageStrategy() {
+                @Override
+                public JPanel buildview(JPanel jpanel) {
+                    //always attach update button
+                    JButton updateProperty = new JButton("Update Property");
+                    jpanel.add(updateProperty);
+                    return jpanel;
+                }
+            ;
+
+            };
+               propertydescriptionpage.usestrategy(sellerstrategy);
+            ;
+
+        }
+    }
 }
