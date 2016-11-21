@@ -32,8 +32,14 @@ public class Application {
         loginsignuppage = new LoginSignupPage(this);
         SignUpPage signuppage = new SignUpPage(this);
         accounts = new LinkedList<Account>();
-        favorites = new Favorites();
-        AvailableProperties availableproperties = new AvailableProperties(this, favorites);
+           AvailableProperties availableproperties = new AvailableProperties(this);
+           
+         favorites = new Favorites(availableproperties,this);
+        
+      
+        
+       
+     
         
         
         
@@ -43,7 +49,7 @@ public class Application {
         customerpropertiespage = new CustomerPropertiesPage(availableproperties, this, favorites);
 
         //  PropertyDescriptionPage pdp = new PropertyDescriptionPage(this);
-        FavoritesPage fp = new FavoritesPage(favorites, availableproperties);
+        
 
         accounts.add(new Customer("joe", "bob", favorites));
         // try {

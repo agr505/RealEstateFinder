@@ -34,10 +34,11 @@ public class CustomerPropertiesPage extends JFrame {
         application = app;
         favorites = fav;
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
-        PropertyDescriptionPage propertydescriptionpage = new PropertyDescriptionPage(app);
+       
         Iterator<Property> iter = availableproperties.getProperties();
         
         while (iter.hasNext()) {
+           PropertyDescriptionPage  propertydescriptionpage = new PropertyDescriptionPage();
             Property property = iter.next();
             String x = property.getName();
             String y = property.getPicture();

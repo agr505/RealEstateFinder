@@ -21,13 +21,16 @@ public class AvailableProperties extends PropertyContainer {
     private Application application;
     private Favorites favorites;
 
-    public AvailableProperties(Application app, Favorites fav) throws ClassNotFoundException, IOException {
+    public AvailableProperties(Application app) throws ClassNotFoundException, IOException {
         super();
         application = app;
-        favorites = fav;
+        favorites = null;
         loadProperties();
     }
-
+public void assignFavorites(Favorites fav)
+{
+    favorites=fav;
+}
     public void loadProperties() throws IOException, ClassNotFoundException {
 
         ObjectInputStream in = new ObjectInputStream(
@@ -65,7 +68,9 @@ public class AvailableProperties extends PropertyContainer {
 
     public void addtoFav(String propertyname){
         Iterator<Property> iter = getProperties();
+         System.out.println("avprop!!!!!!!!!!!!!");
         while (iter.hasNext()) {
+            System.out.println("this name is "+iter.next().getName());
             if (iter.next().getName().equals(propertyname)) {
                 favorites.add(iter.next());
 
