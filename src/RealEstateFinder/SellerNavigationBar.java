@@ -11,6 +11,7 @@ import javax.swing.JMenuBar;
 /**
  *
  * @author User
+ */
 public class SellerNavigationBar extends JMenuBar{
     
     SellerNavigationBar(){

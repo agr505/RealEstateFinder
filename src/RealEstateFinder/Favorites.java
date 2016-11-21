@@ -29,6 +29,17 @@ public class Favorites extends PropertyContainer{
             }
          return false;
    }
-   
+   public void add(Property property)
+   {
+       addProperty(property);
+       FavoritesStateEvent event = new FavoritesStateEvent(this);
+      // FavoritesStateChangeListener listener = schangelistener();
+         // FavoritesStateChangeListener listener = schangelistener2();//these should reference the two views to be notified
+          //which include the FavoritesPage, but before notifying the PropertyDescriptionPage view the ViewPropertyListener
+          //needs to be notified of the event change so it can then change the PropertyDescriptionPage view as not needed
+          
+          
+       // listener.stateChanged(event);
+   }
     
 }
