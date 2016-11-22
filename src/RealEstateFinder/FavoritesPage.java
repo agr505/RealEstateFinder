@@ -31,6 +31,7 @@ public class FavoritesPage extends JFrame {
 
  //       Iterator<Property> iter = favorites.getProperties();
 
+<<<<<<< HEAD
 //        while (iter.hasNext()) {
 //            PropertyDescriptionPage propertydescriptionpage = new PropertyDescriptionPage();
 //            Property property = iter.next();
@@ -42,6 +43,19 @@ public class FavoritesPage extends JFrame {
 //            FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(propertydescriptionpage, strategyprovider);
 //            panel.add(p);
 //        }
+=======
+   while (iter.hasNext()) {
+         //  PropertyDescriptionPage  propertydescriptionpage = new PropertyDescriptionPage();
+            Property property = iter.next();
+            String x = property.getName();
+            String y = property.getPicture();
+            String z = property.getText();
+            PropertyPanel p = new PropertyPanel(x, y, z, app, favorites, favorites.listeners.get(1).propertydescriptionpage, avproperties);
+         //   PropertyDescriptionPageStrategyProvider strategyprovider= new PropertyDescriptionPageStrategyProvider(property.getName(),propertydescriptionpage,favorites,app,avproperties);
+          //  FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(propertydescriptionpage ,strategyprovider);
+            panel.add(p);
+        }
+>>>>>>> origin/master
 
         this.add(panel);
         this.setTitle("Favorites Page");
@@ -55,16 +69,27 @@ public class FavoritesPage extends JFrame {
 
         Iterator<Property> iter = favorites.getProperties();
 
+<<<<<<< HEAD
         while (iter.hasNext()) {
             PropertyDescriptionPage propertydescriptionpage = new PropertyDescriptionPage();
+=======
+   while (iter.hasNext()) {
+         //  PropertyDescriptionPage  propertydescriptionpage = new PropertyDescriptionPage();
+>>>>>>> origin/master
             Property property = iter.next();
             String x = property.getName();
             String y = property.getPicture();
             String z = property.getText();
+<<<<<<< HEAD
             
             PropertyPanel p = new PropertyPanel(x, y, z, application, favorites, propertydescriptionpage, availableproperties);
             PropertyDescriptionPageStrategyProvider strategyprovider = new PropertyDescriptionPageStrategyProvider(property.getName(), propertydescriptionpage, favorites, application, availableproperties);
             FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(propertydescriptionpage, strategyprovider);
+=======
+            PropertyPanel p = new PropertyPanel(x, y, z, application, favorites, favorites.listeners.get(1).propertydescriptionpage, availableproperties);
+           /* PropertyDescriptionPageStrategyProvider strategyprovider= new PropertyDescriptionPageStrategyProvider(property.getName(),propertydescriptionpage,favorites,application,availableproperties);
+            FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(propertydescriptionpage ,strategyprovider);*/
+>>>>>>> origin/master
             panel.add(p);
         }
 
@@ -99,7 +124,11 @@ public class FavoritesPage extends JFrame {
             this.setBackground(Color.white);
             this.setPreferredSize(new Dimension(250, 150));
 
+<<<<<<< HEAD
             b.addActionListener(new ViewPropertyButtonListener(x, propertydescriptionpage, fav, app, availableProps));
+=======
+        b.addActionListener(new ViewPropertyButtonListener(x,favorites.listeners.get(1).propertydescriptionpage, fav, app, availableProps));
+>>>>>>> origin/master
 
         }
     }

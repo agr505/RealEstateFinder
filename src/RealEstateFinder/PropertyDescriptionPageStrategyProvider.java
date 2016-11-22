@@ -13,21 +13,22 @@ import javax.swing.JPanel;
  * @author Aaron
  */
 public class PropertyDescriptionPageStrategyProvider {
-     public String propertyname;
+
+    public String propertyname;
     public Favorites favorites;
     public Application application;
     public PropertyDescriptionPage propertydescriptionpage;
     public AvailableProperties availableProperties;
 
-    PropertyDescriptionPageStrategyProvider (String pname, PropertyDescriptionPage propertydescriptionp, Favorites fav, Application app, AvailableProperties availableprops) {
+    PropertyDescriptionPageStrategyProvider(String pname, PropertyDescriptionPage propertydescriptionp, Favorites fav, Application app, AvailableProperties availableprops) {
         this.propertyname = pname;
         propertydescriptionpage = propertydescriptionp;
         favorites = fav;
         application = app;
         availableProperties = availableprops;
     }
-    
-     public void createview() {
+
+    public void createview() {
 
         System.out.println("You selected " + propertyname);
 
@@ -44,8 +45,8 @@ public class PropertyDescriptionPageStrategyProvider {
                         jpanel.add(fddtoFavorites);
                         return jpanel;//attach addtofavorites button
 
-                    } else if (favorites.containsproperty(propertyname) && application.hascontactedcustomer(propertyname) == false) {
-
+                    } else if (favorites.containsproperty(propertyname)) {//&& application.hascontactedcustomer(propertyname) == false
+                        System.out.println("already");
                         JButton contactSeller = new JButton("Contact Seller");
                         jpanel.add(contactSeller);
                         return jpanel;//attach contactseller button
@@ -77,30 +78,33 @@ public class PropertyDescriptionPageStrategyProvider {
 
         }
     }
-      public void createview(Favorites fav) {
 
-        System.out.println("You selected " + propertyname);
-
+    public void createview(Favorites fav, FavoritesStateEvent e, PropertyDescriptionPage propdescriptionpage) {
+        String propertyn = e.currentproperty;
+System.out.println("in provider"+propdescriptionpage.hashCode());
+        System.out.println("You selected " + propertyn);
+        propdescriptionpage.setVisible(false);
         if (application.provideLoggedinAccount() instanceof Customer) {
 
             PropertyDescriptionPageStrategy customerstrategy = new PropertyDescriptionPageStrategy() {
                 @Override
                 public JPanel buildview(JPanel jpanel) {
 
-                    if (!fav.containsproperty(propertyname)) {
+                    if (!fav.containsproperty(propertyn)) {
                         //if (jpanel.)
                         JButton fddtoFavorites = new JButton("Add to Favorites");
-                        fddtoFavorites.addActionListener(new PropertyDescriptionPageListener(propertyname, application, availableProperties));
+                        fddtoFavorites.addActionListener(new PropertyDescriptionPageListener(propertyn, application, availableProperties));
                         jpanel.add(fddtoFavorites);
+
                         return jpanel;//attach addtofavorites button
 
-                    } else if (fav.containsproperty(propertyname) && application.hascontactedcustomer(propertyname) == false) {
+                    } else if (fav.containsproperty(propertyn)) {//&& application.hascontactedcustomer(propertyname) == false
 
                         JButton contactSeller = new JButton("Contact Seller");
                         jpanel.add(contactSeller);
                         return jpanel;//attach contactseller button
 
-                    } else if (fav.containsproperty(propertyname) && application.hascontactedcustomer(propertyname)) {
+                    } else if (fav.containsproperty(propertyn) && application.hascontactedcustomer(propertyn)) {
 
                         return jpanel;//no buttons on panel, just description
                     }
@@ -109,7 +113,7 @@ public class PropertyDescriptionPageStrategyProvider {
             ;
 
             };
-                propertydescriptionpage.usestrategy(customerstrategy);
+                propdescriptionpage.usestrategy(customerstrategy);
         } else if (application.provideLoggedinAccount() instanceof Seller) {
             PropertyDescriptionPageStrategy sellerstrategy = new PropertyDescriptionPageStrategy() {
                 @Override

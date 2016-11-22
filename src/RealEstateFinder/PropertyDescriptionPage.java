@@ -12,10 +12,10 @@ import javax.swing.*;
  * @author User
  */
 public class PropertyDescriptionPage extends JFrame {
-
+JPanel currentpanel;
     //JButton contactSellerButton;
     PropertyDescriptionPage() {
-
+JPanel currentpanel=null;
         //contactSellerButton = new JButton("Contact Seller");
         //this.add(contactSellerButton);
         // String name = "First property";
@@ -28,12 +28,19 @@ public class PropertyDescriptionPage extends JFrame {
     }
 
     public void usestrategy(PropertyDescriptionPageStrategy strategy) {
-        
+        if(currentpanel!=null)
+        {
+        this.remove(currentpanel);
+        }
         JPanel jpanel = new JPanel();
 
         JPanel j = strategy.buildview(jpanel);
+        currentpanel=j;
+        
         this.add(j);
+        
         this.setVisible(true);
+        System.out.println("in property description page"+this.hashCode());
     }
 
 }

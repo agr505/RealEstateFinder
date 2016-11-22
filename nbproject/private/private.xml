@@ -6,7 +6,7 @@
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/Seller.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/ButtonListener.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/CustomerPropertiesPage.java</file>
-            <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/contactSellerButtonListener.java</file>
+            <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/PropertyDescriptionPageStrategyProvider.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/PropertyDescriptionPageListener.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/FavoritesStateChangeListener.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/PropertyDescriptionPageStrategy.java</file>
@@ -18,11 +18,11 @@
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/SignUpPage.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/FavoritesPage.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/Property.java</file>
-            <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/ViewPropertyListener.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/Application.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/AvailableProperties.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/RealEstateFinder.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/PropertyContainer.java</file>
+            <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/ViewPropertyButtonListener.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/Customer.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/LoginSignupPage.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/CustomerNavigationBar.java</file>

@@ -9,6 +9,7 @@ import javax.swing.event.ChangeEvent;
  */
 public class FavoritesStateEvent extends ChangeEvent{
       Favorites favorites;
+      public String currentproperty;
 
     /**
      * Overrided constructor allowing for an object of type Favorites to be a
@@ -16,8 +17,9 @@ public class FavoritesStateEvent extends ChangeEvent{
      *
      * @param source of type Favorites
      */
-    public FavoritesStateEvent(Favorites source) {
+    public FavoritesStateEvent(Favorites source,String property) {
         super(source);
+        currentproperty=property;
     }
 
     @Override
