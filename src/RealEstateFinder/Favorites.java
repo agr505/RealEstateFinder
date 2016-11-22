@@ -7,6 +7,7 @@ package RealEstateFinder;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.event.ChangeListener;
 
 /**
  *
@@ -14,7 +15,7 @@ import java.util.Iterator;
  */
 public class Favorites extends PropertyContainer {
 
-     private ArrayList<FavoritesStateChangeListener> listeners;
+     public ArrayList<FavoritesStateChangeListener> listeners;
 
     Favorites(AvailableProperties avproperties, Application app) {
 
@@ -48,11 +49,31 @@ public class Favorites extends PropertyContainer {
     public void add(Property property) {
          System.out.println("In favorites add function, property will be added ==="+property.getName());
         addProperty(property);
-        FavoritesStateEvent event = new FavoritesStateEvent(this);
+        FavoritesStateEvent event = new FavoritesStateEvent(this,property.getName());
+      
+System.out.println(listeners.size());
 
-        for (FavoritesStateChangeListener listener : listeners) {
-            listener.stateChanged(event);
-        }
+
+
+
+listeners.get(0).stateChanged(event);
+
+for (int i=1;i<listeners.size();i++)
+{
+    if(listeners.get(i).property.equals(property.getName()))
+            {
+                listeners.get(i).stateChanged(event);
+            }
+}
+
+//listeners.get(1).stateChanged(event);
+
+//listeners.get(2).stateChanged(event);
+
+//listeners.get(3).stateChanged(event);
+    //  for (ChangeListener listener : listeners) {
+     //     listener.stateChanged(event);
+     // }
     }
 
 }

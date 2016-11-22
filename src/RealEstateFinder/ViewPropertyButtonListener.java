@@ -22,6 +22,7 @@ public class ViewPropertyButtonListener implements ActionListener {
     public Application application;
     public PropertyDescriptionPage propertydescriptionpage;
     public AvailableProperties availableProperties;
+    public PropertyDescriptionPageStrategyProvider strategyprovider;
 
     ViewPropertyButtonListener(String pname, PropertyDescriptionPage propertydescriptionp, Favorites fav, Application app, AvailableProperties availableprops) {
         this.propertyname = pname;
@@ -29,65 +30,17 @@ public class ViewPropertyButtonListener implements ActionListener {
         favorites = fav;
         application = app;
         availableProperties = availableprops;
+        strategyprovider=new  PropertyDescriptionPageStrategyProvider(propertyname,propertydescriptionpage,favorites ,application, availableProperties);
+        System.out.println("in view button listener"+propertydescriptionpage.hashCode());
+        favorites.addListener(new FavoritesStateChangeListener(propertydescriptionp,strategyprovider,propertyname));
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
 
         if (e.getActionCommand().equals("View Property Description")) {
-
-            System.out.println("You selected " + propertyname);
-
-            if (application.provideLoggedinAccount() instanceof Customer) {
-
-                PropertyDescriptionPageStrategy customerstrategy = new PropertyDescriptionPageStrategy() {
-                    @Override
-                    
-                    public JPanel buildview(JPanel jpanel) {
-
-                        if (!favorites.containsproperty(propertyname)) {
-                            //if (jpanel.)
-                            JButton fddtoFavorites = new JButton("Add to Favorites");
-                            fddtoFavorites.addActionListener(new PropertyDescriptionPageListener(propertyname, application, availableProperties));
-                            jpanel.add(fddtoFavorites);
-                            
-                            return jpanel;//attach addtofavorites button
-
-                        } else if (favorites.containsproperty(propertyname) && application.hascontactedcustomer(propertyname) == false) {
-
-                            JButton contactSeller = new JButton("Contact Seller");
-                            jpanel.add(contactSeller);
-                            return jpanel;//attach contactseller button
-
-                        } else if (favorites.containsproperty(propertyname) && application.hascontactedcustomer(propertyname)) {
-
-                            return jpanel;//no buttons on panel, just description
-                        }
-                        return null;
-                    }
-                ;
-
-                };
-                propertydescriptionpage.usestrategy(customerstrategy);
-            } else if (application.provideLoggedinAccount() instanceof Seller) {
-                PropertyDescriptionPageStrategy sellerstrategy = new PropertyDescriptionPageStrategy() {
-                    @Override
-                    
-                    public JPanel buildview(JPanel jpanel) {
-                        //always attach update button
-                        JButton updateProperty = new JButton("Update Property");
-                        jpanel.add(updateProperty);
-                        return jpanel;
-                    }
-                ;
-
-                };
-               propertydescriptionpage.usestrategy(sellerstrategy);
-                ;
-
-            }
-
-        }
+strategyprovider.createview();
+         
     }
-
+    }
 }
