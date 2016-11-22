@@ -17,36 +17,31 @@ import javax.swing.*;
  */
 public class FavoritesPage extends JFrame {
 
-  
     Favorites favorites;
     JPanel panel = new JPanel();
-   Application application;
-AvailableProperties availableproperties;
-   
-    FavoritesPage(Favorites fav,AvailableProperties avproperties, Application app) {
+    Application application;
+    AvailableProperties availableproperties;
 
-      availableproperties=avproperties;
-      application=app;
+    FavoritesPage(Favorites fav, AvailableProperties avproperties, Application app) {
+
+        availableproperties = avproperties;
+        application = app;
         favorites = fav;
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
-      
 
-        Iterator<Property> iter = favorites.getProperties();
-        
-        
-        
+ //       Iterator<Property> iter = favorites.getProperties();
 
-   while (iter.hasNext()) {
-           PropertyDescriptionPage  propertydescriptionpage = new PropertyDescriptionPage();
-            Property property = iter.next();
-            String x = property.getName();
-            String y = property.getPicture();
-            String z = property.getText();
-            PropertyPanel p = new PropertyPanel(x, y, z, app, favorites, propertydescriptionpage, avproperties);
-            PropertyDescriptionPageStrategyProvider strategyprovider= new PropertyDescriptionPageStrategyProvider(property.getName(),propertydescriptionpage,favorites,app,avproperties);
-            FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(propertydescriptionpage ,strategyprovider);
-            panel.add(p);
-        }
+//        while (iter.hasNext()) {
+//            PropertyDescriptionPage propertydescriptionpage = new PropertyDescriptionPage();
+//            Property property = iter.next();
+//            String x = property.getName();
+//            String y = property.getPicture();
+//            String z = property.getText();
+//            PropertyPanel p = new PropertyPanel(x, y, z, app, favorites, propertydescriptionpage, avproperties);
+//            PropertyDescriptionPageStrategyProvider strategyprovider = new PropertyDescriptionPageStrategyProvider(property.getName(), propertydescriptionpage, favorites, app, avproperties);
+//            FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(propertydescriptionpage, strategyprovider);
+//            panel.add(p);
+//        }
 
         this.add(panel);
         this.setTitle("Favorites Page");
@@ -55,27 +50,21 @@ AvailableProperties availableproperties;
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-   
-   
-   
     void createview(Favorites favorites) {
-                panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
-      
+        panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
         Iterator<Property> iter = favorites.getProperties();
-        
-        
-        
 
-   while (iter.hasNext()) {
-           PropertyDescriptionPage  propertydescriptionpage = new PropertyDescriptionPage();
+        while (iter.hasNext()) {
+            PropertyDescriptionPage propertydescriptionpage = new PropertyDescriptionPage();
             Property property = iter.next();
             String x = property.getName();
             String y = property.getPicture();
             String z = property.getText();
+            
             PropertyPanel p = new PropertyPanel(x, y, z, application, favorites, propertydescriptionpage, availableproperties);
-            PropertyDescriptionPageStrategyProvider strategyprovider= new PropertyDescriptionPageStrategyProvider(property.getName(),propertydescriptionpage,favorites,application,availableproperties);
-            FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(propertydescriptionpage ,strategyprovider);
+            PropertyDescriptionPageStrategyProvider strategyprovider = new PropertyDescriptionPageStrategyProvider(property.getName(), propertydescriptionpage, favorites, application, availableproperties);
+            FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(propertydescriptionpage, strategyprovider);
             panel.add(p);
         }
 
@@ -85,35 +74,34 @@ AvailableProperties availableproperties;
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
+
     class FavoritePropertyPanel extends JPanel {
 
         JButton b;
 
         FavoritePropertyPanel(String x, String y, String z, Application app, Favorites fav, PropertyDescriptionPage propertydescriptionpage, AvailableProperties availableProps) {
 
-                  this.setLayout(new BorderLayout());
+            this.setLayout(new BorderLayout());
 
-        b = new JButton("View Property Description");
-      
-        JLabel jl = new JLabel();
-      //  jl.setIcon(new ImageIcon(y));
+            b = new JButton("View Property Description");
 
-        JLabel description = new JLabel();
-        JLabel n = new JLabel();
-        this.add(n, BorderLayout.NORTH);
-        this.add(jl, BorderLayout.WEST);
-        this.add(description, BorderLayout.CENTER);
-        validate();
+            JLabel jl = new JLabel();
+            //  jl.setIcon(new ImageIcon(y));
 
-        this.add(b, BorderLayout.SOUTH);
-        this.setBackground(Color.white);
-        this.setPreferredSize(new Dimension(250, 150));
+            JLabel description = new JLabel();
+            JLabel n = new JLabel();
+            this.add(n, BorderLayout.NORTH);
+            this.add(jl, BorderLayout.WEST);
+            this.add(description, BorderLayout.CENTER);
+            validate();
 
-        b.addActionListener(new ViewPropertyButtonListener(x, propertydescriptionpage, fav, app, availableProps));
+            this.add(b, BorderLayout.SOUTH);
+            this.setBackground(Color.white);
+            this.setPreferredSize(new Dimension(250, 150));
+
+            b.addActionListener(new ViewPropertyButtonListener(x, propertydescriptionpage, fav, app, availableProps));
 
         }
     }
-    
 
 }
