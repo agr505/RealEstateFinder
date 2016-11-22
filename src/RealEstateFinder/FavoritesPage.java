@@ -110,7 +110,7 @@ AvailableProperties availableproperties;
         this.setBackground(Color.white);
         this.setPreferredSize(new Dimension(250, 150));
 
-        b.addActionListener(new ViewPropertyButtonListener(x,favorites.listeners.get(1).propertydescriptionpage, fav, app, availableProps));
+        b.addActionListener(new ViewPropertyButtonListener(x,propertydescriptionpage, fav, app, availableProps));
 
         }
     }
