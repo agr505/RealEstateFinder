@@ -19,10 +19,17 @@ public class Seller extends Account{
     private InterestedCustomers interestedcustomers;
       private ArrayList<String> ownedproperties;
       
-     Seller( String uname, String pass,ArrayList<String> ownedproperties, InterestedCustomers interestedcust) {
+       Seller(String uname, String pass, ArrayList<String> ownedproperties){ 
+     //Seller( String uname, String pass, ArrayList<String> ownedproperties, InterestedCustomers interestedcust) {
+     
         super(uname, pass);
         this.ownedproperties = ownedproperties;
-        interestedcustomers=interestedcust;
+        System.out.println("Seller Account created");
+       // interestedcustomers=interestedcust;
+       
+       for (String x: ownedproperties){
+           System.out.println(x + " list");
+       }
     }
     
     public ArrayList<String> getOwnedproperties() {

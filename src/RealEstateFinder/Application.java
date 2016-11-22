@@ -9,6 +9,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 
@@ -21,36 +22,29 @@ public class Application {
     private LinkedList<Account> accounts;
     private Account loggedinaccount;
     private LoginSignupPage loginsignuppage;
+    private SignUpPage signuppage;
     private CustomerPropertiesPage customerpropertiespage;
 
     private Favorites favorites;
     private InterestedCustomers interestedcustomers;
 
-    public Application() throws ClassNotFoundException, IOException {
+    public Application() throws IOException, ClassNotFoundException  {
         loggedinaccount = null;
         createProperties();
-        loginsignuppage = new LoginSignupPage(this);
-        SignUpPage signuppage = new SignUpPage(this);
+        loginsignuppage = new LoginSignupPage(this, signuppage);
+        //signuppage = new SignUpPage(this);
+
         accounts = new LinkedList<Account>();
-           AvailableProperties availableproperties = new AvailableProperties(this);
-           
-         favorites = new Favorites(availableproperties,this);
-        
-      
-        
-       
-     
-        
-        
-        
+        AvailableProperties availableproperties = new AvailableProperties(this);
+
+        favorites = new Favorites(availableproperties, this);
+
         interestedcustomers = new InterestedCustomers();
         //  PropertyDescriptionPage pdp = new PropertyDescriptionPage(this);
 
         customerpropertiespage = new CustomerPropertiesPage(availableproperties, this, favorites);
 
         //  PropertyDescriptionPage pdp = new PropertyDescriptionPage(this);
-        
-
         accounts.add(new Customer("joe", "bob", favorites));
         // try {
         // createProperties();
@@ -63,18 +57,23 @@ public class Application {
         return accounts;
     }
 
-    public void createaccount(boolean isseller, String username, String password, String propertyInput) {
+    //String propertyInput = "First Property, Second Property";
+    
+    public void createaccount(boolean isseller, String username, String password, String propertyInput) throws ClassNotFoundException {
         if (isseller == true) {
             //Need code for getting text input about properties owned and having ownedproperties as a parameter to Seller Constructor
             //add properties, list them in a textField seperated by comma
             //seller constructor will have another paramerter textField
             //accounts.add(new Seller(username,password, textField));
-
+          
             ArrayList<String> arr = delimiterinput(propertyInput);
-
-            accounts.add(new Seller(username, password, arr, interestedcustomers));
+          
+            //accounts.add(new Seller(username, password, arr, interestedcustomers));
+            accounts.add(new Seller(username, password,  arr));
+          
         } else {
-            accounts.add(new Customer("joe", "bob", favorites));
+            //accounts.add(new Customer("joe", "bob", favorites));
+            accounts.add(new Customer(username, password, favorites));
             // accounts.add(new Customer(username, password));
         }
     }
