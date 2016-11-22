@@ -32,7 +32,7 @@ public class ViewPropertyButtonListener implements ActionListener {
         availableProperties = availableprops;
         strategyprovider=new  PropertyDescriptionPageStrategyProvider(propertyname,propertydescriptionpage,favorites ,application, availableProperties);
         System.out.println("in view button listener"+propertydescriptionpage.hashCode());
-        favorites.addListener(new FavoritesStateChangeListener(propertydescriptionp,strategyprovider,propertyname));
+        favorites.addListener(new FavoritesStateChangeListener(propertydescriptionpage,strategyprovider,propertyname));
     }
 
     @Override
