@@ -95,20 +95,24 @@ public class Application {
 
     public void authenticate(String username, String password) {
         LinkedList<Account> accountslist = getaccounts();
+        
         for (int i = 0; i < getaccounts().size(); i++) {
-            System.out.println(accountslist.get(i).getusername() + accountslist.get(i).getpassword());
-
-            if (accountslist.get(i).getusername().equals(username) && accountslist.get(i).getpassword().equals(password)) {
-                loggedinaccount = accountslist.get(i);
-                System.out.println("Authenticated!!!!!!!!!!");
-
-                loginsignuppage.leavepage();
-                customerpropertiespage.routetopage();
+           // System.out.println(accountslist.get(i).getusername() + accountslist.get(i).getpassword());
 
                 if (accountslist.get(i) instanceof Seller) {
-
+                    if (accountslist.get(i).getusername().equals(username) && accountslist.get(i).getpassword().equals(password))
+                    {
+                    SellerPropertyListingsPage sellerpager = new SellerPropertyListingsPage();
+                     System.out.println(" Seller Authenticated!!!!!!!!!!");
+                    }
                 } else if (accountslist.get(i) instanceof Customer) {
+                    
+                    if (accountslist.get(i).getusername().equals(username) && accountslist.get(i).getpassword().equals(password)) {
+                    loggedinaccount = accountslist.get(i);
+                    System.out.println(" Customer Authenticated!!!!!!!!!!");
 
+                    loginsignuppage.leavepage();
+                    customerpropertiespage.routetopage();
                 }
             } else {
                 System.out.println("Account not found!!!!!!!!");

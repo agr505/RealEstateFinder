@@ -11,11 +11,11 @@ import javax.swing.*;
  *
  * @author User
  */
-public class SellerPropertyPage extends JFrame{
+public class SellerPropertyListingsPage extends JFrame{
     
     
     
-    SellerPropertyPage(){
+    SellerPropertyListingsPage(){
         
         
         
