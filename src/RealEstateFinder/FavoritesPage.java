@@ -79,15 +79,21 @@ public class FavoritesPage extends JFrame {
             String x = property.getName();
             String y = property.getPicture();
             String z = property.getText();
-
             
-            PropertyPanel p = new PropertyPanel(x, y, z, application, favorites, favorites.listeners.get(1).propertydescriptionpage, availableproperties);
-            PropertyDescriptionPageStrategyProvider strategyprovider = new PropertyDescriptionPageStrategyProvider(property.getName(), favorites.listeners.get(1).propertydescriptionpage, favorites, application, availableproperties);
-            FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(favorites.listeners.get(1).propertydescriptionpage, strategyprovider,property.getName());
+            PropertyDescriptionPage page=null;
+for (int i=1;i<favorites.listeners.size();i++)
+{
+    if(favorites.listeners.get(i).property.equals(property.getName()))
+            {
+                page=favorites.listeners.get(i).propertydescriptionpage;
+            }
+}        PropertyPanel p = new PropertyPanel(x, y, z, application, favorites, page, availableproperties);
+            PropertyDescriptionPageStrategyProvider strategyprovider = new PropertyDescriptionPageStrategyProvider(property.getName(), page, favorites, application, availableproperties);
+            FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(page, strategyprovider,property.getName());
 
          
-           /* PropertyDescriptionPageStrategyProvider strategyprovider= new PropertyDescriptionPageStrategyProvider(property.getName(),propertydescriptionpage,favorites,application,availableproperties);
-            FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(propertydescriptionpage ,strategyprovider);*/
+         //   PropertyDescriptionPageStrategyProvider strategyprovider= new PropertyDescriptionPageStrategyProvider(property.getName(),propertydescriptionpage,favorites,application,availableproperties);
+           // FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(propertydescriptionpage ,strategyprovider, property.getName())
 
             panel.add(p);
         }
