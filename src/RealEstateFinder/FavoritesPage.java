@@ -8,6 +8,7 @@ package RealEstateFinder;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.*;
 
@@ -16,8 +17,7 @@ import javax.swing.*;
  * @author User
  */
 public class FavoritesPage extends JFrame {
-
-    Favorites favorites;
+      Favorites favorites;
     JPanel panel = new JPanel();
     Application application;
     AvailableProperties availableproperties;
@@ -53,7 +53,7 @@ public class FavoritesPage extends JFrame {
             PropertyPanel p = new PropertyPanel(x, y, z, app, favorites, favorites.listeners.get(1).propertydescriptionpage, avproperties);
          //   PropertyDescriptionPageStrategyProvider strategyprovider= new PropertyDescriptionPageStrategyProvider(property.getName(),propertydescriptionpage,favorites,app,avproperties);
           //  FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(propertydescriptionpage ,strategyprovider);
-            panel.add(p);
+         
         }
 
         this.add(panel);
@@ -64,6 +64,10 @@ public class FavoritesPage extends JFrame {
     }
 
     void createview(Favorites favorites) {
+        if(panel!=null)
+        {
+        panel.removeAll();
+        }
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
         Iterator<Property> iter = favorites.getProperties();
