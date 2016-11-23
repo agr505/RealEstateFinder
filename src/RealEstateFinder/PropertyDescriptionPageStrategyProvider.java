@@ -41,7 +41,7 @@ public class PropertyDescriptionPageStrategyProvider {
                     if (!favorites.containsproperty(propertyname)) {
                         //if (jpanel.)
                         JButton fddtoFavorites = new JButton("Add to Favorites");
-                        fddtoFavorites.addActionListener(new PropertyDescriptionPageListener(propertyname, application, availableProperties));
+                        fddtoFavorites.addActionListener(new AddtoFavoritesButtonListener(propertyname,availableProperties));
                         jpanel.add(fddtoFavorites);
                         return jpanel;//attach addtofavorites button
 
