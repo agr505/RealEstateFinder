@@ -35,6 +35,7 @@ public class SignupButtonListener implements ActionListener {
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(SignupButtonListener.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Not working");
         }
     }
 }

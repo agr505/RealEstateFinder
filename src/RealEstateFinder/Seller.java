@@ -6,6 +6,7 @@
 package RealEstateFinder;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -17,15 +18,24 @@ import java.util.ArrayList;
 public class Seller extends Account{
 
     private InterestedCustomers interestedcustomers;
-      private ArrayList<String> ownedproperties;
+      private ArrayList<String> ownedproperties = new ArrayList<>();
       
-       Seller(String uname, String pass, ArrayList<String> ownedproperties){ 
+       Seller(String uname, String pass, List ownedProperties){ 
      //Seller( String uname, String pass, ArrayList<String> ownedproperties, InterestedCustomers interestedcust) {
      
         super(uname, pass);
-        this.ownedproperties = ownedproperties;
+        
+        for(int i = 0; i <ownedProperties.size(); i++){
+            ownedproperties.add(ownedProperties.get(i).toString());
+        }
+       // this.ownedproperties = ownedproperties;
         System.out.println("Seller Account created");
        // interestedcustomers=interestedcust;
+       
+       System.out.println("Properties this seller enter are: ");
+        for(Object x: ownedProperties){
+            System.out.println(x);
+       }
        
        for (String x: ownedproperties){
            System.out.println(x + " list");

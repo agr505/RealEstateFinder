@@ -6,8 +6,12 @@
 package RealEstateFinder;
 
 //import java.awt.Checkbox;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.BoxLayout;
+import javax.swing.ComboBoxModel;
 import static javax.swing.GroupLayout.Alignment.CENTER;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,21 +19,28 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.ListModel;
+import javax.swing.ListSelectionModel;
 
 /**
  *
  * @author Sam
  */
-public class SignUpPage extends JFrame{
+public class SignUpPage extends JFrame {
+
     Application app;
     LoginSignupPage page;
-    
+
     JLabel title = new JLabel("Sign Up:");
     JLabel un = new JLabel("Enter Username:");
     JLabel pw = new JLabel("Enter Password:");
     JLabel phoneNum = new JLabel("Enter Phone Number:");
     JLabel propertyNames = new JLabel("Enter all the owned Properties(Sellers only)");
-    
+
     JTextField username = new JTextField(12);
     JTextField password = new JTextField(12);
     JTextField phoneNumber = new JTextField(12);
@@ -37,12 +48,40 @@ public class SignUpPage extends JFrame{
     JCheckBox check = new JCheckBox("Check if you are a seller");
     JButton signUp = new JButton("Sign Up");
     JPanel panel = new JPanel();
+    //JButton movebutton;
+
+    String[] myStrings = {"First Property", "Second Property", "Third Property", "Fourth Property", "Fifth Property"};
     
-    
-        SignUpPage(Application app, LoginSignupPage p){
-           this.app = app;
-           page = p;
-           
+    JList leftlist;
+   // JList rightlist;
+   
+   
+    SignUpPage(Application app, LoginSignupPage p) {
+
+        leftlist = new JList(myStrings);
+        leftlist.setVisibleRowCount(3);
+        leftlist.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        getProperties();
+       //add( new JScrollPane(leftlist));
+       
+//       movebutton = new JButton("Move-->");
+//       movebutton.addActionListener( new ActionListener(){
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                rightlist.setListData((Object[]) leftlist.getSelectedValue());
+//                
+//            }
+//       });
+//       rightlist = new JList();
+//       rightlist.setVisibleRowCount(5);
+//       rightlist.setFixedCellWidth(100);
+//        rightlist.setFixedCellHeight(15);
+//        rightlist.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+      // panel.add(movebutton);
+      
+        this.app = app;
+        page = p;
+
         panel.add(title);
         panel.add(un);
         panel.add(username);
@@ -50,47 +89,57 @@ public class SignUpPage extends JFrame{
         panel.add(password);
         panel.add(phoneNum);
         panel.add(phoneNumber);
-         panel.add(propertyNames);
-        panel.add(tf3);
+        panel.add(propertyNames);
+        //panel.add(tf3);
+        //panel.add(box);
+        panel.add(new JScrollPane(leftlist));
         panel.add(check);
-       
         
-        signUp.addActionListener(new SignupButtonListener(app,this, page));
+
+        signUp.addActionListener(new SignupButtonListener(app, this, page));
         panel.add(signUp);
         this.add(panel);
 
         this.setTitle("SignUp");
         //this.pack();
-        this.setSize(250,400);
+        this.setSize(250, 400);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    public String getusernameinput(){
+
+    public String getusernameinput() {
         return username.getText();
     }
-    
-    public String getpasswordinput(){
+
+    public String getpasswordinput() {
         return password.getText();
     }
-    
-    public String getPhone(){
+
+    public String getPhone() {
         return phoneNumber.getText();
     }
-    
-    public String getProperties(){
-        return tf3.getText();
-    }
-    public Boolean getCheck(){
+
+    public List getProperties() {
+        //ListModel model = leftlist.getModel();
         
-        if (check.isSelected()){
+        List  x  = leftlist.getSelectedValuesList();
+//        for(Object a: x){
+//            System.out.println(x);
+//        }
+       
+        return x;
+    }
+
+    public Boolean getCheck() {
+
+        if (check.isSelected()) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
-    
-    public void setToVisible(){
+
+    public void setToVisible() {
         this.setVisible(false);
     }
 }

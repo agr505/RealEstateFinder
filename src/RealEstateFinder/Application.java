@@ -12,6 +12,7 @@ import java.io.Serializable;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
@@ -59,17 +60,17 @@ public class Application {
 
     //String propertyInput = "First Property, Second Property";
     
-    public void createaccount(boolean isseller, String username, String password, String propertyInput) throws ClassNotFoundException {
+    public void createaccount(boolean isseller, String username, String password, List propertyInput) throws ClassNotFoundException {
         if (isseller == true) {
             //Need code for getting text input about properties owned and having ownedproperties as a parameter to Seller Constructor
             //add properties, list them in a textField seperated by comma
             //seller constructor will have another paramerter textField
             //accounts.add(new Seller(username,password, textField));
           
-            ArrayList<String> arr = delimiterinput(propertyInput);
+           // ArrayList<String> arr = delimiterinput(propertyInput);
           
             //accounts.add(new Seller(username, password, arr, interestedcustomers));
-            accounts.add(new Seller(username, password,  arr));
+            accounts.add(new Seller(username, password, propertyInput ));
           
         } else {
             //accounts.add(new Customer("joe", "bob", favorites));
