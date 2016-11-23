@@ -20,11 +20,11 @@ public class Seller extends Account{
     private InterestedCustomers interestedcustomers;
       private ArrayList<String> ownedproperties = new ArrayList<>();
       
-       Seller(String uname, String pass, List ownedProperties){ 
+       Seller(String uname, String pass, List ownedProperties,InterestedCustomers interestedcust){ 
      //Seller( String uname, String pass, ArrayList<String> ownedproperties, InterestedCustomers interestedcust) {
      
         super(uname, pass);
-        
+        interestedcustomers=interestedcust;
         for(int i = 0; i <ownedProperties.size(); i++){
             ownedproperties.add(ownedProperties.get(i).toString());
         }

@@ -70,7 +70,7 @@ public class Application {
            // ArrayList<String> arr = delimiterinput(propertyInput);
           
             //accounts.add(new Seller(username, password, arr, interestedcustomers));
-            accounts.add(new Seller(username, password, propertyInput ));
+            accounts.add(new Seller(username, password, propertyInput,interestedcustomers ));
           
         } else {
             //accounts.add(new Customer("joe", "bob", favorites));
@@ -136,17 +136,19 @@ public class Application {
 
     }
 
-    public void contactSeller(String propName) {
-        System.out.println(propName + "was selected");
-        Customer loggedIncustomer = (Customer) provideLoggedinAccount();
-        //System.out.println(loggedIncustomer.getusername()+ " Is logged in");
+    public void contactSeller(String propname) {
+     
+        Customer loggedincustomer = (Customer) provideLoggedinAccount();
+     
+        Seller propertyowner = (Seller) findowner(propname);
+        System.out.println("you contacted "+propertyowner.getusername());
+InterestedCustomers interestedcust=propertyowner.getInterestedCustomers();
+interestedcust.addCustomer(loggedincustomer);
+   }
 
-        Seller propertyOwner = (Seller) findowner(propName);
-
-    }
 
     public Seller findowner(String propName) {
-
+  System.out.println("enteredfindowner");
         for (int i = 0; i < accounts.size(); i++) {
 
             if (accounts.get(i) instanceof Seller) {

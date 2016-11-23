@@ -42,6 +42,7 @@ public class InterestedCustomers {
    }
     public void addCustomer(Customer customer)
     {
+        System.out.println(customer.getusername()+"has contacted seller");
         customers.add(customer);
     }
     public boolean containsCustomer(Customer customer)

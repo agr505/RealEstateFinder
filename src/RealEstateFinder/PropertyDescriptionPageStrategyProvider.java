@@ -101,6 +101,7 @@ System.out.println("in provider"+propdescriptionpage.hashCode());
                     } else if (fav.containsproperty(propertyn)) {//&& application.hascontactedcustomer(propertyname) == false
 
                         JButton contactSeller = new JButton("Contact Seller");
+                        contactSeller.addActionListener(new ContactSellerButtonListener(propertyn,application));
                         jpanel.add(contactSeller);
                         return jpanel;//attach contactseller button
 
