@@ -17,6 +17,7 @@ import javax.swing.*;
  * @author User
  */
 public class SellerPropertyListingsPage extends JFrame{
+    SellerNavigationBar bar = new SellerNavigationBar();
     
     Application application;
     AvailableProperties avprop;
@@ -44,7 +45,7 @@ public class SellerPropertyListingsPage extends JFrame{
        // this.setLayout(new FlowLayout());
        this.add(x);
        this.add(xx);
-
+       this.add(bar, BorderLayout.NORTH);
         this.setTitle("Seller Property Page");
         this.pack();
         this.setVisible(true);

@@ -5,6 +5,7 @@
  */
 package RealEstateFinder;
 
+import java.awt.BorderLayout;
 import java.util.ArrayList;
 import javax.swing.*;
 
@@ -18,7 +19,7 @@ public class InterestedCustomersPage extends JFrame{
     private ArrayList<Customer> interestedCustomersList;
     
     InterestedCustomersPage(InterestedCustomers ic){
-        
+        SellerNavigationBar bar = new SellerNavigationBar();
         interestedcustomers = ic;
         interestedCustomersList = interestedcustomers.getInterestedCustomers();
         if (interestedcustomers.getInterestedCustomers()!= null){
@@ -35,6 +36,7 @@ public class InterestedCustomersPage extends JFrame{
         
         panel.add(tf);
         this.add(panel);
+        this.add(bar, BorderLayout.NORTH);
         this.setTitle("Interested Customers Page");
         //this.pack();
         this.setSize(500, 400);
