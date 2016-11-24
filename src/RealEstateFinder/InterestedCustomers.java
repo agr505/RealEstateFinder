@@ -84,13 +84,13 @@ for (int i=1;i<listeners.size();i++)
         }
         return false;
     }
-<<<<<<< HEAD
+
      public void addListener( InterestedCustomersStateChangeListener listener)
     {
         listeners.add(listener);
-=======
+    }
     public ArrayList<Customer> getInterestedCustomers(){
         return customers;
->>>>>>> origin/master
+
     }
 }
