@@ -11,11 +11,11 @@ import javax.swing.*;
  *
  * @author User
  */
-public class SellerPropertyPage extends JFrame{
+public class SellerPropertyListingsPage extends JFrame{
     
     
     
-    SellerPropertyPage(){
+    SellerPropertyListingsPage(){
         
         
         
@@ -24,5 +24,12 @@ public class SellerPropertyPage extends JFrame{
         this.pack();
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+       public void routetopage() {
+        this.setVisible(true);
+    }
+
+    public void leavepage() {
+        this.setVisible(false);
     }
 }
