@@ -33,6 +33,7 @@ public class CustomerPropertiesPage extends JFrame {
         availableproperties = avproperties;
         application = app;
         favorites = fav;
+        CustomerNavigationBar bar = new CustomerNavigationBar();
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
        
         Iterator<Property> iter = availableproperties.getProperties();
@@ -46,7 +47,7 @@ public class CustomerPropertiesPage extends JFrame {
             PropertyPanel p = new PropertyPanel(x, y, z, app, favorites, propertydescriptionpage, availableproperties);
             panel.add(p);
         }
-
+        this.add(bar, BorderLayout.NORTH);
         this.add(panel);
         this.setTitle("Customer Property Page");
         this.pack();

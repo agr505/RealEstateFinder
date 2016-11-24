@@ -53,7 +53,7 @@ public class Application {
         // createProperties();
         //}catch(IOException e){  
         //}
-
+        InterestedCustomersPage icp = new InterestedCustomersPage(interestedcustomers);
     }
 
     public LinkedList<Account> getaccounts() {

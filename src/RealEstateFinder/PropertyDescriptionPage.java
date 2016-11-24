@@ -5,6 +5,7 @@
  */
 package RealEstateFinder;
 
+import java.awt.BorderLayout;
 import javax.swing.*;
 
 /**
@@ -13,13 +14,16 @@ import javax.swing.*;
  */
 public class PropertyDescriptionPage extends JFrame {
 JPanel currentpanel;
+CustomerNavigationBar bar = new CustomerNavigationBar();
     //JButton contactSellerButton;
     PropertyDescriptionPage() {
-JPanel currentpanel=null;
+    JPanel currentpanel=null;
         //contactSellerButton = new JButton("Contact Seller");
         //this.add(contactSellerButton);
         // String name = "First property";
         // contactSellerButton.addActionListener(new contactSellerButtonListener(name, apRef));
+        
+        this.add(bar, BorderLayout.NORTH);
         this.setTitle("Property Description Page");
         //this.pack();
         this.setSize(250, 400);
