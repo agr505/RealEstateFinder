@@ -44,10 +44,8 @@ public class SellerPropertyListingsPage extends JFrame{
         //FlowLayout fl = new FlowLayout(FlowLayout.LEFT, 20, 10);
         
        // this.setLayout(new FlowLayout());
-       this.add(x
-       );
-       this.add(xx
-       );
+       this.add(x);
+       this.add(xx);
         this.setTitle("Seller Property Page");
         //this.pack();
         this.setSize(400, 500);
@@ -86,5 +84,13 @@ public class SellerPropertyListingsPage extends JFrame{
          System.out.println("While loop ended");
          
          
+    }
+    
+    public void routetopage() {
+        this.setVisible(true);
+    }
+
+    public void leavepage() {
+        this.setVisible(false);
     }
 }

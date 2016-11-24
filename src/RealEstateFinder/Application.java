@@ -29,6 +29,7 @@ public class Application {
     private Favorites favorites;
     private InterestedCustomers interestedcustomers;
     private AvailableProperties availableproperties;
+    private SellerPropertyListingsPage seller;
 
     public Application() throws IOException, ClassNotFoundException  {
         loggedinaccount = null;
@@ -106,7 +107,7 @@ public class Application {
                          System.out.println(" Seller Authenticated!!!!!!!!!!");
                          loggedinaccount = accountslist.get(i);
                      loginsignuppage.leavepage();
-                    SellerPropertyListingsPage sellerpage = new SellerPropertyListingsPage(this, availableproperties);
+                     seller = new SellerPropertyListingsPage(this, availableproperties);
                     
                     }
                     else {
