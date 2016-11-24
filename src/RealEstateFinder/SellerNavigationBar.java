@@ -14,7 +14,7 @@ import javax.swing.JMenuBar;
  */
 public class SellerNavigationBar extends JMenuBar{
     
-    SellerNavigationBar(){
+    SellerNavigationBar(Application application){
         
         JMenuBar bar =new  JMenuBar();
         
@@ -29,7 +29,10 @@ public class SellerNavigationBar extends JMenuBar{
         interestedCustomers.addSeparator();
         
         logout =new  JMenu("Log Out");
+        logout.addActionListener(new LogOutButtonListener(application));
         this.add(logout);
         logout.addSeparator();
+        
+        
     }
 }
