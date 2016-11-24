@@ -5,6 +5,11 @@
  */
 package RealEstateFinder;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.util.Iterator;
 import javax.swing.*;
 
 /**
@@ -13,11 +18,12 @@ import javax.swing.*;
  */
 public class SellerPropertyListingsPage extends JFrame{
     
+    Application application;
+    AvailableProperties avprop;
     
-    
-    SellerPropertyListingsPage(){
+    SellerPropertyListingsPage(Application app, AvailableProperties ap){
         
-<<<<<<< HEAD
+
         this.setLayout(new FlowLayout());
         JLabel x = new JLabel("FF");
         JLabel xx = new JLabel("FfF");
@@ -26,13 +32,10 @@ public class SellerPropertyListingsPage extends JFrame{
         application = app;
         avprop = ap;
         avprop.matchownedProperties(this);
-=======
->>>>>>> origin/master
+
         
         
-<<<<<<< HEAD
-        //this.add();
-=======
+
        // for(int i = 0; i <sellerOwnedProperties.getOwnedproperties().size(); i++){
             System.out.println("In the sellerpage ");
        // }
@@ -41,25 +44,49 @@ public class SellerPropertyListingsPage extends JFrame{
        // this.setLayout(new FlowLayout());
        this.add(x);
        this.add(xx);
->>>>>>> origin/master
+
         this.setTitle("Seller Property Page");
         this.pack();
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-       public void routetopage() {
-        this.setVisible(true);
+    public void UpdateView(PropertyContainer properties){
+        PropertyContainer pc = properties;
+        
+        Iterator<Property> iter = pc.getProperties();
+        
+         System.out.println("In the sellerpage updateview ");
+         
+         while (iter.hasNext()){
+             JPanel panel = new JPanel();
+             panel.setLayout(new BorderLayout());
+             Property p = iter.next();
+             
+             String name = p.getName();
+             String pic = p.getPicture();
+             String text = p.getText();
+             
+             JLabel name1 = new JLabel(name);
+             panel.add(name1, BorderLayout.NORTH);
+             
+             JLabel name2 = new JLabel(text);
+             panel.add(name2);
+             
+             
+             panel.setBackground(Color.red);
+             panel.setPreferredSize(new Dimension(100,100));
+             validate();
+             this.add(panel);
+         }
+         System.out.println("While loop ended");
+         
     }
 
     public void leavepage() {
         this.setVisible(false);
     }
+     public void routetopage() {
+        this.setVisible(true);
     
-    public void routetopage() {
-        this.setVisible(true);
     }
-
-    public void leavepage() {
-        this.setVisible(false);
     }
-}

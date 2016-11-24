@@ -47,6 +47,8 @@ public void assignFavorites(Favorites fav)
     }
 
     public void matchownedProperties(SellerPropertyListingsPage p) {
+        SellerPropertyListingsPage pg;
+        pg = p;
         
         Seller seller = (Seller) application.provideLoggedinAccount();
         
@@ -74,7 +76,7 @@ public void assignFavorites(Favorites fav)
                     Property prop = iter.next();
                     matchedproperties.addProperty(prop);
                        System.out.println("iterator "+ prop.getName());
-                    p.UpdateView(matchedproperties);
+                    pg.UpdateView(matchedproperties);
                    // return matchedproperties;
                 }
             }
