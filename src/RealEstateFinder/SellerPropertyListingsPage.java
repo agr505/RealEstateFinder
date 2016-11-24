@@ -19,13 +19,32 @@ public class SellerPropertyListingsPage extends JFrame{
         
         
         
+<<<<<<< HEAD
         //this.add();
+=======
+       // for(int i = 0; i <sellerOwnedProperties.getOwnedproperties().size(); i++){
+            System.out.println("In the sellerpage ");
+       // }
+        //FlowLayout fl = new FlowLayout(FlowLayout.LEFT, 20, 10);
+        
+       // this.setLayout(new FlowLayout());
+       this.add(x);
+       this.add(xx);
+>>>>>>> origin/master
         this.setTitle("Seller Property Page");
         this.pack();
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
        public void routetopage() {
+        this.setVisible(true);
+    }
+
+    public void leavepage() {
+        this.setVisible(false);
+    }
+    
+    public void routetopage() {
         this.setVisible(true);
     }
 
