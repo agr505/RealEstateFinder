@@ -46,11 +46,24 @@ public void assignFavorites(Favorites fav)
 
     }
 
-    public void matchownedProperties() {
+    public void matchownedProperties(SellerPropertyListingsPage p) {
+        
         Seller seller = (Seller) application.provideLoggedinAccount();
-
+        
+        System.out.println("seller is"+ seller.getusername());
+        
+        System.out.println("In match owner before getting ownedproperties");
+        
+        int size = seller.getOwnedproperties().size();
+         System.out.println("Size is "+ size);
+         
         ArrayList<String> ownedproperties = seller.getOwnedproperties();
-
+        
+        //for(int i = 0; i <seller.getOwnedproperties().size())
+        System.out.println("Size is "+ size);
+        
+        System.out.println("after the owned properties");
+        
         Iterator<Property> iter = getProperties();
 
         PropertyContainer matchedproperties = new PropertyContainer();
@@ -58,12 +71,15 @@ public void assignFavorites(Favorites fav)
         for (int i = 0; i < ownedproperties.size(); i++) {
             while (iter.hasNext()) {
                 if (iter.next().getName().equals(ownedproperties.get(i))) {
-                    matchedproperties.addProperty(iter.next());
-
-                    //SellerPropertyListingsPage.UpdateView(matchedproperties);
+                    Property prop = iter.next();
+                    matchedproperties.addProperty(prop);
+                       System.out.println("iterator "+ prop.getName());
+                    p.UpdateView(matchedproperties);
+                   // return matchedproperties;
                 }
             }
         }
+        //return null;
     }
 
     public void addtoFav(String propertyname){
