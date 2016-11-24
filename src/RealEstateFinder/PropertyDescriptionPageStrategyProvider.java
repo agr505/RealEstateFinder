@@ -132,7 +132,7 @@ public class PropertyDescriptionPageStrategyProvider {
 
         }
     }
-     public void createview( PropertyDescriptionPage propdescriptionpage) {
+     public void createview( InterestedCustomersStateEvent e, PropertyDescriptionPage propdescriptionpage) {
         String propertyn = e.currentproperty;
 
      
