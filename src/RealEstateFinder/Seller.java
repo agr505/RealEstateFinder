@@ -28,7 +28,7 @@ public class Seller extends Account{
         for(int i = 0; i <ownedProperties.size(); i++){
             ownedproperties.add(ownedProperties.get(i).toString());
         }
-       // this.ownedproperties = ownedproperties;
+        this.ownedproperties = ownedproperties;
         System.out.println("Seller Account created");
        // interestedcustomers=interestedcust;
        
@@ -38,7 +38,7 @@ public class Seller extends Account{
        }
        
        for (String x: ownedproperties){
-           System.out.println(x + " list");
+           System.out.println(x + " is in the ownedproperty list");
        }
     }
     
@@ -48,6 +48,9 @@ public class Seller extends Account{
 public InterestedCustomers getInterestedCustomers()
 {
     return interestedcustomers;//interestedcustomers needs to be initialized in constructor
+}
+public int getSize(){
+    return ownedproperties.size();
 }
     
     

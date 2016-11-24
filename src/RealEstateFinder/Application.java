@@ -28,6 +28,7 @@ public class Application {
 
     private Favorites favorites;
     private InterestedCustomers interestedcustomers;
+    private AvailableProperties availableproperties;
 
     public Application() throws IOException, ClassNotFoundException  {
         loggedinaccount = null;
@@ -36,7 +37,7 @@ public class Application {
         //signuppage = new SignUpPage(this);
 
         accounts = new LinkedList<Account>();
-        AvailableProperties availableproperties = new AvailableProperties(this);
+         availableproperties = new AvailableProperties(this);
 
         favorites = new Favorites(availableproperties, this);
 
@@ -102,10 +103,17 @@ public class Application {
                 if (accountslist.get(i) instanceof Seller) {
                     if (accountslist.get(i).getusername().equals(username) && accountslist.get(i).getpassword().equals(password))
                     {
-                    SellerPropertyListingsPage sellerpager = new SellerPropertyListingsPage();
-                     System.out.println(" Seller Authenticated!!!!!!!!!!");
+                         System.out.println(" Seller Authenticated!!!!!!!!!!");
+                         loggedinaccount = accountslist.get(i);
+                     loginsignuppage.leavepage();
+                    SellerPropertyListingsPage sellerpage = new SellerPropertyListingsPage(this, availableproperties);
+                    
                     }
-                } else if (accountslist.get(i) instanceof Customer) {
+                    else {
+                    System.out.println("Account not found!!!!!!!!");
+                     } 
+                }
+                    else if (accountslist.get(i) instanceof Customer) {
                     
                     if (accountslist.get(i).getusername().equals(username) && accountslist.get(i).getpassword().equals(password)) {
                     loggedinaccount = accountslist.get(i);
@@ -128,9 +136,9 @@ public class Application {
 
     public void createProperties() throws IOException {
 
-        Property p1 = new Property("Firstproperty", "src\\img\\NYC_Empire_State_Building.jpg", "Empire State Building");
-        Property p2 = new Property("Secondproperty", "src\\img\\White_House_02.jpg", "The White House");
-        Property p3 = new Property("Thirdproperty", "src\\img\\Eiffel_Tower_01.jpg", "Eiffel Tower");
+        Property p1 = new Property("First Property", "src\\img\\NYC_Empire_State_Building.jpg", "Empire State Building");
+        Property p2 = new Property("Second Property", "src\\img\\White_House_02.jpg", "The White House");
+        Property p3 = new Property("Third Property", "src\\img\\Eiffel_Tower_01.jpg", "Eiffel Tower");
 
         ObjectOutputStream out = new ObjectOutputStream(
                 new FileOutputStream("property.txt"));
