@@ -29,6 +29,7 @@ public class SellerPropertyListingsPage extends JFrame{
         this.setLayout(new FlowLayout());
         JLabel x = new JLabel("FF");
         JLabel xx = new JLabel("FfF");
+        System.out.println("L");
         System.out.println("before In the sellerpage ");
         application = app;
         avprop = ap;
