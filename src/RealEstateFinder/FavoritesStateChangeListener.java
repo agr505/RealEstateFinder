@@ -65,7 +65,7 @@ public class FavoritesStateChangeListener implements ChangeListener {
       }
       else if(propertydescriptionpage!=null)
       {
-          System.out.println( propertydescriptionpage.hashCode()+"state change for other!!!!!!");
+        
            propertydescriptionpage.setVisible(false);
            
           strategyprovider.createview(favorites,event,propertydescriptionpage);

@@ -152,7 +152,7 @@ public class Application {
     public void contactSeller(String propname) {
      
         Customer loggedincustomer = (Customer) provideLoggedinAccount();
-     
+     loggedincustomer.updatepropertyinterestedin(propname);
         Seller propertyowner = (Seller) findowner(propname);
         System.out.println("you contacted "+propertyowner.getusername());
 InterestedCustomers interestedcust=propertyowner.getInterestedCustomers();

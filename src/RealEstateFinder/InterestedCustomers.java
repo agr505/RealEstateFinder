@@ -17,7 +17,7 @@ public class InterestedCustomers {
             this.customers = new ArrayList<Customer>();
     }
     private ArrayList<Customer> customers;
-    
+       public ArrayList<InterestedCustomersStateChangeListener> listeners;
     
     public Iterator<Customer> getCustomers()
     {
@@ -44,6 +44,34 @@ public class InterestedCustomers {
     {
         System.out.println(customer.getusername()+"has contacted seller");
         customers.add(customer);
+        
+        
+        InterestedCustomersStateEvent event = new  InterestedCustomersStateEvent(this,customer.returnlatestpropertyinterestedin());
+      
+
+
+
+/*
+
+listeners.get(0).stateChanged(event);
+
+for (int i=1;i<listeners.size();i++)
+{
+    if(listeners.get(i).property.equals(customer.returnlatestpropertyinterestedin()))
+            {
+                listeners.get(i).stateChanged(event);
+            }
+}
+        
+        
+        
+     */   
+        
+        
+        
+        
+        
+        
     }
     public boolean containsCustomer(Customer customer)
     {

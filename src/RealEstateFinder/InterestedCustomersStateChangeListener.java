@@ -5,10 +5,35 @@
  */
 package RealEstateFinder;
 
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
 /**
  *
  * @author Aaron
  */
-public class InterestedCustomersStateChangeListener {
+public class InterestedCustomersStateChangeListener implements ChangeListener{
+    PropertyDescriptionPage propertydescriptionpage;
+    PropertyDescriptionPageStrategyProvider strategyprovider;
+     public String property;
     
+    InterestedCustomersStateChangeListener (PropertyDescriptionPage propertydespage,PropertyDescriptionPageStrategyProvider strategyprovider,String prop)
+    {
+        propertydescriptionpage=propertydespage;
+        property=prop;
+    }
+    public void stateChanged(ChangeEvent e) {
+        
+          InterestedCustomersStateEvent event= (InterestedCustomersStateEvent)e;
+     
+ //save all accounts
+       if(propertydescriptionpage!=null)
+      {
+        
+           propertydescriptionpage.setVisible(false);
+           
+          strategyprovider.createview();
+      }
+    }
 }
+

@@ -23,7 +23,10 @@ public class Customer extends Account {
         
         
     }
-
+public String returnlatestpropertyinterestedin()
+{
+    return latestpropertyinterestedin;
+}
     public void updatepropertyinterestedin(String latestproperty) {
         latestpropertyinterestedin = latestproperty;
     }

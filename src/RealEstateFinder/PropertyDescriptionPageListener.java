@@ -30,10 +30,10 @@ public class PropertyDescriptionPageListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Contact Seller")) {
-            System.out.println(name);
+         
             app.contactSeller(name);
         } else if (e.getActionCommand().equals("Add to Favorites")) {  
-            System.out.println(name + " is being added to favorites");
+        
             availableproperties.addtoFav(name);
            
         } else if (e.getActionCommand().equals("Update Property")) {

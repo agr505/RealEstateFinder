@@ -81,8 +81,8 @@ public class PropertyDescriptionPageStrategyProvider {
 
     public void createview(Favorites fav, FavoritesStateEvent e, PropertyDescriptionPage propdescriptionpage) {
         String propertyn = e.currentproperty;
-System.out.println("in provider"+propdescriptionpage.hashCode());
-        System.out.println("You selected " + propertyn);
+
+     
         propdescriptionpage.setVisible(false);
         if (application.provideLoggedinAccount() instanceof Customer) {
 
@@ -106,6 +106,59 @@ System.out.println("in provider"+propdescriptionpage.hashCode());
                         return jpanel;//attach contactseller button
 
                     } else if (fav.containsproperty(propertyn) && application.hascontactedcustomer(propertyn)) {
+
+                        return jpanel;//no buttons on panel, just description
+                    }
+                    return null;
+                }
+            ;
+
+            };
+                propdescriptionpage.usestrategy(customerstrategy);
+        } else if (application.provideLoggedinAccount() instanceof Seller) {
+            PropertyDescriptionPageStrategy sellerstrategy = new PropertyDescriptionPageStrategy() {
+                @Override
+                public JPanel buildview(JPanel jpanel) {
+                    //always attach update button
+                    JButton updateProperty = new JButton("Update Property");
+                    jpanel.add(updateProperty);
+                    return jpanel;
+                }
+            ;
+
+            };
+               propertydescriptionpage.usestrategy(sellerstrategy);
+            ;
+
+        }
+    }
+     public void createview( PropertyDescriptionPage propdescriptionpage) {
+        String propertyn = e.currentproperty;
+
+     
+        propdescriptionpage.setVisible(false);
+        if (application.provideLoggedinAccount() instanceof Customer) {
+
+            PropertyDescriptionPageStrategy customerstrategy = new PropertyDescriptionPageStrategy() {
+                @Override
+                public JPanel buildview(JPanel jpanel) {
+
+                    if (!favorites.containsproperty(propertyn)) {
+                        //if (jpanel.)
+                        JButton fddtoFavorites = new JButton("Add to Favorites");
+                        fddtoFavorites.addActionListener(new PropertyDescriptionPageListener(propertyn, application, availableProperties));
+                        jpanel.add(fddtoFavorites);
+
+                        return jpanel;//attach addtofavorites button
+
+                    } else if (favorites.containsproperty(propertyn)) {//&& application.hascontactedcustomer(propertyname) == false
+
+                        JButton contactSeller = new JButton("Contact Seller");
+                        contactSeller.addActionListener(new ContactSellerButtonListener(propertyn,application));
+                        jpanel.add(contactSeller);
+                        return jpanel;//attach contactseller button
+
+                    } else if (favorites.containsproperty(propertyn) && application.hascontactedcustomer(propertyn)) {
 
                         return jpanel;//no buttons on panel, just description
                     }

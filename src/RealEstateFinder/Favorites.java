@@ -47,11 +47,11 @@ public class Favorites extends PropertyContainer {
     }
 
     public void add(Property property) {
-         System.out.println("In favorites add function, property will be added ==="+property.getName());
+       
         addProperty(property);
         FavoritesStateEvent event = new FavoritesStateEvent(this,property.getName());
       
-System.out.println(listeners.size());
+
 
 
 
