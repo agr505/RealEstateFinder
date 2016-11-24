@@ -20,7 +20,7 @@ import java.util.List;
  */
 public class Application {
 
-    private LinkedList<Account> accounts;
+    private ArrayList<Account> accounts;
     private Account loggedinaccount;
     private LoginSignupPage loginsignuppage;
     private SignUpPage signuppage;
@@ -37,7 +37,7 @@ public class Application {
         loginsignuppage = new LoginSignupPage(this, signuppage);
         //signuppage = new SignUpPage(this);
 
-        accounts = new LinkedList<Account>();
+        accounts = new ArrayList<Account>();
          availableproperties = new AvailableProperties(this);
 
         favorites = new Favorites(availableproperties, this);
@@ -55,8 +55,10 @@ public class Application {
         //}
         InterestedCustomersPage icp = new InterestedCustomersPage(interestedcustomers);
     }
+    
+   
 
-    public LinkedList<Account> getaccounts() {
+    public ArrayList<Account> getaccounts() {
         return accounts;
     }
 
@@ -96,7 +98,7 @@ public class Application {
     }
 
     public void authenticate(String username, String password) {
-        LinkedList<Account> accountslist = getaccounts();
+        ArrayList<Account> accountslist = getaccounts();
         
         for (int i = 0; i < getaccounts().size(); i++) {
            // System.out.println(accountslist.get(i).getusername() + accountslist.get(i).getpassword());
@@ -147,6 +149,19 @@ public class Application {
         out.writeObject(p2);
         out.writeObject(p3);
 
+    }
+    public void saveAccount() throws IOException{
+        ObjectOutputStream out = new ObjectOutputStream(
+                new FileOutputStream("accounts.txt"));
+        
+        ArrayList<Account> acc;
+        acc = this.getaccounts();
+        
+        for (int i = 0 ; i < acc.size(); i++){
+            out.writeObject(acc.get(i));
+        }
+            
+        
     }
 
     public void contactSeller(String propname) {
