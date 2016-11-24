@@ -53,7 +53,7 @@ public class Application {
         // createProperties();
         //}catch(IOException e){  
         //}
-        InterestedCustomersPage icp = new InterestedCustomersPage(interestedcustomers);
+        InterestedCustomersPage icp = new InterestedCustomersPage(interestedcustomers,this);
     }
     
    
@@ -150,7 +150,7 @@ public class Application {
         out.writeObject(p3);
 
     }
-    public void saveAccount() throws IOException{
+    public void saveAccounts() throws IOException{
         ObjectOutputStream out = new ObjectOutputStream(
                 new FileOutputStream("accounts.txt"));
         

@@ -18,8 +18,8 @@ public class InterestedCustomersPage extends JFrame{
     private InterestedCustomers interestedcustomers;
     private ArrayList<Customer> interestedCustomersList;
     
-    InterestedCustomersPage(InterestedCustomers ic){
-        SellerNavigationBar bar = new SellerNavigationBar();
+    InterestedCustomersPage(InterestedCustomers ic,Application app){
+        SellerNavigationBar bar = new SellerNavigationBar(app);
         interestedcustomers = ic;
         interestedCustomersList = interestedcustomers.getInterestedCustomers();
         if (interestedcustomers.getInterestedCustomers()!= null){

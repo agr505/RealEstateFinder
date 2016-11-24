@@ -7,6 +7,9 @@ package RealEstateFinder;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -29,7 +32,12 @@ LogOutButtonListener(Application app) {
     public void actionPerformed(ActionEvent e) {
    
             
-            
+     try {
+         System.out.println("Saved!!!!!!!!!!!!!!!!!!!!11");
+         application.saveAccounts();
+     } catch (IOException ex) {
+         Logger.getLogger(LogOutButtonListener.class.getName()).log(Level.SEVERE, null, ex);
+     }
            
        
 }}

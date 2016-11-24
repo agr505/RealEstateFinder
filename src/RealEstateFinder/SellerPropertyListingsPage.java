@@ -17,14 +17,14 @@ import javax.swing.*;
  * @author User
  */
 public class SellerPropertyListingsPage extends JFrame{
-    SellerNavigationBar bar = new SellerNavigationBar();
+   
     
     Application application;
     AvailableProperties avprop;
     
     SellerPropertyListingsPage(Application app, AvailableProperties ap){
         
-
+ SellerNavigationBar bar = new SellerNavigationBar(app);
         this.setLayout(new FlowLayout());
         JLabel x = new JLabel("FF");
         JLabel xx = new JLabel("FfF");
