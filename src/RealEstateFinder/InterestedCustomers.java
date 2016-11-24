@@ -84,4 +84,8 @@ for (int i=1;i<listeners.size();i++)
         }
         return false;
     }
+     public void addListener( InterestedCustomersStateChangeListener listener)
+    {
+        listeners.add(listener);
+    }
 }
