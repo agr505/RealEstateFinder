@@ -84,4 +84,7 @@ for (int i=1;i<listeners.size();i++)
         }
         return false;
     }
+    public ArrayList<Customer> getInterestedCustomers(){
+        return customers;
+    }
 }

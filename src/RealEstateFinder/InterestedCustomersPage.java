@@ -19,7 +19,7 @@ public class InterestedCustomersPage extends JFrame{
     
     InterestedCustomersPage(InterestedCustomers ic){
         
-        interestedcustomers= ic;
+        interestedcustomers = ic;
         interestedCustomersList = interestedcustomers.getInterestedCustomers();
         if (interestedcustomers.getInterestedCustomers()!= null){
             System.out.println("getting the interested customers");
