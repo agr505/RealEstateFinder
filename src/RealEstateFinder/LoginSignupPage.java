@@ -42,11 +42,18 @@ public class LoginSignupPage extends JFrame {
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
+    
+    /**
+     * accessor for  username
+     * @return string holding the value of  username
+     */
     public String getusernameinput() {
         return tf1.getText();
     }
-
+    /**
+     * accessor for Accounts password
+     * @return string holding the value of accounts password
+     */
     public String getpasswordinput() {
         return tf2.getText();
     }

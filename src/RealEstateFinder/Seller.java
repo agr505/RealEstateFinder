@@ -42,14 +42,25 @@ private static final long serialVersionUID = 10L;
            System.out.println(x + " is in the ownedproperty list");
        }
     }
-    
+    /**
+     * accessor for Seller owned properties
+     * @return ArrayList<String> which are the properties owned by the seller
+     */
     public ArrayList<String> getOwnedproperties() {
         return ownedproperties;
     }
+    /**
+     * accessor for Interested Customers
+     * @return InterestedCustomers the interested customers
+     */
 public InterestedCustomers getInterestedCustomers()
 {
     return interestedcustomers;//interestedcustomers needs to be initialized in constructor
 }
+/**
+     * accessor for size
+     * @return int which holds the value of the number of owned properties
+     */
 public int getSize(){
     return ownedproperties.size();
 }
