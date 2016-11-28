@@ -14,17 +14,28 @@ import javax.swing.*;
  */
 public class PropertyDescriptionPage extends JFrame {
 JPanel currentpanel;
-CustomerNavigationBar bar = new CustomerNavigationBar();
-    //JButton contactSellerButton;
-    PropertyDescriptionPage() {
-    JPanel currentpanel=null;
-        //contactSellerButton = new JButton("Contact Seller");
-        //this.add(contactSellerButton);
-        // String name = "First property";
-        // contactSellerButton.addActionListener(new contactSellerButtonListener(name, apRef));
+JPanel abovepanel;
+
+    PropertyDescriptionPage(String name, String pic, String text) {
+    JPanel currentpanel=new JPanel();
+    JPanel imagePanel = new JPanel();
+    
+    JLabel Pname;
+    JLabel Ppic = new JLabel();
+    JLabel Ptext;
+    
+    Pname = new JLabel(name);
+    Ptext = new JLabel(text);
+    Ppic.setIcon(new ImageIcon(pic));
+    
+    imagePanel.add(Ppic, BorderLayout.CENTER);
+    imagePanel.add(Ptext,BorderLayout.SOUTH);
         
-        this.add(bar, BorderLayout.NORTH);
+        abovepanel=imagePanel;
+        this.add(abovepanel, BorderLayout.NORTH);
+       
         this.setTitle("Property Description Page");
+        this.add(currentpanel, BorderLayout.SOUTH);
         //this.pack();
         this.setSize(250, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,15 +44,15 @@ CustomerNavigationBar bar = new CustomerNavigationBar();
 
     public void usestrategy(PropertyDescriptionPageStrategy strategy) {
         if(currentpanel!=null)
-        {
-        this.remove(currentpanel);
-        }
+       {
+       this.remove(currentpanel);
+       }
         JPanel jpanel = new JPanel();
 
         JPanel j = strategy.buildview(jpanel);
         currentpanel=j;
-        
-        this.add(j);
+          this.add(abovepanel, BorderLayout.NORTH);
+        this.add(j, BorderLayout.SOUTH);
         
         this.setVisible(true);
         System.out.println("in property description page"+this.hashCode());
