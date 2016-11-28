@@ -5,6 +5,7 @@
  */
 package RealEstateFinder;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -12,8 +13,8 @@ import java.util.Iterator;
  *
  * @author Aaron
  */
-public class PropertyContainer {
-
+public class PropertyContainer implements Serializable{
+private static final long serialVersionUID = 12L;
     public PropertyContainer() {
         this.properties = new ArrayList<Property>();
     }

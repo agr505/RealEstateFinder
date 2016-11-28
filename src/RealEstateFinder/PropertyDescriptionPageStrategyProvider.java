@@ -5,6 +5,7 @@
  */
 package RealEstateFinder;
 
+import java.io.Serializable;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -12,8 +13,8 @@ import javax.swing.JPanel;
  *
  * @author Aaron
  */
-public class PropertyDescriptionPageStrategyProvider {
-
+public class PropertyDescriptionPageStrategyProvider implements Serializable{
+private static final long serialVersionUID = 6L;
     public String propertyname;
     public Favorites favorites;
     public Application application;
@@ -45,7 +46,7 @@ public class PropertyDescriptionPageStrategyProvider {
                         jpanel.add(fddtoFavorites);
                         return jpanel;//attach addtofavorites button
 
-                    } else if (favorites.containsproperty(propertyname)) {//&& application.hascontactedcustomer(propertyname) == false
+                    } else if (favorites.containsproperty(propertyname)&& application.hascontactedcustomer(propertyname) == false) {
                         System.out.println("already");
                         JButton contactSeller = new JButton("Contact Seller");
                         jpanel.add(contactSeller);
@@ -87,6 +88,11 @@ public class PropertyDescriptionPageStrategyProvider {
         if (application.provideLoggedinAccount() instanceof Customer) {
 
             PropertyDescriptionPageStrategy customerstrategy = new PropertyDescriptionPageStrategy() {
+               /**
+                * 
+                * @param jpanel
+                * @return 
+                */
                 @Override
                 public JPanel buildview(JPanel jpanel) {
 

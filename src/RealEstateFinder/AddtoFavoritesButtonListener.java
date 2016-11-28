@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author Aaron
+ * 
  */
 public class AddtoFavoritesButtonListener implements ActionListener {
 
@@ -26,7 +26,10 @@ public class AddtoFavoritesButtonListener implements ActionListener {
         availableproperties = availableProps;
       
     }
-
+/**
+ * Event handler for the user clicking the AddtoFavorites button
+ * @param e ActionEvent containing information about the event
+ */
     @Override
     public void actionPerformed(ActionEvent e) {
    

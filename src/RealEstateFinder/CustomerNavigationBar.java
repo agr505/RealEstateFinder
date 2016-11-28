@@ -15,23 +15,24 @@ import javax.swing.*;
 public class CustomerNavigationBar extends JMenuBar{
 
 
-    CustomerNavigationBar(){
+    CustomerNavigationBar(Application application){
         
-        JMenuBar bar =new  JMenuBar();
+      
         
-        JMenu availablproperties, logout, favorites;
+        JMenuItem availablproperties, logout, favorites;
         
         availablproperties = new JMenu("Home/Available Properties");
         this.add(availablproperties);
-        availablproperties.addSeparator();
+       // availablproperties.addSeparator();
         
         favorites = new JMenu("Favorites");
         this.add(favorites);
-        favorites.addSeparator();
+       // favorites.addSeparator();
         
         logout =new  JMenu("Log Out");
+         logout.addActionListener(new LogOutButtonListener(application));
         this.add(logout);
-        logout.addSeparator();
+      //  logout.addSeparator();
         
        // this.setSize(20, 10);
         //this.setVisible(true);

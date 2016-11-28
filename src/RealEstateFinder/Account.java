@@ -5,12 +5,14 @@
  */
 package RealEstateFinder;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Aaron
  */
-public class Account {
-    
+public class Account implements Serializable{
+    private static final long serialVersionUID = 2L;
     private String username;
     private String password;
     public Account(String uname,String pass)

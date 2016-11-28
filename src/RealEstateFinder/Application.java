@@ -5,12 +5,16 @@
  */
 package RealEstateFinder;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InvalidClassException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,7 +22,7 @@ import java.util.List;
  *
  * @author Aaron
  */
-public class Application {
+public class Application implements Serializable{
 
     private ArrayList<Account> accounts;
     private Account loggedinaccount;
@@ -31,24 +35,28 @@ public class Application {
     private AvailableProperties availableproperties;
     private SellerPropertyListingsPage seller;
 
-    public Application() throws IOException, ClassNotFoundException  {
+    public Application() throws IOException, ClassNotFoundException   {
+         accounts = new ArrayList<Account>();
+loadaccounts();
+ interestedcustomers = new InterestedCustomers();
+ System.out.println("BEGINNING HASH CODE"+interestedcustomers.hashCode());
         loggedinaccount = null;
         createProperties();
         loginsignuppage = new LoginSignupPage(this, signuppage);
         //signuppage = new SignUpPage(this);
 
-        accounts = new ArrayList<Account>();
+      
          availableproperties = new AvailableProperties(this);
 
-        favorites = new Favorites(availableproperties, this);
+        favorites = new Favorites(availableproperties, this,interestedcustomers);
 
-        interestedcustomers = new InterestedCustomers();
+       
         //  PropertyDescriptionPage pdp = new PropertyDescriptionPage(this);
-
-        customerpropertiespage = new CustomerPropertiesPage(availableproperties, this, favorites);
+customerpropertiespage=null;
+   
 
         //  PropertyDescriptionPage pdp = new PropertyDescriptionPage(this);
-        accounts.add(new Customer("joe", "bob", favorites));
+       // accounts.add(new Customer("joe", "bob", favorites));
         // try {
         // createProperties();
         //}catch(IOException e){  
@@ -61,7 +69,64 @@ public class Application {
     public ArrayList<Account> getaccounts() {
         return accounts;
     }
+public void loadaccounts() throws IOException, ClassNotFoundException 
+{
+        ObjectInputStream in2 = new ObjectInputStream(
+                new FileInputStream("numberofaccounts.txt"));
+int numofacc=(int)in2.readObject();
+    
+      in2.close();
+    
+    
+     ObjectInputStream in = new ObjectInputStream(
+                new FileInputStream("accounts.txt"));
 
+      //ArrayList<Account> acc=new ArrayList<Account>();
+  
+        
+     // try
+      //{
+          
+      
+        for (int i = 0; i < numofacc; i++) {           accounts.add((Account) in.readObject());
+            System.out.println(accounts.get(i).getusername());
+        
+            if(accounts.get(i) instanceof Seller)
+            {
+                Seller s=(Seller)accounts.get(i);
+              InterestedCustomers ic=  s.getInterestedCustomers();
+            Iterator<Customer> c=  ic.getCustomers();
+          
+           while( c.hasNext())
+           {
+               Customer cust=c.next();
+               System.out.println(" cust"+cust.getusername()+"fav="+cust.getFavorites().getProperties().next().getName());
+               
+           }
+                  
+            }
+            
+        }
+      
+  /*    catch(InvalidClassException e)
+      {
+         System.out.println( e.classname);
+             System.out.println( e.getCause());
+         System.out.println( e.getStackTrace());
+      StackTraceElement d[]=   e.getStackTrace();
+      for(int i=0;i<d.length;i++)
+   System.out.println(d[i]);
+      }
+         catch(Exception e)
+      {
+         System.out.println(e);
+      }
+        */
+        
+        
+
+        in.close();
+}
     //String propertyInput = "First Property, Second Property";
     
     public void createaccount(boolean isseller, String username, String password, List propertyInput) throws ClassNotFoundException {
@@ -79,6 +144,7 @@ public class Application {
         } else {
             //accounts.add(new Customer("joe", "bob", favorites));
             accounts.add(new Customer(username, password, favorites));
+          
             // accounts.add(new Customer(username, password));
         }
     }
@@ -107,6 +173,8 @@ public class Application {
                     if (accountslist.get(i).getusername().equals(username) && accountslist.get(i).getpassword().equals(password))
                     {
                          System.out.println(" Seller Authenticated!!!!!!!!!!");
+                         Seller s=(Seller)accountslist.get(i);
+                   interestedcustomers=s.getInterestedCustomers();
                          loggedinaccount = accountslist.get(i);
                      loginsignuppage.leavepage();
                      seller = new SellerPropertyListingsPage(this, availableproperties);
@@ -119,9 +187,14 @@ public class Application {
                     else if (accountslist.get(i) instanceof Customer) {
                     
                     if (accountslist.get(i).getusername().equals(username) && accountslist.get(i).getpassword().equals(password)) {
-                    loggedinaccount = accountslist.get(i);
+                   Customer c=(Customer)accountslist.get(i);
+                   favorites=c.getFavorites();
+                   favorites.listeners=c.getFavorites().listeners;
+                   availableproperties.assignFavorites(favorites);
+                        loggedinaccount = accountslist.get(i);
                     System.out.println(" Customer Authenticated!!!!!!!!!!");
-
+favorites.initializeFavoritesPage();
+     customerpropertiespage = new CustomerPropertiesPage(availableproperties, this, favorites,interestedcustomers);
                     loginsignuppage.leavepage();
                     customerpropertiespage.routetopage();
                 }
@@ -139,15 +212,42 @@ public class Application {
 
     public void createProperties() throws IOException {
 
-        Property p1 = new Property("First Property", "src\\img\\NYC_Empire_State_Building.jpg", "Empire State Building");
-        Property p2 = new Property("Second Property", "src\\img\\White_House_02.jpg", "The White House");
-        Property p3 = new Property("Third Property", "src\\img\\Eiffel_Tower_01.jpg", "Eiffel Tower");
+       Property p1 = new Property("First Property", "src\\img\\NYC_Empire_State_Building.jpg", "Empire State Building Office #1");
+      Property p2 = new Property("Second Property", "src\\img\\NYC_Empire_State_Building.jpg", "Empire State Building Office #2");
+      Property p3 = new Property("Third Property", "src\\img\\NYC_Empire_State_Building.jpg", "Empire State Building Office #3");
+      Property p4 = new Property("Fourth Property", "src\\img\\NYC_Empire_State_Building.jpg", "Empire State Building Office #4");
+      Property p5 = new Property("Fifth Property", "src\\img\\NYC_Empire_State_Building.jpg", "Empire State Building Office #5");
+      Property p6 = new Property("Sixth Property", "src\\img\\White_House_02.jpg", "The White House: Oval Office");
+      Property p7 = new Property("Seventh Property", "src\\img\\White_House_02.jpg", "The White House: Red Room ");
+      Property p8 = new Property("Eighth Property", "src\\img\\White_House_02.jpg", "The White House: Living Room");
+      Property p9 = new Property("Nineth Property", "src\\img\\White_House_02.jpg", "The White House: Guest Room");
+      Property p10 = new Property("Tenth Property", "src\\img\\White_House_02.jpg", "The White House: Master Room");
+      Property p11 = new Property("Eleventh Property", "src\\img\\Eiffel_Tower_01.jpg", "Eiffel Tower");
+      Property p12 = new Property("Twelfth Property", "src\\img\\Miami.jpg", "Fountainebleau PH #1");
+      Property p13 = new Property("Thirteenth Property", "src\\img\\Miami.jpg", "Fountainebleau PH #2");
+      Property p14 = new Property("Fourteenth Property", "src\\img\\Miami.jpg", "Fountainebleau PH #3");
+      Property p15 = new Property("Fifteenth Property", "src\\img\\Miami.jpg", "Fountainebleau PH #4");
+      Property p16 = new Property("Sixteenth Property", "src\\img\\Miami.jpg", "Fountainebleau PH #5");
+     
 
-        ObjectOutputStream out = new ObjectOutputStream(
-                new FileOutputStream("property.txt"));
-        out.writeObject(p1);
-        out.writeObject(p2);
-        out.writeObject(p3);
+      ObjectOutputStream out = new ObjectOutputStream(
+              new FileOutputStream("property.txt"));
+      out.writeObject(p1);
+      out.writeObject(p2);
+      out.writeObject(p3);
+      out.writeObject(p4);
+      out.writeObject(p5);
+      out.writeObject(p6);
+      out.writeObject(p7);
+      out.writeObject(p8);
+      out.writeObject(p9);
+      out.writeObject(p10);
+      out.writeObject(p11);
+      out.writeObject(p12);
+      out.writeObject(p13);
+      out.writeObject(p14);
+      out.writeObject(p15);
+      out.writeObject(p16);
 
     }
     public void saveAccounts() throws IOException{
@@ -160,7 +260,14 @@ public class Application {
         for (int i = 0 ; i < acc.size(); i++){
             out.writeObject(acc.get(i));
         }
-            
+        
+          ObjectOutputStream out2 = new ObjectOutputStream(
+                new FileOutputStream("numberofaccounts.txt"));
+        
+        int numberofaccounts=this.getaccounts().size();
+ 
+            out2.writeObject(numberofaccounts);
+        
         
     }
 
@@ -171,7 +278,12 @@ public class Application {
         Seller propertyowner = (Seller) findowner(propname);
         System.out.println("you contacted "+propertyowner.getusername());
 InterestedCustomers interestedcust=propertyowner.getInterestedCustomers();
+interestedcust.listeners=interestedcustomers.listeners;
 interestedcust.addCustomer(loggedincustomer);
+
+ 
+   
+
    }
 
 

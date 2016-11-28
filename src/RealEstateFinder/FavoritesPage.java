@@ -17,18 +17,19 @@ import javax.swing.*;
  * @author User
  */
 public class FavoritesPage extends JFrame {
+    private static final long serialVersionUID = 38L;
       Favorites favorites;
     JPanel panel = new JPanel();
     Application application;
     AvailableProperties availableproperties;
-
-    FavoritesPage(Favorites fav, AvailableProperties avproperties, Application app) {
-        CustomerNavigationBar bar = new CustomerNavigationBar();
+InterestedCustomers interestedcustomers;
+    FavoritesPage(Favorites fav, AvailableProperties avproperties, Application app,InterestedCustomers interestedcust) {
+        CustomerNavigationBar bar = new CustomerNavigationBar(app);
         availableproperties = avproperties;
         application = app;
         favorites = fav;
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
-
+interestedcustomers=interestedcust;
         Iterator<Property> iter = favorites.getProperties();
 
 
@@ -50,10 +51,10 @@ public class FavoritesPage extends JFrame {
             String x = property.getName();
             String y = property.getPicture();
             String z = property.getText();
-            PropertyPanel p = new PropertyPanel(x, y, z, app, favorites, favorites.listeners.get(1).propertydescriptionpage, avproperties);
+            PropertyPanel p = new PropertyPanel(x, y, z, app, favorites, favorites.listeners.get(1).propertydescriptionpage, avproperties,interestedcustomers);
          //   PropertyDescriptionPageStrategyProvider strategyprovider= new PropertyDescriptionPageStrategyProvider(property.getName(),propertydescriptionpage,favorites,app,avproperties);
           //  FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(propertydescriptionpage ,strategyprovider);
-         
+           panel.add(p);
         }
         this.add(bar, BorderLayout.NORTH);
         this.add(panel);
@@ -91,7 +92,7 @@ for (int i=1;i<favorites.listeners.size();i++)
             {
                 page=favorites.listeners.get(i).propertydescriptionpage;
             }
-}        PropertyPanel p = new PropertyPanel(x, y, z, application, favorites, page, availableproperties);
+}        PropertyPanel p = new PropertyPanel(x, y, z, application, favorites, page, availableproperties, interestedcustomers);
             PropertyDescriptionPageStrategyProvider strategyprovider = new PropertyDescriptionPageStrategyProvider(property.getName(), page, favorites, application, availableproperties);
             FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(page, strategyprovider,property.getName());
 

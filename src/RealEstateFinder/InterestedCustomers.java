@@ -5,6 +5,7 @@
  */
 package RealEstateFinder;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -12,13 +13,18 @@ import java.util.Iterator;
  *
  * @author Aaron
  */
-public class InterestedCustomers {
+public class InterestedCustomers implements Serializable{
+      
+       private ArrayList<Customer> customers;
+       public ArrayList<InterestedCustomersStateChangeListener> listeners;
+    private static final long serialVersionUID = 4L;
         public InterestedCustomers() {
             this.customers = new ArrayList<Customer>();
+            listeners=new ArrayList<InterestedCustomersStateChangeListener>();
     }
-    private ArrayList<Customer> customers;
-       public ArrayList<InterestedCustomersStateChangeListener> listeners;
-    
+ 
+     
+ 
     public Iterator<Customer> getCustomers()
     {
        return new
@@ -51,21 +57,23 @@ public class InterestedCustomers {
 
 
 
-/*
 
-listeners.get(0).stateChanged(event);
 
-for (int i=1;i<listeners.size();i++)
+System.out.println("INSIDE INTERESTED CUST HASH IS"+this.hashCode());
+        
+
+for (int i=0;i<listeners.size();i++)
 {
     if(listeners.get(i).property.equals(customer.returnlatestpropertyinterestedin()))
             {
+                System.out.println("number was called"+i);
                 listeners.get(i).stateChanged(event);
             }
 }
         
         
         
-     */   
+       
         
         
         
@@ -88,6 +96,7 @@ for (int i=1;i<listeners.size();i++)
      public void addListener( InterestedCustomersStateChangeListener listener)
     {
         listeners.add(listener);
+        System.out.println("THE SIZE IS "+listeners.size());
     }
     public ArrayList<Customer> getInterestedCustomers(){
         return customers;

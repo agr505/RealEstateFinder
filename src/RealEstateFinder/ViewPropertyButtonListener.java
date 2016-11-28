@@ -25,22 +25,40 @@ public class ViewPropertyButtonListener implements ActionListener {
     public PropertyDescriptionPageStrategyProvider strategyprovider;
     
 
-    ViewPropertyButtonListener(String pname, PropertyDescriptionPage propertydescriptionp, Favorites fav, Application app, AvailableProperties availableprops) {
+    ViewPropertyButtonListener(String pname, PropertyDescriptionPage propertydescriptionp, Favorites fav, Application app, AvailableProperties availableprops,InterestedCustomers interestedcustomers) {
         this.propertyname = pname;
         propertydescriptionpage = propertydescriptionp;
         favorites = fav;
         application = app;
         availableProperties = availableprops;
         strategyprovider=new  PropertyDescriptionPageStrategyProvider(propertyname,propertydescriptionpage,favorites ,application, availableProperties);
-        System.out.println("in view button listener"+propertydescriptionpage.hashCode());
-        favorites.addListener(new FavoritesStateChangeListener(propertydescriptionpage,strategyprovider,propertyname));
-       //interestedcustomers.addListener(new InterestedCustomersStateChangeListener(propertydescriptionpage,strategyprovider,propertyname));
-    }
+        
 
+    favorites.addListener(new FavoritesStateChangeListener(propertydescriptionpage, strategyprovider, pname));
+
+            interestedcustomers.addListener(new InterestedCustomersStateChangeListener(propertydescriptionpage,strategyprovider,pname,application));
+
+
+}
+  ViewPropertyButtonListener(String pname, PropertyDescriptionPage propertydescriptionp, Favorites fav, Application app, AvailableProperties availableprops) {
+
+    
+        this.propertyname = pname;
+        propertydescriptionpage = propertydescriptionp;
+        favorites = fav;
+        application = app;
+        availableProperties = availableprops;
+        strategyprovider=new  PropertyDescriptionPageStrategyProvider(propertyname,propertydescriptionpage,favorites ,application, availableProperties);
+
+    favorites.addListener(new FavoritesStateChangeListener(propertydescriptionpage, strategyprovider, pname));
+
+         // interestedcustomers.addListener(new InterestedCustomersStateChangeListener(propertydescriptionpage,strategyprovider,pname,application));
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
 
         if (e.getActionCommand().equals("View Property Description")) {
+            System.out.println("PRESSED");
 strategyprovider.createview();
          
     }

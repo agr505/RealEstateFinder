@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author Aaron
  */
 public class Property implements  Cloneable, Serializable {
-
+private static final long serialVersionUID = 15;
     public Property(String name, String picture, String text) {
         this.name = name;
         this.picture = picture;

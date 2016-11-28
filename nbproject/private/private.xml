@@ -20,6 +20,8 @@
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/LoginSignupPage.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/Seller.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/PropertyDescriptionPageStrategyProvider.java</file>
+            <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/InterestedCustomersStateEvent.java</file>
+            <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/InterestedCustomersStateChangeListener.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/SignupButtonListener.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/FavoritesStateChangeListener.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/PropertyDescriptionPageStrategy.java</file>
@@ -28,8 +30,10 @@
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/SignUpPage.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/Property.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/SellerPropertyListingsPage.java</file>
+            <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/InterestedCustomersPage.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/RealEstateFinder.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/PropertyContainer.java</file>
+            <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/LogOutButtonListener.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/CustomerNavigationBar.java</file>
             <file>file:/C:/Users/Aaron/Documents/NetBeansProjects/RealEstateFinder/src/RealEstateFinder/FavoritesStateEvent.java</file>
         </group>

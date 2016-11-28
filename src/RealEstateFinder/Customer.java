@@ -5,13 +5,15 @@
  */
 package RealEstateFinder;
 
+import java.io.Serializable;
+
 
 /**
  *
  * @author Aaron
  */
-public class Customer extends Account {
-
+public class Customer extends Account implements Serializable{
+private static final long serialVersionUID = 1L;
     private String latestpropertyinterestedin;
     private Favorites favorites;
 
@@ -22,6 +24,10 @@ public class Customer extends Account {
         System.out.println("Customer account created");
         
         
+    }
+    public Favorites getFavorites()
+    {
+        return favorites;
     }
 public String returnlatestpropertyinterestedin()
 {

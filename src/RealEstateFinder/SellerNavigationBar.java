@@ -7,6 +7,7 @@ package RealEstateFinder;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 /**
  *
@@ -18,20 +19,20 @@ public class SellerNavigationBar extends JMenuBar{
         
         JMenuBar bar =new  JMenuBar();
         
-        JMenu home, logout, interestedCustomers;
-        
+        //JMenu home, interestedCustomers;
+        JMenuItem home, interestedCustomers,logout;
         home = new JMenu("Home");
         this.add(home);
-        home.addSeparator();
+      //  home.addSeparator();
         
         interestedCustomers = new JMenu("Interested Customers");
         this.add(interestedCustomers);
-        interestedCustomers.addSeparator();
+       // interestedCustomers.addSeparator();
         
-        logout =new  JMenu("Log Out");
+        logout =new  JMenuItem("Log Out");
         logout.addActionListener(new LogOutButtonListener(application));
         this.add(logout);
-        logout.addSeparator();
+        //logout.addSeparator();
         
         
     }

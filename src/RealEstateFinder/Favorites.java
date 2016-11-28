@@ -5,35 +5,51 @@
  */
 package RealEstateFinder;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
+import javax.swing.JPanel;
 import javax.swing.event.ChangeListener;
 
 /**
  *
  * @author Aaron
  */
-public class Favorites extends PropertyContainer {
+public class Favorites extends PropertyContainer implements Serializable {
+private static final long serialVersionUID = 3L;
 
+AvailableProperties availableproperties;
+Application application;
+InterestedCustomers interestedcustomers;
      public ArrayList<FavoritesStateChangeListener> listeners;
-
-    Favorites(AvailableProperties avproperties, Application app) {
+//public ArrayList <PropertyPanel> panellist;
+    Favorites(AvailableProperties avproperties, Application app,InterestedCustomers interestedcust) {
 
         super();
       listeners=new  ArrayList<FavoritesStateChangeListener>();
           avproperties.assignFavorites(this);
-         FavoritesPage fp = new FavoritesPage(this, avproperties,app);
+         availableproperties=avproperties;
+           application=app;
+           interestedcustomers=interestedcust;
+        // panellist=null;
+  
+    }/*
+  public void getpanels(ArrayList <PropertyPanel> arrlist)
+  {
+      panellist=arrlist;
+  }*/
+    public void initializeFavoritesPage()
+    {
+        FavoritesPage fp = new FavoritesPage(this, availableproperties,application,interestedcustomers);
        
           listeners.add(new FavoritesStateChangeListener(fp)); 
-           
-           
         
-  
     }
 
     public void addListener( FavoritesStateChangeListener listener)
     {
         listeners.add(listener);
+ 
     }
     public boolean containsproperty(String propertyname) {
         Iterator<Property> iter = getProperties();
@@ -45,7 +61,10 @@ public class Favorites extends PropertyContainer {
         }
         return false;
     }
-
+/**
+ * Method that will invoke the superclass PropertyContainer's addProperty(property) method and then throw a FavoritesStateEvent   
+ * @param property Property to be added
+ */
     public void add(Property property) {
        
         addProperty(property);
@@ -57,9 +76,10 @@ public class Favorites extends PropertyContainer {
 
 
 listeners.get(0).stateChanged(event);
-
-for (int i=1;i<listeners.size();i++)
+System.out.println("SIZE="+listeners.size());
+for (int i=1;i<4;i++)
 {
+    
     if(listeners.get(i).property.equals(property.getName()))
             {
                 listeners.get(i).stateChanged(event);

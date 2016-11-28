@@ -5,6 +5,7 @@
  */
 package RealEstateFinder;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,8 +16,8 @@ import java.util.List;
 
 
 //********************** has two constructors
-public class Seller extends Account{
-
+public class Seller extends Account implements Serializable{
+private static final long serialVersionUID = 10L;
     private InterestedCustomers interestedcustomers;
       private ArrayList<String> ownedproperties = new ArrayList<>();
       
