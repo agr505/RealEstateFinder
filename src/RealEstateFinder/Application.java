@@ -61,7 +61,7 @@ customerpropertiespage=null;
         // createProperties();
         //}catch(IOException e){  
         //}
-        InterestedCustomersPage icp = new InterestedCustomersPage(interestedcustomers,this);
+        
     }
     
    
@@ -178,6 +178,7 @@ int numofacc=(int)in2.readObject();
                          loggedinaccount = accountslist.get(i);
                      loginsignuppage.leavepage();
                      seller = new SellerPropertyListingsPage(this, availableproperties);
+                     InterestedCustomersPage icp = new InterestedCustomersPage(interestedcustomers,this);
                     
                     }
                     else {
