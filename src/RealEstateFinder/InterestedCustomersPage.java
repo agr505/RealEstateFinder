@@ -37,6 +37,7 @@ public class InterestedCustomersPage extends JFrame{
          
           Customer  c = (Customer)iter.next();
             String x =c.getusername();
+            System.out.println("tttttttttttttttttttttttt" + x);
             String y =c.returnphonenumber();
             String z = c.returnlatestpropertyinterestedin();
             SellerPanel p = new SellerPanel(x,y,z);
@@ -74,8 +75,7 @@ class SellerPanel extends JPanel {
         this.add(userName, BorderLayout.NORTH);
         this.add(phoneNum, BorderLayout.WEST);
         this.add(latestProp, BorderLayout.CENTER);
-        //validate();
-
+        
         
         this.setBackground(Color.white);
         this.setPreferredSize(new Dimension(250, 150));
