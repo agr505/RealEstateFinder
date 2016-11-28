@@ -7,6 +7,7 @@ package RealEstateFinder;
 
 import java.awt.BorderLayout;
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.*;
 
 /**
@@ -23,20 +24,26 @@ public class InterestedCustomersPage extends JFrame{
         SellerNavigationBar bar = new SellerNavigationBar(app);
         interestedcustomers = ic;
         interestedCustomersList = interestedcustomers.getInterestedCustomers();
+        Iterator iter=interestedCustomersList.iterator();
         
         if (interestedcustomers.getInterestedCustomers()!= null){
             System.out.println("getting the interested customers");
+            
+              while (iter.hasNext()) {
+         
+          Customer  c = (Customer)iter.next();
+            String x =c.getusername();
+            String y =c.returnphonenumber();
+            String z = c.returnlatestpropertyinterestedin();
+           
+            // PropertyPanel panel = new PropertyPanel();
+           // panel.add(p);
         }
-        String line = "\n";
         
-        JPanel panel = new JPanel();
-        JTextArea tf = new JTextArea(5, 20);
-        
+
+      //  this.add(panel);
         
         
-        
-        panel.add(tf);
-        this.add(panel);
         this.add(bar, BorderLayout.NORTH);
         this.setTitle("Interested Customers Page");
         //this.pack();
@@ -45,4 +52,4 @@ public class InterestedCustomersPage extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
-}
+}}
