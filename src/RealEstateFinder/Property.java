@@ -18,15 +18,24 @@ private static final long serialVersionUID = 15;
         this.picture = picture;
         this.text = text;
     }
-
+    /**
+     * accessor for name
+     * @return string holding the value of name of property
+     */
     public String getName() {
         return name;
     }
-
+    /**
+     * accessor for picture
+     * @return string holding the location of the picture
+     */
     public String getPicture() {
         return picture;
     }
-
+    /**
+     * accessor for text description
+     * @return string holding the value of the property description 
+     */
     public String getText() {
         return text;
     }

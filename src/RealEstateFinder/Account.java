@@ -21,10 +21,18 @@ public class Account implements Serializable{
               password=pass;
               
           }
+    /**
+     * accessor for Accounts username
+     * @return string holding the value of accounts username
+     */
     public String getusername()
     {
         return username;
     }
+    /**
+     * accessor for Accounts password
+     * @return string holding the value of accounts password
+     */
      public String getpassword()
     {
         return password;
