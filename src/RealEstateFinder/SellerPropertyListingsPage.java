@@ -16,78 +16,76 @@ import javax.swing.*;
  *
  * @author User
  */
-public class SellerPropertyListingsPage extends JFrame{
-   
-    
+public class SellerPropertyListingsPage extends JFrame {
+
     Application application;
     AvailableProperties avprop;
-    
-    SellerPropertyListingsPage(Application app, AvailableProperties ap){
-        
- SellerNavigationBar bar = new SellerNavigationBar(app);
+
+    SellerPropertyListingsPage(Application app, AvailableProperties ap) {
+        application = app;
+        avprop = ap;
+
+        SellerNavigationBar bar = new SellerNavigationBar(app);
         this.setLayout(new FlowLayout());
         JLabel x = new JLabel("FF");
         JLabel xx = new JLabel("FfF");
         System.out.println("L");
         System.out.println("before In the sellerpage ");
-        application = app;
-        avprop = ap;
+
         avprop.matchownedProperties(this);
 
-        
-        
-
-       // for(int i = 0; i <sellerOwnedProperties.getOwnedproperties().size(); i++){
-            System.out.println("In the sellerpage ");
-       // }
+        // for(int i = 0; i <sellerOwnedProperties.getOwnedproperties().size(); i++){
+        System.out.println("In the sellerpage ");
+        // }
         //FlowLayout fl = new FlowLayout(FlowLayout.LEFT, 20, 10);
-        
-       // this.setLayout(new FlowLayout());
-       this.add(x);
-       this.add(xx);
-       this.add(bar, BorderLayout.NORTH);
+
+        // this.setLayout(new FlowLayout());
+        this.add(x);
+        this.add(xx);
+        this.add(bar, BorderLayout.NORTH);
         this.setTitle("Seller Property Page");
         this.pack();
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    public void UpdateView(PropertyContainer properties){
+
+    public void UpdateView(PropertyContainer properties) {
         PropertyContainer pc = properties;
-        
+
         Iterator<Property> iter = pc.getProperties();
-        
-         System.out.println("In the sellerpage updateview ");
-         
-         while (iter.hasNext()){
-             JPanel panel = new JPanel();
-             panel.setLayout(new BorderLayout());
-             Property p = iter.next();
-             
-             String name = p.getName();
-             String pic = p.getPicture();
-             String text = p.getText();
-             
-             JLabel name1 = new JLabel(name);
-             panel.add(name1, BorderLayout.NORTH);
-             
-             JLabel name2 = new JLabel(text);
-             panel.add(name2);
-             
-             
-             panel.setBackground(Color.red);
-             panel.setPreferredSize(new Dimension(100,100));
-             validate();
-             this.add(panel);
-         }
-         System.out.println("While loop ended");
-         
+
+        System.out.println("In the sellerpage updateview ");
+
+        while (iter.hasNext()) {
+            JPanel panel = new JPanel();
+            panel.setLayout(new BorderLayout());
+            Property p = iter.next();
+
+            String name = p.getName();
+            String pic = p.getPicture();
+            String text = p.getText();
+
+            JLabel name1 = new JLabel(name);
+            panel.add(name1, BorderLayout.NORTH);
+
+            JLabel name2 = new JLabel(text);
+            panel.add(name2);
+
+            panel.setBackground(Color.red);
+            panel.setPreferredSize(new Dimension(100, 100));
+            validate();
+            this.add(panel);
+        }
+        System.out.println("While loop ended");
+
     }
 
     public void leavepage() {
         this.setVisible(false);
     }
-     public void routetopage() {
+
+    public void routetopage() {
         this.setVisible(true);
-    
+
     }
-    }
+}

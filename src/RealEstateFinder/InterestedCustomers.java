@@ -92,6 +92,9 @@ for (int i=0;i<listeners.size();i++)
         }
         return false;
     }
+    public int sizeget(){
+        return customers.size();
+    }
 
      public void addListener( InterestedCustomersStateChangeListener listener)
     {
