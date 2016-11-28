@@ -50,7 +50,10 @@ public class SignUpPage extends JFrame {
     JPanel panel = new JPanel();
     //JButton movebutton;
 
-    String[] myStrings = {"First Property", "Second Property", "Third Property", "Fourth Property", "Fifth Property"};
+    String[] myStrings = {"First Property", "Second Property", "Third Property", "Fourth Property",
+                           "Fifth Property", "Sixth Property", "Seventh Property", "Eighth Property",
+                         "Ninthth Property", "Tenth Property", "Eleventh Property", "Twelfth Property",
+                    "Thirteenth Property", "Fourteenth Property", "Fifteenth Property", "Sixteenth Property"};
     
     JList leftlist;
    // JList rightlist;

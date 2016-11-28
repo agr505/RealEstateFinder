@@ -37,7 +37,7 @@ JPanel abovepanel;
         this.setTitle("Property Description Page");
         this.add(currentpanel, BorderLayout.SOUTH);
         //this.pack();
-        this.setSize(250, 400);
+        this.setSize(350, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
