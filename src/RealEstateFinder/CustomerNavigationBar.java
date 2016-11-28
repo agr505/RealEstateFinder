@@ -30,7 +30,7 @@ public class CustomerNavigationBar extends JMenuBar{
        // favorites.addSeparator();
         
         logout =new  JMenu("Log Out");
-         logout.addActionListener(new LogOutButtonListener(application));
+         logout.addActionListener(new LogOutButtonListener(application));        
         this.add(logout);
       //  logout.addSeparator();
         

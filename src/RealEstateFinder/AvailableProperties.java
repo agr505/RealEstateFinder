@@ -70,13 +70,16 @@ public void assignFavorites(Favorites fav)
 
         PropertyContainer matchedproperties = new PropertyContainer();
 
-        for (int i = 0; i < ownedproperties.size(); i++) {
+      
             while (iter.hasNext()) {
-                if (iter.next().getName().equals(ownedproperties.get(i))) {
-                    Property prop = iter.next();
+                Property prop = iter.next();
+                  for (int i = 0; i < ownedproperties.size(); i++) {
+                
+                if (prop.getName().equals(ownedproperties.get(i))) {
+                  
                     matchedproperties.addProperty(prop);
-                       System.out.println("iterator "+ prop.getName());
-                    pg.UpdateView(matchedproperties);
+                       System.out.println("MY PROPERTY IS "+ prop.getName());
+                 //   pg.UpdateView(matchedproperties);
                    // return matchedproperties;
                 }
             }
