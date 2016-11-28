@@ -36,7 +36,7 @@ public void assignFavorites(Favorites fav)
         ObjectInputStream in = new ObjectInputStream(
                 new FileInputStream("property.txt"));
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 16; i++) {
             Property p = (Property) in.readObject();
             System.out.println(p.getName());
             addProperty(p);
