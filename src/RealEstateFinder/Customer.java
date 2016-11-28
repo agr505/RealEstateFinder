@@ -16,13 +16,13 @@ public class Customer extends Account implements Serializable{
 private static final long serialVersionUID = 1L;
     private String latestpropertyinterestedin;
     private Favorites favorites;
-
-    Customer(String username, String password, Favorites fav) throws ClassNotFoundException {
+private String phonenumber;
+    Customer(String username, String password, Favorites fav,String phonenum) throws ClassNotFoundException {
         super(username, password);
         favorites = fav;
         latestpropertyinterestedin = null;
         System.out.println("Customer account created");
-        
+        phonenumber=phonenum;
         
     }
     public Favorites getFavorites()
@@ -37,4 +37,8 @@ public String returnlatestpropertyinterestedin()
         latestpropertyinterestedin = latestproperty;
     }
 
+    public String returnphonenumber()
+{
+    return phonenumber;
+}
 }
