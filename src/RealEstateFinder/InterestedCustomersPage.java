@@ -19,9 +19,11 @@ public class InterestedCustomersPage extends JFrame{
     private ArrayList<Customer> interestedCustomersList;
     
     InterestedCustomersPage(InterestedCustomers ic,Application app){
+        
         SellerNavigationBar bar = new SellerNavigationBar(app);
         interestedcustomers = ic;
         interestedCustomersList = interestedcustomers.getInterestedCustomers();
+        
         if (interestedcustomers.getInterestedCustomers()!= null){
             System.out.println("getting the interested customers");
         }
@@ -29,7 +31,6 @@ public class InterestedCustomersPage extends JFrame{
         
         JPanel panel = new JPanel();
         JTextArea tf = new JTextArea(5, 20);
-        
         
         
         
