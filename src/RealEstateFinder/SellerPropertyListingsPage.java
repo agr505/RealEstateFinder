@@ -73,6 +73,15 @@ public class SellerPropertyListingsPage extends JFrame {
             panel.setPreferredSize(new Dimension(100, 100));
             validate();
             this.add(panel);
+            
+            
+        JButton b = new JButton("View Property Description");
+      
+
+        this.add(b, BorderLayout.SOUTH);
+ 
+PropertyDescriptionPage propertydescriptionpage=new PropertyDescriptionPage(p.getName(), p.getPicture(), p.getText());
+        b.addActionListener(new ViewPropertyButtonListener(p.getName(), propertydescriptionpage,application,avprop));
         }
         System.out.println("While loop ended");
 

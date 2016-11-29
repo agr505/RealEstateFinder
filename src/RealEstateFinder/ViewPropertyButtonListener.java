@@ -40,19 +40,18 @@ public class ViewPropertyButtonListener implements ActionListener {
 
 
 }
-  ViewPropertyButtonListener(String pname, PropertyDescriptionPage propertydescriptionp, Favorites fav, Application app, AvailableProperties availableprops) {
+  ViewPropertyButtonListener(String pname, PropertyDescriptionPage propertydescriptionp, Application app, AvailableProperties availableprops) {
 
     
         this.propertyname = pname;
         propertydescriptionpage = propertydescriptionp;
-        favorites = fav;
         application = app;
         availableProperties = availableprops;
         strategyprovider=new  PropertyDescriptionPageStrategyProvider(propertyname,propertydescriptionpage,favorites ,application, availableProperties);
+        
+       availableprops.addListener(new AvailablePropertiesStateChangeListener(propertydescriptionpage,strategyprovider,propertyname,application)); 
 
-    favorites.addListener(new FavoritesStateChangeListener(propertydescriptionpage, strategyprovider, pname));
 
-         // interestedcustomers.addListener(new InterestedCustomersStateChangeListener(propertydescriptionpage,strategyprovider,pname,application));
     }
     @Override
     public void actionPerformed(ActionEvent e) {

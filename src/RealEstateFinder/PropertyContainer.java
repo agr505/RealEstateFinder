@@ -40,7 +40,7 @@ private static final long serialVersionUID = 12L;
             }
             public void remove()
              {
-               throw new UnsupportedOperationException();
+               properties.remove(current);
         }
  
             

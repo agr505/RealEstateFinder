@@ -15,6 +15,7 @@ import javax.swing.*;
 public class PropertyDescriptionPage extends JFrame {
 JPanel currentpanel;
 JPanel abovepanel;
+ JLabel  Ptext;
 
     PropertyDescriptionPage(String name, String pic, String text) {
     JPanel currentpanel=new JPanel();
@@ -22,7 +23,7 @@ JPanel abovepanel;
     
     JLabel Pname;
     JLabel Ppic = new JLabel();
-    JLabel Ptext;
+   
     
     Pname = new JLabel(name);
     Ptext = new JLabel(text);
@@ -38,7 +39,7 @@ JPanel abovepanel;
         this.add(currentpanel, BorderLayout.SOUTH);
         //this.pack();
         this.setSize(350, 400);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      //  this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 

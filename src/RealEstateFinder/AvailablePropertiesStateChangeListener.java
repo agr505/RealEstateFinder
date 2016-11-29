@@ -5,11 +5,14 @@
  */
 package RealEstateFinder;
 
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
 /**
  *
  * @author Aaron
  */
-public class AvailablePropertiesStateChangeListener {
+public class AvailablePropertiesStateChangeListener implements ChangeListener{
     
       public PropertyDescriptionPage propertydescriptionpage;
     public PropertyDescriptionPageStrategyProvider strategyprovider;
@@ -21,6 +24,14 @@ public class AvailablePropertiesStateChangeListener {
         property=prop;
         application=app;
        strategyprovider= stratprovider;
+    }
+
+    @Override
+    public void stateChanged(ChangeEvent e) {
+        AvailablePropertiesStateEvent event= (AvailablePropertiesStateEvent)e;
+       propertydescriptionpage.Ptext.setText(event.text);
+       System.out.println("HELLLLLOOOOO"+propertydescriptionpage.Ptext+" "+event.text);
+          strategyprovider.createview();
     }
     
 }

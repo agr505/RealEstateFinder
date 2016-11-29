@@ -5,9 +5,11 @@
  */
 package RealEstateFinder;
 
+import java.awt.BorderLayout;
 import java.io.Serializable;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -28,7 +30,13 @@ private static final long serialVersionUID = 6L;
         application = app;
         availableProperties = availableprops;
     }
-
+    PropertyDescriptionPageStrategyProvider(String pname, PropertyDescriptionPage propertydescriptionp, Application app) {
+        this.propertyname = pname;
+        propertydescriptionpage = propertydescriptionp;
+        favorites = null;
+        application = app;
+        availableProperties = null;
+    }
     public void createview() {
 
         System.out.println("You selected " + propertyname);
@@ -68,9 +76,15 @@ private static final long serialVersionUID = 6L;
                 public JPanel buildview(JPanel jpanel) {
                     //always attach update button
                     JButton updateProperty = new JButton("Update Property");
-                    jpanel.add(updateProperty);
+                       JTextField tf = new JTextField(50);
+                    UpdateButtonListener listener=new UpdateButtonListener(availableProperties,tf,propertyname);
+                    updateProperty.addActionListener(listener);
+                    jpanel.add(tf, BorderLayout.NORTH);
+                    jpanel.add(updateProperty, BorderLayout.SOUTH);
+                    
+     
                     return jpanel;
-                }
+                } //textfield added as well with Avpropstatechange listener getting reference to this tex
             ;
 
             };
@@ -180,8 +194,10 @@ private static final long serialVersionUID = 6L;
                 public JPanel buildview(JPanel jpanel) {
                     //always attach update button
                     JButton updateProperty = new JButton("Update Property");
+                 
                     jpanel.add(updateProperty);
                     return jpanel;
+                   
                 }
             ;
 

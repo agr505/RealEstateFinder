@@ -5,10 +5,20 @@
  */
 package RealEstateFinder;
 
+import javax.swing.event.ChangeEvent;
+
 /**
  *
  * @author Aaron
  */
-public class AvailablePropertiesStateEvent {
+public class AvailablePropertiesStateEvent extends ChangeEvent{
+    public String text;
+    public AvailablePropertiesStateEvent(AvailableProperties source,String t) {
+        super(source);
+        text=t;
+    }
     
+     public AvailableProperties getSource() {
+        return (AvailableProperties) super.source;
+    }
 }

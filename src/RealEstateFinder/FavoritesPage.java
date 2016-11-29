@@ -137,7 +137,7 @@ for (int i=1;i<favorites.listeners.size();i++)
 
       
 
-        b.addActionListener(new ViewPropertyButtonListener(x,propertydescriptionpage, fav, app, availableProps));
+      //  b.addActionListener(new ViewPropertyButtonListener(x,propertydescriptionpage, fav, app, availableProps));
 
 
         }

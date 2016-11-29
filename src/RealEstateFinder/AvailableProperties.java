@@ -20,12 +20,18 @@ public class AvailableProperties extends PropertyContainer {
 
     private Application application;
     private Favorites favorites;
-
+ private ArrayList<AvailablePropertiesStateChangeListener> listeners;
     public AvailableProperties(Application app) throws ClassNotFoundException, IOException {
         super();
+         listeners=new ArrayList<AvailablePropertiesStateChangeListener>();
         application = app;
         favorites = null;
         loadProperties();
+    }
+      public void addListener( AvailablePropertiesStateChangeListener listener)
+    {
+        listeners.add(listener);
+        System.out.println("THE SIZE IS "+listeners.size());
     }
 public void assignFavorites(Favorites fav)
 {
@@ -102,5 +108,35 @@ public void assignFavorites(Favorites fav)
             }
 
         }
+    }
+    public void updateProperty(String text,String propertyname)
+    { int r=0;
+    Boolean done=false;
+        Iterator<Property> iter = getProperties();
+        while (iter.hasNext()&&done==false) {
+                Property prop = iter.next();
+                 
+                if (prop.getName().equals(propertyname)) {
+                  System.out.println("NUMBER"+r);
+                  r++;
+                  Property p=new Property(prop.getName(),prop.getPicture(),text);
+                  done=true;
+                          iter.remove();
+                   addProperty(p);
+                   System.out.println("UPDATEDDDDDDDDDD");
+                }
+            
+        }
+        
+        AvailablePropertiesStateEvent event=new AvailablePropertiesStateEvent(this,text);
+      for (int i=0;i<listeners.size();i++)
+{
+    if(listeners.get(i).property.equals(propertyname))
+            {
+                listeners.get(i).stateChanged(event);
+            }
+}
+        
+        
     }
 }
