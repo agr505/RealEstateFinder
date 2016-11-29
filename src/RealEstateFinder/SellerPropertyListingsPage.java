@@ -26,10 +26,9 @@ public class SellerPropertyListingsPage extends JFrame {
         avprop = ap;
 
         SellerNavigationBar bar = new SellerNavigationBar(app);
-        this.setLayout(new FlowLayout());
-        JLabel x = new JLabel("FF");
-        JLabel xx = new JLabel("FfF");
-        System.out.println("L");
+        //this.setLayout(n);
+        
+     
         System.out.println("before In the sellerpage ");
 
         avprop.matchownedProperties(this);
@@ -40,8 +39,7 @@ public class SellerPropertyListingsPage extends JFrame {
         //FlowLayout fl = new FlowLayout(FlowLayout.LEFT, 20, 10);
 
         // this.setLayout(new FlowLayout());
-        this.add(x);
-        this.add(xx);
+        
         this.add(bar, BorderLayout.NORTH);
         this.setTitle("Seller Property Page");
         this.pack();

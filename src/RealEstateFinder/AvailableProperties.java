@@ -84,7 +84,8 @@ public void assignFavorites(Favorites fav)
                 }
             }
         }
-        //return null;
+               pg.UpdateView(matchedproperties);
+        //return matchedproperties;
     }
 
     public void addtoFav(String propertyname){
