@@ -15,7 +15,7 @@ import javax.swing.JMenuItem;
  */
 public class SellerNavigationBar extends JMenuBar{
     
-    SellerNavigationBar(Application application){
+    SellerNavigationBar(Application application,InterestedCustomersPage icp,SellerPropertyListingsPage slp){
         
         JMenuBar bar =new  JMenuBar();
         
@@ -26,6 +26,7 @@ public class SellerNavigationBar extends JMenuBar{
       //  home.addSeparator();
         
         interestedCustomers = new JMenu("Interested Customers");
+        interestedCustomers.addActionListener(new InterestedCustomerNavigationBarButtonListener(icp,slp));
         this.add(interestedCustomers);
        // interestedCustomers.addSeparator();
         

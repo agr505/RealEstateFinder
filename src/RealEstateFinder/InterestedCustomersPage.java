@@ -24,9 +24,9 @@ public class InterestedCustomersPage extends JFrame{
     JPanel panel = new JPanel();
     
     JScrollPane Sb = new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-    InterestedCustomersPage(InterestedCustomers ic,Application app){
+    InterestedCustomersPage(InterestedCustomers ic,Application app,SellerPropertyListingsPage slp){
         
-        SellerNavigationBar bar = new SellerNavigationBar(app);
+        SellerNavigationBar bar = new SellerNavigationBar(app,this,slp);
         interestedcustomers = ic;
         interestedCustomersList = interestedcustomers.getInterestedCustomers();
         Iterator iter=interestedCustomersList.iterator();
@@ -64,7 +64,15 @@ public class InterestedCustomersPage extends JFrame{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
-}}
+}
+ public void routetopage() {
+        this.setVisible(true);
+    }
+
+    public void leavepage() {
+        this.setVisible(false);
+    }
+}
 
 class SellerPanel extends JPanel {
 
