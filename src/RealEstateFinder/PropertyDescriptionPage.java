@@ -20,7 +20,7 @@ JPanel abovepanel;
     PropertyDescriptionPage(String name, String pic, String text) {
     JPanel currentpanel=new JPanel();
     JPanel imagePanel = new JPanel();
-    
+    imagePanel.setLayout(new BorderLayout());
     JLabel Pname;
     JLabel Ppic = new JLabel();
    
@@ -29,6 +29,7 @@ JPanel abovepanel;
     Ptext = new JLabel(text);
     Ppic.setIcon(new ImageIcon(pic));
     
+    imagePanel.add(Pname, BorderLayout.NORTH);
     imagePanel.add(Ppic, BorderLayout.CENTER);
     imagePanel.add(Ptext,BorderLayout.SOUTH);
         

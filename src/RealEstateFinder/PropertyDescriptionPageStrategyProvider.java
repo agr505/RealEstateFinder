@@ -76,7 +76,7 @@ private static final long serialVersionUID = 6L;
                 public JPanel buildview(JPanel jpanel) {
                     //always attach update button
                     JButton updateProperty = new JButton("Update Property");
-                       JTextField tf = new JTextField(50);
+                       JTextField tf = new JTextField(10);
                     UpdateButtonListener listener=new UpdateButtonListener(availableProperties,tf,propertyname);
                     updateProperty.addActionListener(listener);
                     jpanel.add(tf, BorderLayout.NORTH);
