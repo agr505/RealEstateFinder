@@ -11,21 +11,21 @@ import javax.swing.JFrame;
  *
  * @author Aaron
  */
-public class UpdatePropertyPage extends JFrame{
-        String updatedpropertyname;
-        UpdatePropertyPage()
-        {
-            updatedpropertyname=null;
-        }
-        
-   public void routetopage(String propertyname)
-    {
-          updatedpropertyname=propertyname;
-          //call method to update the Property object *********8
+public class UpdatePropertyPage extends JFrame {
+
+    String updatedpropertyname;
+
+    UpdatePropertyPage() {
+        updatedpropertyname = null;
+    }
+
+    public void routetopage(String propertyname) {
+        updatedpropertyname = propertyname;
+        //call method to update the Property object *********8
         this.setVisible(true);
     }
-     public void leavepage()
-    {
+
+    public void leavepage() {
         this.setVisible(false);
     }
 }
