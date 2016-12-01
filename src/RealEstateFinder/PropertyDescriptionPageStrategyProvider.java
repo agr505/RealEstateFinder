@@ -56,7 +56,8 @@ private static final long serialVersionUID = 6L;
 
                     } else if (favorites.containsproperty(propertyname)&& application.hascontactedcustomer(propertyname) == false) {
                         System.out.println("already");
-                        JButton contactSeller = new JButton("Contact Seller");
+                             JButton contactSeller = new JButton("Contact Seller");
+                        contactSeller.addActionListener(new ContactSellerButtonListener(propertyname,application));
                         jpanel.add(contactSeller);
                         return jpanel;//attach contactseller button
 
@@ -76,7 +77,7 @@ private static final long serialVersionUID = 6L;
                 public JPanel buildview(JPanel jpanel) {
                     //always attach update button
                     JButton updateProperty = new JButton("Update Property");
-                       JTextField tf = new JTextField(10);
+                       JTextField tf = new JTextField(50);
                     UpdateButtonListener listener=new UpdateButtonListener(availableProperties,tf,propertyname);
                     updateProperty.addActionListener(listener);
                     jpanel.add(tf, BorderLayout.NORTH);
@@ -118,7 +119,7 @@ private static final long serialVersionUID = 6L;
 
                         return jpanel;//attach addtofavorites button
 
-                    } else if (fav.containsproperty(propertyn)) {//&& application.hascontactedcustomer(propertyname) == false
+                    } else if (fav.containsproperty(propertyn)&& application.hascontactedcustomer(propertyname) == false) {
 
                         JButton contactSeller = new JButton("Contact Seller");
                         contactSeller.addActionListener(new ContactSellerButtonListener(propertyn,application));
@@ -171,8 +172,8 @@ private static final long serialVersionUID = 6L;
 
                         return jpanel;//attach addtofavorites button
 
-                    } else if (favorites.containsproperty(propertyn)) {//&& application.hascontactedcustomer(propertyname) == false
-
+                    } else if (favorites.containsproperty(propertyn)&& application.hascontactedcustomer(propertyname) == false) 
+                    {
                         JButton contactSeller = new JButton("Contact Seller");
                         contactSeller.addActionListener(new ContactSellerButtonListener(propertyn,application));
                         jpanel.add(contactSeller);

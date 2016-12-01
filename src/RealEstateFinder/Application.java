@@ -179,7 +179,8 @@ int numofacc=(int)in2.readObject();
                      loginsignuppage.leavepage();
                      seller = new SellerPropertyListingsPage(this, availableproperties);
                      InterestedCustomersPage icp = new InterestedCustomersPage(interestedcustomers,this,seller);
-                    
+                       SellerNavigationBar bar = new SellerNavigationBar(this,icp,seller);
+                         seller.addbar(bar);
                     }
                     else {
                     System.out.println("Account not found!!!!!!!!");

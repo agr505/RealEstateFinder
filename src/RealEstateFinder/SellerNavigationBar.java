@@ -21,11 +21,12 @@ public class SellerNavigationBar extends JMenuBar{
         
         //JMenu home, interestedCustomers;
         JMenuItem home, interestedCustomers,logout;
-        home = new JMenu("Home");
+        home = new JMenuItem("Home");
+        home.addActionListener(new SellerPropertyListingsPageNavigationBarButtonListener(icp,slp));
         this.add(home);
       //  home.addSeparator();
         
-        interestedCustomers = new JMenu("Interested Customers");
+        interestedCustomers = new JMenuItem("Interested Customers");
         interestedCustomers.addActionListener(new InterestedCustomerNavigationBarButtonListener(icp,slp));
         this.add(interestedCustomers);
        // interestedCustomers.addSeparator();

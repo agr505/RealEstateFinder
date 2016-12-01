@@ -24,7 +24,7 @@ public class FavoritesPage extends JFrame {
     AvailableProperties availableproperties;
 InterestedCustomers interestedcustomers;
     FavoritesPage(Favorites fav, AvailableProperties avproperties, Application app,InterestedCustomers interestedcust) {
-        CustomerNavigationBar bar = new CustomerNavigationBar(app);
+       //!! CustomerNavigationBar bar = new CustomerNavigationBar(app);
         availableproperties = avproperties;
         application = app;
         favorites = fav;
@@ -56,7 +56,7 @@ interestedcustomers=interestedcust;
           //  FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(propertydescriptionpage ,strategyprovider);
            panel.add(p);
         }
-        this.add(bar, BorderLayout.NORTH);
+  //!!      this.add(bar, BorderLayout.NORTH);
         this.add(panel);
         this.setTitle("Favorites Page");
         this.pack();

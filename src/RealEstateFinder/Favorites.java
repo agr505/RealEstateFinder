@@ -77,7 +77,7 @@ InterestedCustomers interestedcustomers;
 
 listeners.get(0).stateChanged(event);
 System.out.println("SIZE="+listeners.size());
-for (int i=1;i<4;i++)
+for (int i=1;i<listeners.size();i++)
 {
     
     if(listeners.get(i).property.equals(property.getName()))

@@ -25,7 +25,7 @@ public class SellerPropertyListingsPage extends JFrame {
         application = app;
         avprop = ap;
 
-        SellerNavigationBar bar = new SellerNavigationBar(app);
+       
         //this.setLayout(n);
 
         System.out.println("before In the sellerpage ");
@@ -38,13 +38,19 @@ public class SellerPropertyListingsPage extends JFrame {
         //FlowLayout fl = new FlowLayout(FlowLayout.LEFT, 20, 10);
 
         // this.setLayout(new FlowLayout());
-        this.add(bar, BorderLayout.NORTH);
+    
         this.setTitle("Seller Property Page");
         this.pack();
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
+public void addbar(SellerNavigationBar bar)
+{
+    this.add(bar, BorderLayout.NORTH);
+}
+{
+    
+}
     public void UpdateView(PropertyContainer properties) {
         PropertyContainer pc = properties;
 

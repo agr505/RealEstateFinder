@@ -60,11 +60,12 @@ public class InterestedCustomersPage extends JFrame{
         this.setTitle("Interested Customers Page");
         this.pack();
         this.setSize(500, 400);
-        this.setVisible(true);
+        this.setVisible(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
 }
+
  public void routetopage() {
         this.setVisible(true);
     }

@@ -31,7 +31,7 @@ JPanel abovepanel;
     
     imagePanel.add(Pname, BorderLayout.NORTH);
     imagePanel.add(Ppic, BorderLayout.CENTER);
-    imagePanel.add(Ptext,BorderLayout.SOUTH);
+   imagePanel.add(Ptext,BorderLayout.SOUTH);
         
         abovepanel=imagePanel;
         this.add(abovepanel, BorderLayout.NORTH);

@@ -15,10 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.*;
 import javax.swing.BoxLayout;
 
-/**
- *
- * @author User
- */
+
 public class CustomerPropertiesPage extends JFrame {
 private static final long serialVersionUID = 14L;
     Favorites favorites;
@@ -35,7 +32,7 @@ JScrollPane Sb = new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, J
         availableproperties = avproperties;
         application = app;
         favorites = fav;
-        CustomerNavigationBar bar = new CustomerNavigationBar(app);
+       // CustomerNavigationBar bar = new CustomerNavigationBar(app);
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
        
         Iterator<Property> iter = availableproperties.getProperties();
@@ -52,7 +49,7 @@ JScrollPane Sb = new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, J
         }
         
 this.add(Sb);
-        this.add(bar, BorderLayout.NORTH);
+        //this.add(bar, BorderLayout.NORTH);
       // this.add(panel);
         this.setTitle("Customer Property Page");
         this.pack();

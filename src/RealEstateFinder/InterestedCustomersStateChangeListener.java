@@ -57,7 +57,7 @@ public class InterestedCustomersStateChangeListener implements ChangeListener,Se
         
            propertydescriptionpage.setVisible(false);
            System.out.println(strategyprovider.hashCode());
-          strategyprovider.createview();
+          strategyprovider.createview(event,  propertydescriptionpage);
       }
     }
 }
