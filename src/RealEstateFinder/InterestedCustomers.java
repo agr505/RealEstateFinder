@@ -49,7 +49,8 @@ public class InterestedCustomers implements Serializable{
     public void addCustomer(Customer customer)
     {
         System.out.println(customer.getusername()+"has contacted seller");
-        customers.add(customer);
+        customer.numofpropertiesinterestedin++;
+        customers.add(customer.clone());
         
         
         InterestedCustomersStateEvent event = new  InterestedCustomersStateEvent(this,customer.returnlatestpropertyinterestedin());
@@ -83,10 +84,23 @@ for (int i=0;i<listeners.size();i++)
     }
     public boolean containsCustomer(Customer customer)
     {
+        Customer c;
+        int i=0;
         Iterator<Customer> iter = getCustomers();
-        while (iter.hasNext()) {
-            if (iter.next().equals(customer)) {
-               return true;
+        while (iter.hasNext()&&i<customer.numofpropertiesinterestedin) {
+            c=iter.next();
+            if (c.getusername().equals(customer.getusername())) {
+               
+                   if(customer.returnlatestpropertyinterestedin().equals(c.returnlatestpropertyinterestedin()))
+                   {
+                       return true;
+                   }
+                   else
+                   {
+                       i++;
+                   }
+               
+              
             }
 
         }
