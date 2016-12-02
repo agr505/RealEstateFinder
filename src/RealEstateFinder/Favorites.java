@@ -38,11 +38,13 @@ InterestedCustomers interestedcustomers;
   {
       panellist=arrlist;
   }*/
-    public void initializeFavoritesPage()
+    public FavoritesPage initializeFavoritesPage()
     {
         FavoritesPage fp = new FavoritesPage(this, availableproperties,application,interestedcustomers);
        
+        
           listeners.add(new FavoritesStateChangeListener(fp)); 
+          return fp;
         
     }
 

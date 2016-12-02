@@ -22,6 +22,7 @@ public class CustomerNavigationBar extends JMenuBar{
         JMenuItem home, logout, favorites;
         
         home = new JMenuItem("Home/Available Properties");
+        home.addActionListener(new CustomerPropertiesPageNavigationBarButtonListener(fp,custpp));
         this.add(home);
        // availablproperties.addSeparator();
         

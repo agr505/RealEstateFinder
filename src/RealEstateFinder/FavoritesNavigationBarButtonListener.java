@@ -27,7 +27,7 @@ CustomerPropertiesPage  customerpropertiespage;
     @Override
     public void actionPerformed(ActionEvent e) {
      customerpropertiespage.leavepage();
-           //  favoritespage.routetopage();
+             favoritespage.routetopage();
     
            
        

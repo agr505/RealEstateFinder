@@ -188,10 +188,15 @@ public class Application implements Serializable {
                     availableproperties.assignFavorites(favorites);
                     loggedinaccount = accountslist.get(i);
                     System.out.println(" Customer Authenticated!!!!!!!!!!");
-                    favorites.initializeFavoritesPage();
+                    FavoritesPage fp=favorites.initializeFavoritesPage();
                     customerpropertiespage = new CustomerPropertiesPage(availableproperties, this, favorites, interestedcustomers);
+                   CustomerNavigationBar bar=new    CustomerNavigationBar(this,customerpropertiespage,fp);
+                      CustomerNavigationBar bar2=new    CustomerNavigationBar(this,customerpropertiespage,fp);
+                   customerpropertiespage.addbar(bar);
+                   fp.addbar(bar2);
                     loginsignuppage.leavepage();
                     customerpropertiespage.routetopage();
+                    
                 }
             } else {
                 System.out.println("Account not found!!!!!!!!");

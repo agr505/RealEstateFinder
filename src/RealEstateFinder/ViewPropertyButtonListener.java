@@ -15,6 +15,10 @@ import javax.swing.JPanel;
  *
  * @author Aaron
  */
+/**
+ * 
+ *
+ */
 public class ViewPropertyButtonListener implements ActionListener {
 
     public String propertyname;

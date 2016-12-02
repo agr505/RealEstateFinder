@@ -60,10 +60,21 @@ interestedcustomers=interestedcust;
         this.add(panel);
         this.setTitle("Favorites Page");
         this.pack();
-        this.setVisible(true);
+        this.setVisible(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    
+    public void addbar(CustomerNavigationBar bar)
+{
+    this.add(bar, BorderLayout.NORTH);
+}
+ public void routetopage() {
+        this.setVisible(true);
+    }
 
+    public void leavepage() {
+        this.setVisible(false);
+    }
     void createview(Favorites favorites) {
         if(panel!=null)
         {
@@ -106,7 +117,7 @@ for (int i=1;i<favorites.listeners.size();i++)
         this.add(panel);
         this.setTitle("Favorites Page");
         this.pack();
-        this.setVisible(true);
+       // this.setVisible(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 

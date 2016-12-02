@@ -26,7 +26,7 @@ CustomerPropertiesPageNavigationBarButtonListener (FavoritesPage fp,CustomerProp
 
     @Override
     public void actionPerformed(ActionEvent e) {
-    // favoritespage.leavepage();
+     favoritespage.leavepage();
              customerpropertiespage.routetopage();
     
            

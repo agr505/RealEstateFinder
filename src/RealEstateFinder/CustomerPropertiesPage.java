@@ -56,7 +56,10 @@ this.add(Sb);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
+public void addbar(CustomerNavigationBar bar)
+{
+    this.add(bar, BorderLayout.NORTH);
+}
     public void routetopage() {
         this.setVisible(true);
     }
