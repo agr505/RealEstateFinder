@@ -20,23 +20,24 @@ public class AvailableProperties extends PropertyContainer {
 
     private Application application;
     private Favorites favorites;
- private ArrayList<AvailablePropertiesStateChangeListener> listeners;
+    private ArrayList<AvailablePropertiesStateChangeListener> listeners;
+
     public AvailableProperties(Application app) throws ClassNotFoundException, IOException {
         super();
-         listeners=new ArrayList<AvailablePropertiesStateChangeListener>();
+        listeners = new ArrayList<AvailablePropertiesStateChangeListener>();
         application = app;
         favorites = null;
         loadProperties();
     }
-      public void addListener( AvailablePropertiesStateChangeListener listener)
-    {
+
+    public void addListener(AvailablePropertiesStateChangeListener listener) {
         listeners.add(listener);
-        System.out.println("THE SIZE IS "+listeners.size());
     }
-public void assignFavorites(Favorites fav)
-{
-    favorites=fav;
-}
+
+    public void assignFavorites(Favorites fav) {
+        favorites = fav;
+    }
+
     public void loadProperties() throws IOException, ClassNotFoundException {
 
         ObjectInputStream in = new ObjectInputStream(
@@ -47,96 +48,78 @@ public void assignFavorites(Favorites fav)
             System.out.println(p.getName());
             addProperty(p);
         }
-
         in.close();
-
     }
 
     public void matchownedProperties(SellerPropertyListingsPage p) {
         SellerPropertyListingsPage pg;
         pg = p;
-        
+
         Seller seller = (Seller) application.provideLoggedinAccount();
-        
-        System.out.println("seller is"+ seller.getusername());
-        
-        System.out.println("In match owner before getting ownedproperties");
-        
+
+
         int size = seller.getOwnedproperties().size();
-         System.out.println("Size is "+ size);
-         
+
         ArrayList<String> ownedproperties = seller.getOwnedproperties();
-        
-        //for(int i = 0; i <seller.getOwnedproperties().size())
-        System.out.println("Size is "+ size);
-        
-        System.out.println("after the owned properties");
-        
+
         Iterator<Property> iter = getProperties();
 
         PropertyContainer matchedproperties = new PropertyContainer();
 
-      
-            while (iter.hasNext()) {
-                Property prop = iter.next();
-                  for (int i = 0; i < ownedproperties.size(); i++) {
-                
-                if (prop.getName().equals(ownedproperties.get(i))) {
-                  
-                    matchedproperties.addProperty(prop);
-                       System.out.println("MY PROPERTY IS "+ prop.getName());
-                 //   pg.UpdateView(matchedproperties);
-                   // return matchedproperties;
-                }
-            }
-        }
-               pg.UpdateView(matchedproperties);
-        //return matchedproperties;
-    }
-
-    public void addtoFav(String propertyname){
-        Iterator<Property> iter = getProperties();
-       
         while (iter.hasNext()) {
-         //   System.out.println("this name is "+iter.next().getName()+"and parap="+propertyname);
-      Property p=iter.next();
-            if (p.getName().equals(propertyname)) {
-                   
+            Property prop = iter.next();
+            for (int i = 0; i < ownedproperties.size(); i++) {
 
-                favorites.add(p);
+                if (prop.getName().equals(ownedproperties.get(i))) {
 
+                    matchedproperties.addProperty(prop);
+                }
             }
+        }
+        pg.UpdateView(matchedproperties);
+    }
 
+    public void addtoFav(String propertyname) {
+        Iterator<Property> iter = getProperties();
+
+        while (iter.hasNext()) {
+            //   System.out.println("this name is "+iter.next().getName()+"and parap="+propertyname);
+            Property p = iter.next();
+            if (p.getName().equals(propertyname)) {
+                favorites.add(p);
+            }
         }
     }
-    public void updateProperty(String text,String propertyname)
-    { int r=0;
-    Boolean done=false;
-        Iterator<Property> iter = getProperties();
-        while (iter.hasNext()&&done==false) {
-                Property prop = iter.next();
-                 
-                if (prop.getName().equals(propertyname)) {
-                  System.out.println("NUMBER"+r);
-                  r++;
-                  Property p=new Property(prop.getName(),prop.getPicture(),text);
-                  done=true;
-                          iter.remove();
-                   addProperty(p);
-                   System.out.println("UPDATEDDDDDDDDDD");
-                }
-            
+
+    /**
+     * Available properties iterator is returned and property is matched with the selected property by seller
+     * gets the new property name and text
+     * removes the old property and adds the new property in
+     * @param text is the field that will be updated
+     * @param propertyname is the name of the property
+     */
+    public void updateProperty(String text, String propertyname) {
+        int r = 0;
+        Boolean done = false;
+        Iterator<Property> iter = getProperties();  
+        while (iter.hasNext() && done == false) { 
+            Property prop = iter.next(); 
+
+            if (prop.getName().equals(propertyname)) { 
+                r++;                                    
+                Property p = new Property(prop.getName(), prop.getPicture(), text);
+                done = true;
+                iter.remove(); 
+                addProperty(p);
+                System.out.println("UPDATED");
+            }
         }
-        
-        AvailablePropertiesStateEvent event=new AvailablePropertiesStateEvent(this,text);
-      for (int i=0;i<listeners.size();i++)
-{
-    if(listeners.get(i).property.equals(propertyname))
-            {
+
+        AvailablePropertiesStateEvent event = new AvailablePropertiesStateEvent(this, text);
+        for (int i = 0; i < listeners.size(); i++) {
+            if (listeners.get(i).property.equals(propertyname)) {
                 listeners.get(i).stateChanged(event);
             }
-}
-        
-        
+        }
     }
 }
