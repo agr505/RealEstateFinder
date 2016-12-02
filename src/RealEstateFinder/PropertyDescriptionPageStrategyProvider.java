@@ -114,7 +114,7 @@ private static final long serialVersionUID = 6L;
                     if (!fav.containsproperty(propertyn)) {
                         //if (jpanel.)
                         JButton fddtoFavorites = new JButton("Add to Favorites");
-                        fddtoFavorites.addActionListener(new PropertyDescriptionPageListener(propertyn, application, availableProperties));
+                        fddtoFavorites.addActionListener(new AddtoFavoritesButtonListener(propertyn, availableProperties));
                         jpanel.add(fddtoFavorites);
 
                         return jpanel;//attach addtofavorites button
@@ -167,7 +167,7 @@ private static final long serialVersionUID = 6L;
                     if (!favorites.containsproperty(propertyn)) {
                         //if (jpanel.)
                         JButton fddtoFavorites = new JButton("Add to Favorites");
-                        fddtoFavorites.addActionListener(new PropertyDescriptionPageListener(propertyn, application, availableProperties));
+                        fddtoFavorites.addActionListener(new AddtoFavoritesButtonListener(propertyn, availableProperties));
                         jpanel.add(fddtoFavorites);
 
                         return jpanel;//attach addtofavorites button

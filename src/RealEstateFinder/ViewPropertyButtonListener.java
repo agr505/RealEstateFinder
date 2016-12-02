@@ -56,10 +56,10 @@ public class ViewPropertyButtonListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getActionCommand().equals("View Property Description")) {
+   
             System.out.println("PRESSED");
 strategyprovider.createview();
          
-    }
+    
     }
 }
