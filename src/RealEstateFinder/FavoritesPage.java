@@ -13,7 +13,7 @@ import java.util.Iterator;
 import javax.swing.*;
 
 /**
- *
+ * class for showing the favorite properties
  * @author User
  */
 public class FavoritesPage extends JFrame {
@@ -124,7 +124,9 @@ for (int i=1;i<favorites.listeners.size();i++)
     class FavoritePropertyPanel extends JPanel {
 
         JButton b;
-
+        /**
+     * creates a favorite property panel
+     */
         FavoritePropertyPanel(String x, String y, String z, Application app, Favorites fav, PropertyDescriptionPage propertydescriptionpage, AvailableProperties availableProps) {
 
             this.setLayout(new BorderLayout());

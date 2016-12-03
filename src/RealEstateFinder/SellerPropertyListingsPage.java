@@ -13,7 +13,7 @@ import java.util.Iterator;
 import javax.swing.*;
 
 /**
- *
+ * Shows the seller property listings and extends JFrame
  * @author User
  */
 public class SellerPropertyListingsPage extends JFrame {

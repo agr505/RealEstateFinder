@@ -15,7 +15,9 @@ import javax.swing.JFrame;
 import javax.swing.*;
 import javax.swing.BoxLayout;
 
-
+/**
+     * Extends JFrame and shows the properties of the customer
+     */
 public class CustomerPropertiesPage extends JFrame {
 private static final long serialVersionUID = 14L;
     Favorites favorites;
@@ -75,7 +77,12 @@ public void addbar(CustomerNavigationBar bar)
 class PropertyPanel extends JPanel {
 
     JButton b;
-
+    /**
+     * creates a seller panel
+     * @param x property 
+     * @param y image location
+     * @param z description
+     */
     PropertyPanel(String x, String y, String z, Application app, Favorites fav, PropertyDescriptionPage propertydescriptionpage, AvailableProperties availableProps,InterestedCustomers interestedcustomers) {
 
         this.setLayout(new BorderLayout());

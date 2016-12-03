@@ -27,7 +27,7 @@ import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 
 /**
- *
+ * Allows the user to create an account and extends JFrame
  * @author Sam
  */
 /**

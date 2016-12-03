@@ -9,7 +9,7 @@ import java.awt.BorderLayout;
 import javax.swing.*;
 
 /**
- *
+ * Shows the descriptions of the properties and extends JFrame
  * @author User
  */
 public class PropertyDescriptionPage extends JFrame {

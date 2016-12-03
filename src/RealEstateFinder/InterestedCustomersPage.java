@@ -14,7 +14,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 
 /**
- *
+ * Shows the interested customers and extends JFrame
  * @author User
  */
 public class InterestedCustomersPage extends JFrame{
@@ -80,7 +80,12 @@ public class InterestedCustomersPage extends JFrame{
 
 class SellerPanel extends JPanel {
 
-
+/**
+     * creates a seller panel
+     * @param x username
+     * @param y phone number
+     * @param z property
+     */
     SellerPanel(String x, String y, String z) {
 
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));

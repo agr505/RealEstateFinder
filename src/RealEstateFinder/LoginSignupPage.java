@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 /**
- *
+ * Lets the user login or create an account extends JFrame
  * @author Sam
  */
 public class LoginSignupPage extends JFrame {
