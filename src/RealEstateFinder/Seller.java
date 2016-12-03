@@ -15,12 +15,25 @@ import java.util.List;
  */
 
 
-//********************** has two constructors
+/**
+ * Class for the Account type of a Seller which holds the InteresedCustomers in Property that
+ * the Seller owns and the Properties the Seller owns
+ * @author Aaron
+ */
 public class Seller extends Account implements Serializable{
 private static final long serialVersionUID = 10L;
     private InterestedCustomers interestedcustomers;
       private ArrayList<String> ownedproperties = new ArrayList<>();
       
+      /**
+       * Constructor which will call the super class Account's constructor along with initializing InterestedCutomers and the 
+       * Seller's list of Property names the Seller owns 
+       *
+       * @param uname String holding value of username
+       * @param pass  String holding value of password
+       * @param ownedProperties  Seller's list of Property names the Seller owns 
+       * @param interestedcust InteresedCustomers in Property that the Seller owns
+       */
        Seller(String uname, String pass, List ownedProperties,InterestedCustomers interestedcust){ 
      //Seller( String uname, String pass, ArrayList<String> ownedproperties, InterestedCustomers interestedcust) {
      

@@ -11,21 +11,30 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ *Button Listener for handling click events to sign up 
  *
- * @author User
  */
 public class SignupButtonListener implements ActionListener {
     Application application;
     SignUpPage p;
     LoginSignupPage log;
-    
+    /**
+     *  Button Listener for handling click events to  sign up 
+     * @param app reference to Application
+     * @param page reference to the SignUpPage
+     * @param lp reference to LoginSignupPage
+     */
     SignupButtonListener(Application app, SignUpPage page, LoginSignupPage lp){
         application = app;
         p = page;
         log = lp;
     }
 
-    @Override
+    @Override/**
+     * Event handler which will handle a button click after entering the information to create 
+     * an Account
+     * 
+     */
     public void actionPerformed(ActionEvent e) {
         try {
             //createaccount(boolean isseller, String username, String password, String propertyInput)

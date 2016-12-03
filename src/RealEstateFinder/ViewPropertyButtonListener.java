@@ -16,8 +16,8 @@ import javax.swing.JPanel;
  * @author Aaron
  */
 /**
- * 
- *
+ * Button Listener for handling click events to the view the PropertyDescriptionPage
+ * of the property
  */
 public class ViewPropertyButtonListener implements ActionListener {
 
@@ -28,7 +28,16 @@ public class ViewPropertyButtonListener implements ActionListener {
     public AvailableProperties availableProperties;
     public PropertyDescriptionPageStrategyProvider strategyprovider;
     
-
+/**
+ * Constructor for a ViewPropertyButtonListener for when a Customer is logged in creating a listeners to respond
+ * Favorites and InterestedCustomers 
+ * @param pname String containing the name of the Property
+ * @param propertydescriptionp reference to the PropertyDescriptionPage associated with this button listener
+ * @param fav reference to Favorites
+ * @param app reference to Application
+ * @param availableprops reference to AvailableProperties
+ * @param interestedcustomers reference to InterestedCustomers
+ */
     ViewPropertyButtonListener(String pname, PropertyDescriptionPage propertydescriptionp, Favorites fav, Application app, AvailableProperties availableprops,InterestedCustomers interestedcustomers) {
         this.propertyname = pname;
         propertydescriptionpage = propertydescriptionp;
@@ -44,6 +53,15 @@ public class ViewPropertyButtonListener implements ActionListener {
 
 
 }
+    
+    /**
+   * Constructor for a ViewPropertyButtonListener for when a Seller is logged in creating a listeners to respond
+ * Favorites and InterestedCustomers 
+     * @param pname String containing the name of the Property
+ * @param propertydescriptionp reference to the PropertyDescriptionPage associated with this button listener
+    * @param app reference to Application
+ * @param availableprops reference to AvailableProperties
+     */
   ViewPropertyButtonListener(String pname, PropertyDescriptionPage propertydescriptionp, Application app, AvailableProperties availableprops) {
 
     
@@ -58,6 +76,9 @@ public class ViewPropertyButtonListener implements ActionListener {
 
     }
     @Override
+    /**
+     * Function to be called to handle an ActionEvent such as a button click to view a PropertyDescriptionPage
+     */
     public void actionPerformed(ActionEvent e) {
 
    

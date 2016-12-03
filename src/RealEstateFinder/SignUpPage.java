@@ -30,6 +30,10 @@ import javax.swing.ListSelectionModel;
  *
  * @author Sam
  */
+/**
+ * 
+ * @author Aaron
+ */
 public class SignUpPage extends JFrame {
 
     Application app;
