@@ -22,7 +22,7 @@ private static final long serialVersionUID = 14L;
     AvailableProperties availableproperties;
 
     JPanel panel = new JPanel();
-    
+    //create Scroll pane passing it panel
 JScrollPane Sb = new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
     JButton viewDescButton = new JButton("View Description");
     JLabel label = new JLabel();
@@ -38,16 +38,18 @@ JScrollPane Sb = new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, J
         Iterator<Property> iter = availableproperties.getProperties();
         
         while (iter.hasNext()) {
-         
+         //get all the input fields for the property
             Property property = iter.next();
             String x = property.getName();
             String y = property.getPicture();
             String z = property.getText();
             PropertyDescriptionPage  propertydescriptionpage = new PropertyDescriptionPage(x, y, z);
+            //create a new property panel
             PropertyPanel p = new PropertyPanel(x, y, z, app, favorites, propertydescriptionpage, availableproperties, interestedcustomers);
+            // add the new propertypanel to the panel
             panel.add(p);
         }
-        
+        //add the scrollpane
 this.add(Sb);
         //this.add(bar, BorderLayout.NORTH);
       // this.add(panel);
@@ -80,11 +82,14 @@ class PropertyPanel extends JPanel {
 
         b = new JButton("View Property Description");
         //JButton xx = new JButton("button");
+        //create jlabel for picture
         JLabel jl = new JLabel();
+        //call set icon on the jlabel passing it a image icon param with the param being the location of the image
         jl.setIcon(new ImageIcon(y));
-
+        // Create jlabel for description of property
         JLabel description = new JLabel(z);
         JLabel n = new JLabel(x);
+        //add and validate
         this.add(n, BorderLayout.NORTH);
         this.add(jl, BorderLayout.WEST);
         this.add(description, BorderLayout.CENTER);

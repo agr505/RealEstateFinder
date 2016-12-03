@@ -22,7 +22,7 @@ public class InterestedCustomersPage extends JFrame{
     private InterestedCustomers interestedcustomers;
     private ArrayList<Customer> interestedCustomersList;
     JPanel panel = new JPanel();
-    
+    //create jscroll pane
     JScrollPane Sb = new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
     InterestedCustomersPage(InterestedCustomers ic,Application app,SellerPropertyListingsPage slp){
         
@@ -33,7 +33,9 @@ public class InterestedCustomersPage extends JFrame{
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
         JLabel title = new JLabel("These customers are interested in your properties:");
         panel.add(title);
+        //create a border object
         Border blackline;
+        // set border object to make a black line around inputs
         blackline = BorderFactory.createLineBorder(Color.black);
         
         if (interestedcustomers.getInterestedCustomers()!= null){
@@ -47,6 +49,7 @@ public class InterestedCustomersPage extends JFrame{
             String y =c.returnphonenumber();
             String z = c.returnlatestpropertyinterestedin();
             SellerPanel p = new SellerPanel(x,y,z);
+            // give the panel a border passing the param blackline giving a black border around it
             p.setBorder(blackline);
             panel.add(p);
             
@@ -54,7 +57,7 @@ public class InterestedCustomersPage extends JFrame{
         
 
       //  this.add(panel);
-        
+        //add the scroll bar
         this.add(Sb);
         this.add(bar, BorderLayout.NORTH);
         this.setTitle("Interested Customers Page");
