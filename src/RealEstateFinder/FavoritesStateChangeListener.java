@@ -13,6 +13,10 @@ import javax.swing.event.ChangeListener;
  *
  * @author Aaron
  */
+/**
+ * StateChangeListener for the Model Favorites
+ * 
+ */
 public class FavoritesStateChangeListener implements ChangeListener, Serializable{
     //assign property corresponding to property description page property
     private static final long serialVersionUID = 14L;
@@ -21,14 +25,28 @@ public class FavoritesStateChangeListener implements ChangeListener, Serializabl
     PropertyDescriptionPage propertydescriptionpage;
     PropertyDescriptionPageStrategyProvider strategyprovider;
     
+    /**
+     * Constructor which initializes the reference to the FavoritesPage instance and sets the PropertyDescriptionPage
+     * and Property name fields to null since this listener is only for updating the FavoritesPage
+     * @param favpage 
+     */
     FavoritesStateChangeListener(FavoritesPage favpage)
     {
-        System.out.println(this.hashCode()+"main listener was created");
+    
         favoritespage=favpage;
         propertydescriptionpage=null;
         property=null;
         
     }
+    /**
+     * Constructor which initializes the reference to the PropertyDescriptionPage
+     * and Property name fields and sets the FavoritesPage instance to null since this listener is only for updating
+     * the PropertyDescriptionPage associated with the  relevant Property
+     * 
+     * @param propertydespage
+     * @param strategyprov
+     * @param prop 
+     */
     FavoritesStateChangeListener(PropertyDescriptionPage propertydespage,PropertyDescriptionPageStrategyProvider strategyprov,String prop)
     {
      
