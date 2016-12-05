@@ -26,12 +26,14 @@ public class FavoritesPage extends JFrame {
     InterestedCustomers interestedcustomers;
 
     /**
-     * Gets the name, picture and description of the property and sends it to create a panel
-     * panel is returned and added to the frame
-     * @param fav
-     * @param avproperties
-     * @param app
-     * @param interestedcust 
+     * Gets the name, picture and description of the property and sends it to
+     * create a panel panel is returned and added to the frame
+     *
+     * @param fav an instance of Favorites
+     * @param avproperties an instance of AvaliableProperties
+     * @param app an instance of Application
+     * @param interestedcust an instance of InterestedCustomers
+     *
      */
     FavoritesPage(Favorites fav, AvailableProperties avproperties, Application app, InterestedCustomers interestedcust) {
         //!! CustomerNavigationBar bar = new CustomerNavigationBar(app);
@@ -41,7 +43,6 @@ public class FavoritesPage extends JFrame {
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
         interestedcustomers = interestedcust;
         Iterator<Property> iter = favorites.getProperties();
-
 
         while (iter.hasNext()) {
             //  PropertyDescriptionPage  propertydescriptionpage = new PropertyDescriptionPage();
@@ -61,14 +62,17 @@ public class FavoritesPage extends JFrame {
         this.setVisible(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
     /**
-     * 
-     * @param bar is added to the page
+     *
+     * Adds a customer navigation bar to the page
+     *
+     * @param bar an instance of CustomerNavigationBar
      */
     public void addbar(CustomerNavigationBar bar) {
         this.add(bar, BorderLayout.NORTH);
     }
-    
+
     public void routetopage() {
         this.setVisible(true);
     }
@@ -76,10 +80,11 @@ public class FavoritesPage extends JFrame {
     public void leavepage() {
         this.setVisible(false);
     }
+
     /**
-     * 
-     * @param favorites container is passed
-     * Using the strategy pattern the favorites button is added on the panel for all the properties
+     *
+     * @param favorites container is passed Using the strategy pattern the
+     * favorites button is added on the panel for all the properties
      */
     void createview(Favorites favorites) {
         if (panel != null) {
@@ -144,7 +149,7 @@ public class FavoritesPage extends JFrame {
                 this.add(b, BorderLayout.SOUTH);
                 this.setBackground(Color.white);
                 this.setPreferredSize(new Dimension(250, 150));
-                  //  b.addActionListener(new ViewPropertyButtonListener(x,propertydescriptionpage, fav, app, availableProps));
+                //  b.addActionListener(new ViewPropertyButtonListener(x,propertydescriptionpage, fav, app, availableProps));
             }
         }
     }
