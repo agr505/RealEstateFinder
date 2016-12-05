@@ -15,6 +15,9 @@ import javax.swing.JTextField;
  *
  * @author Aaron
  */
+/**
+ * Provides the PropertyDescriptionPage strategy to build the PropertyDescriptionPage based on circumstances
+ */
 public class PropertyDescriptionPageStrategyProvider implements Serializable{
 private static final long serialVersionUID = 6L;
     public String propertyname;
@@ -22,7 +25,14 @@ private static final long serialVersionUID = 6L;
     public Application application;
     public PropertyDescriptionPage propertydescriptionpage;
     public AvailableProperties availableProperties;
-
+/**
+ * Constructor for this class which is used when a Customer is logged in 
+ * @param pname String that holds the value of the Property being associated with
+ * @param propertydescriptionp reference to the PropertyDescriptionPage instance associated with the Property
+ * @param fav reference to the Favorites instance associated with the Customer
+ * @param app reference to the Application instance
+ * @param availableprops reference to the AvailableProperties instance
+ */
     PropertyDescriptionPageStrategyProvider(String pname, PropertyDescriptionPage propertydescriptionp, Favorites fav, Application app, AvailableProperties availableprops) {
         this.propertyname = pname;
         propertydescriptionpage = propertydescriptionp;
@@ -30,6 +40,12 @@ private static final long serialVersionUID = 6L;
         application = app;
         availableProperties = availableprops;
     }
+    /**
+     * Constructor for this class which is used when a Seller is logged in 
+    *@param pname String that holds the value of the Property being associated with
+ * @param propertydescriptionp reference to the PropertyDescriptionPage instance associated with the Property
+     * @param app reference to the Application instance
+     */
     PropertyDescriptionPageStrategyProvider(String pname, PropertyDescriptionPage propertydescriptionp, Application app) {
         this.propertyname = pname;
         propertydescriptionpage = propertydescriptionp;
@@ -37,6 +53,11 @@ private static final long serialVersionUID = 6L;
         application = app;
         availableProperties = null;
     }
+    
+    /**
+     * Method for creating the anonymous class that implements the PropertyDescriptionPageStrategy interface
+     * and then invokes the PropertyDescriptionPage to use the strategy to help build itself
+     */
     public void createview() {
 
         System.out.println("You selected " + propertyname);
@@ -44,7 +65,14 @@ private static final long serialVersionUID = 6L;
         if (application.provideLoggedinAccount() instanceof Customer) {
 
             PropertyDescriptionPageStrategy customerstrategy = new PropertyDescriptionPageStrategy() {
-                @Override
+              /**
+               * Method that implements the buildview method declared in the PropertyDescriptionPageStrategy interface
+               * and returns a JPanel based on if the Property is in the Customer's Favorites, is in the Customer's Favorites
+               * but has not contacted the Seller, and is in the Customer's Favorites and has contacted the Seller
+               * @param jpanel
+               * @return 
+               */
+                @Override               
                 public JPanel buildview(JPanel jpanel) {
 
                     if (!favorites.containsproperty(propertyname)) {
@@ -74,6 +102,12 @@ private static final long serialVersionUID = 6L;
         } else if (application.provideLoggedinAccount() instanceof Seller) {
             PropertyDescriptionPageStrategy sellerstrategy = new PropertyDescriptionPageStrategy() {
                 @Override
+                     /**
+               * Method that implements the buildview method declared in the PropertyDescriptionPageStrategy interface
+               * and returns a JPanel with an Update button
+               * @param jpanel JPanel which is to be returned 
+               * @return 
+               */
                 public JPanel buildview(JPanel jpanel) {
                     //always attach update button
                     JButton updateProperty = new JButton("Update Property");

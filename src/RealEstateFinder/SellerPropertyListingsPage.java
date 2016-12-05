@@ -13,7 +13,7 @@ import java.util.Iterator;
 import javax.swing.*;
 
 /**
- *
+ * Shows the seller property listings and extends JFrame
  * @author User
  */
 public class SellerPropertyListingsPage extends JFrame {
@@ -95,11 +95,15 @@ public void addbar(SellerNavigationBar bar)
         System.out.println("While loop ended");
 
     }
-
+/**
+ * Routing method used to leave this page
+ */
     public void leavepage() {
         this.setVisible(false);
     }
-
+/**
+ * Routing method used to go to this page
+ */
     public void routetopage() {
         this.setVisible(true);
 

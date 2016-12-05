@@ -15,6 +15,10 @@ import java.util.logging.Logger;
  *
  * @author Aaron
  */
+/**
+ *Button Listener for handling click events to log out
+ *
+ */
 public class LogOutButtonListener implements ActionListener {
 
  
@@ -22,13 +26,20 @@ public class LogOutButtonListener implements ActionListener {
   
  Application application;
   
-
+/**
+ * Constructor for Button Listener for handling click events to log out
+ * @param app references the Application instance
+ */
 LogOutButtonListener(Application app) {
        application= app;
       
     }
 
     @Override
+     /** Event handler which will handle a button click to log out
+     *
+     * 
+     */
     public void actionPerformed(ActionEvent e) {
    
             

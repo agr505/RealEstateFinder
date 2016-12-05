@@ -11,6 +11,10 @@ import java.io.Serializable;
  *
  * @author Aaron
  */
+/**
+ * Class that holds a Property's name, image name, and text description
+ * @author Aaron
+ */
 public class Property implements  Cloneable, Serializable {
 private static final long serialVersionUID = 15;
     public Property(String name, String picture, String text) {
@@ -20,21 +24,21 @@ private static final long serialVersionUID = 15;
     }
     /**
      * accessor for name
-     * @return string holding the value of name of property
+     * @return String holding the value of name of property
      */
     public String getName() {
         return name;
     }
     /**
      * accessor for picture
-     * @return string holding the location of the picture
+     * @return String holding the location of the picture
      */
     public String getPicture() {
         return picture;
     }
     /**
      * accessor for text description
-     * @return string holding the value of the property description 
+     * @return String holding the value of the property description 
      */
     public String getText() {
         return text;

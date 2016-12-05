@@ -27,8 +27,12 @@ import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 
 /**
- *
+ * Allows the user to create an account and extends JFrame
  * @author Sam
+ */
+/**
+ * 
+ * @author Aaron
  */
 public class SignUpPage extends JFrame {
 
@@ -109,19 +113,28 @@ public class SignUpPage extends JFrame {
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
+    /**
+     * accessor for  username
+     * @return string holding the value of accounts username
+     */
     public String getusernameinput() {
         return username.getText();
     }
-
+    /**
+     * accessor for password
+     * @return string holding the value of accounts password
+     */
     public String getpasswordinput() {
         return password.getText();
     }
-
+    /**
+     * accessor for phone number
+     * @return string holding the value of accounts phone number
+     */
     public String getPhone() {
         return phoneNumber.getText();
     }
-
+    
     public List getProperties() {
         //ListModel model = leftlist.getModel();
         
@@ -141,7 +154,9 @@ public class SignUpPage extends JFrame {
             return false;
         }
     }
-
+/**
+ * Routing method used to leave this page
+ */
     public void setToVisible() {
         this.setVisible(false);
     }

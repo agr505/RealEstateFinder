@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 /**
- *
+ * Lets the user login or create an account extends JFrame
  * @author Sam
  */
 public class LoginSignupPage extends JFrame {
@@ -57,11 +57,15 @@ public class LoginSignupPage extends JFrame {
     public String getpasswordinput() {
         return tf2.getText();
     }
-
+/**
+ * Routing method used to go to this page
+ */
     public void routetopage() {
         this.setVisible(true);
     }
-
+/**
+ *  Routing method used to leave this page
+ */
     public void leavepage() {
         this.setVisible(false);
     }
