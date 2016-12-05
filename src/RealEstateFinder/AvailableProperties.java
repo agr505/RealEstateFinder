@@ -22,6 +22,13 @@ public class AvailableProperties extends PropertyContainer {
     private Favorites favorites;
     private ArrayList<AvailablePropertiesStateChangeListener> listeners;
 
+    /**
+     * Initializing the listeners array calls load properties
+     *
+     * @param app
+     * @throws ClassNotFoundException
+     * @throws IOException
+     */
     public AvailableProperties(Application app) throws ClassNotFoundException, IOException {
         super();
         listeners = new ArrayList<AvailablePropertiesStateChangeListener>();
@@ -34,10 +41,20 @@ public class AvailableProperties extends PropertyContainer {
         listeners.add(listener);
     }
 
+    /**
+     * Assigns a reference to favorites
+     * @param fav
+     */
     public void assignFavorites(Favorites fav) {
         favorites = fav;
     }
 
+    /**
+     * Loads properties from property text file calls add property function is
+     * propertContainer
+     * @throws IOException
+     * @throws ClassNotFoundException
+     */
     public void loadProperties() throws IOException, ClassNotFoundException {
 
         ObjectInputStream in = new ObjectInputStream(
@@ -50,13 +67,20 @@ public class AvailableProperties extends PropertyContainer {
         }
         in.close();
     }
-
+/**
+ * gets the seller thats currently logged in
+ * gets the sellers owned properties
+ * creates an iterator for available properties
+ * Matches the properties that are owned by the seller from all the available properties
+ * put all the matched properties in matchedproperties container
+ * calls update view function for the sellers listings page
+ * @param p 
+ */
     public void matchownedProperties(SellerPropertyListingsPage p) {
         SellerPropertyListingsPage pg;
         pg = p;
 
         Seller seller = (Seller) application.provideLoggedinAccount();
-
 
         int size = seller.getOwnedproperties().size();
 
@@ -78,7 +102,12 @@ public class AvailableProperties extends PropertyContainer {
         }
         pg.UpdateView(matchedproperties);
     }
-
+/**
+ * creates an iterator for available properties
+ * goes through all the properties and matches the property that was selected to add to favorites
+ * sends the property to Favorites add function
+ * @param propertyname 
+ */
     public void addtoFav(String propertyname) {
         Iterator<Property> iter = getProperties();
 
@@ -92,24 +121,25 @@ public class AvailableProperties extends PropertyContainer {
     }
 
     /**
-     * Available properties iterator is returned and property is matched with the selected property by seller
-     * gets the new property name and text
+     * Available properties iterator is returned and property is matched with
+     * the selected property by seller gets the new property name and text
      * removes the old property and adds the new property in
+     *
      * @param text is the field that will be updated
      * @param propertyname is the name of the property
      */
     public void updateProperty(String text, String propertyname) {
         int r = 0;
         Boolean done = false;
-        Iterator<Property> iter = getProperties();  
-        while (iter.hasNext() && done == false) { 
-            Property prop = iter.next(); 
+        Iterator<Property> iter = getProperties();
+        while (iter.hasNext() && done == false) {
+            Property prop = iter.next();
 
-            if (prop.getName().equals(propertyname)) { 
-                r++;                                    
+            if (prop.getName().equals(propertyname)) {
+                r++;
                 Property p = new Property(prop.getName(), prop.getPicture(), text);
                 done = true;
-                iter.remove(); 
+                iter.remove();
                 addProperty(p);
                 System.out.println("UPDATED");
             }

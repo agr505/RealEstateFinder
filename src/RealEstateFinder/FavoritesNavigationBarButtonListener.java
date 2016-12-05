@@ -14,21 +14,18 @@ import java.awt.event.ActionListener;
  */
 public class FavoritesNavigationBarButtonListener implements ActionListener {
 
- FavoritesPage favoritespage;
-CustomerPropertiesPage  customerpropertiespage;
-  
- 
-  
- FavoritesNavigationBarButtonListener (FavoritesPage fp,CustomerPropertiesPage  custpp) {
-      favoritespage=fp;
-  customerpropertiespage=custpp;
+    FavoritesPage favoritespage;
+    CustomerPropertiesPage customerpropertiespage;
+
+    FavoritesNavigationBarButtonListener(FavoritesPage fp, CustomerPropertiesPage custpp) {
+        favoritespage = fp;
+        customerpropertiespage = custpp;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-     customerpropertiespage.leavepage();
-             favoritespage.routetopage();
-    
-           
-       
-}}
+        customerpropertiespage.leavepage();
+        favoritespage.routetopage();
+
+    }
+}

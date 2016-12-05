@@ -13,43 +13,45 @@ import java.util.Iterator;
  *
  * @author Aaron
  */
-public class PropertyContainer implements Serializable{
-private static final long serialVersionUID = 12L;
+public class PropertyContainer implements Serializable {
+
+    private static final long serialVersionUID = 12L;
+
     public PropertyContainer() {
         this.properties = new ArrayList<Property>();
     }
     private ArrayList<Property> properties;
-    
-    
-    public Iterator<Property> getProperties()
-    {
-       return new
-         Iterator<Property>()          {
-             private int current = 0;
-            public boolean hasNext()
-            {
-               return current < properties.size();
-           }
-             public Property next()
-            {
+
+    public Iterator<Property> getProperties() {
+        return new Iterator<Property>() {
+            private int current = 0;
+
+            public boolean hasNext() {
+                return current < properties.size();
+            }
+
+            public Property next() {
                 return properties.get(current++);
             }
-  public Property returncurrent()
-            {
+
+            public Property returncurrent() {
                 return properties.get(current);
             }
-            public void remove()
-             {
-               properties.remove(current);
-        }
- 
-            
-         };
-   }
-    public void addProperty(Property property)
-    {
+
+            public void remove() {
+                properties.remove(current);
+            }
+
+        };
+    }
+
+    /**
+     * Takes property and adds to property arraylist
+     *
+     * @param property
+     */
+    public void addProperty(Property property) {
         properties.add(property);
-        
-        
+
     }
 }

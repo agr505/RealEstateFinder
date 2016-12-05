@@ -15,23 +15,20 @@ import java.awt.event.ActionListener;
 public class ContactSellerButtonListener implements ActionListener {
 
     private String name;
- 
-  
+
     Application application;
-  
 
     ContactSellerButtonListener(String name, Application app) {
         this.name = name;
-      
-       application = app;
-      
+
+        application = app;
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-   
-            
-            application.contactSeller(name);
-           
-       
-}}
+
+        application.contactSeller(name);
+
+    }
+}
