@@ -20,9 +20,9 @@ public class SignupButtonListener implements ActionListener {
     LoginSignupPage log;
     /**
      *  Constructor for Button Listener for handling click events to  sign up 
-     * @param app reference to Application
-     * @param page reference to the SignUpPage
-     * @param lp reference to LoginSignupPage
+     * @param app reference to Application instance
+     * @param page reference to the SignUpPage instance
+     * @param lp reference to LoginSignupPage instance
      */
     SignupButtonListener(Application app, SignUpPage page, LoginSignupPage lp){
         application = app;

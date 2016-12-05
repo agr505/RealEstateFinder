@@ -68,11 +68,15 @@ public class InterestedCustomersPage extends JFrame{
     }
     
 }
-
+/**
+ *  Routing method used to go to this page
+ */
  public void routetopage() {
         this.setVisible(true);
     }
-
+/**
+ *  Routing method used to leave this page
+ */
     public void leavepage() {
         this.setVisible(false);
     }

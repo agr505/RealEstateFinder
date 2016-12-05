@@ -57,11 +57,15 @@ public class LoginSignupPage extends JFrame {
     public String getpasswordinput() {
         return tf2.getText();
     }
-
+/**
+ * Routing method used to go to this page
+ */
     public void routetopage() {
         this.setVisible(true);
     }
-
+/**
+ *  Routing method used to leave this page
+ */
     public void leavepage() {
         this.setVisible(false);
     }

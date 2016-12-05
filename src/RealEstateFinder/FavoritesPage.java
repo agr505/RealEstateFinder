@@ -68,10 +68,15 @@ interestedcustomers=interestedcust;
 {
     this.add(bar, BorderLayout.NORTH);
 }
+    /**
+     * Routing method used to go to this page
+     */
  public void routetopage() {
         this.setVisible(true);
     }
-
+/**
+ * Routing method used leave this page
+ */
     public void leavepage() {
         this.setVisible(false);
     }

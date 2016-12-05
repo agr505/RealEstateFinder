@@ -154,7 +154,9 @@ public class SignUpPage extends JFrame {
             return false;
         }
     }
-
+/**
+ * Routing method used to leave this page
+ */
     public void setToVisible() {
         this.setVisible(false);
     }
