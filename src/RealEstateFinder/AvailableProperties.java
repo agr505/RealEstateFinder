@@ -36,7 +36,10 @@ public class AvailableProperties extends PropertyContainer {
         favorites = null;
         loadProperties();
     }
-
+/**
+ * Adds a View listener to the ArrayList<AvailablePropertiesStateChangeListener> that will listen to Model state change event 
+ * @param listener 
+ */
     public void addListener(AvailablePropertiesStateChangeListener listener) {
         listeners.add(listener);
     }

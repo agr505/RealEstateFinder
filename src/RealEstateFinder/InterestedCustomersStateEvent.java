@@ -16,7 +16,7 @@ public class InterestedCustomersStateEvent extends ChangeEvent{
       public String currentproperty;
 
     /**
-     * Overrided constructor allowing for an object of type Favorites to be a
+     * Overrided constructor allowing for an object of type InterestedCustomers to be a
      * parameter
      *
      * @param source of type Favorites

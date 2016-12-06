@@ -47,7 +47,10 @@ public class Favorites extends PropertyContainer implements Serializable {
         return fp;
 
     }
-
+/**
+ * Adds a View listener to the ArrayList<FavoritesStateChangeListener> that will listen to Model state change event 
+ * @param listener 
+ */
     public void addListener(FavoritesStateChangeListener listener) {
         listeners.add(listener);
 

@@ -29,11 +29,12 @@ public class InterestedCustomersStateChangeListener implements ChangeListener,Se
     Application application;
     
     /**
-     * Constructor which initializes the 
-     * @param propertydespage
-     * @param strategyprovider
-     * @param prop
-     * @param app 
+       * Constructor which initializes the reference to the PropertyDescriptionPage and Property name fields, the reference to the PropertyDescriptionPageStrategyProvider instance,  
+     *the reference to the Application instance, the PropertyDescriptionPage associated with the relevant Property
+     * @param propertydespage PropertyDescriptionPage associated with the relevant Property
+     * @param strategyprovider the reference to the PropertyDescriptionPageStrategyProvider instance
+     * @param prop Property name
+     * @param app reference to the Application instance
      */
     InterestedCustomersStateChangeListener (PropertyDescriptionPage propertydespage,PropertyDescriptionPageStrategyProvider stratprovider,String prop,Application app)
     {
@@ -42,6 +43,11 @@ public class InterestedCustomersStateChangeListener implements ChangeListener,Se
         application=app;
        strategyprovider= stratprovider;
     }
+    
+ /**
+ * Method to be called upon a InterestedCustomers state change
+ * @param e ChangeEvent that hold information about the event 
+ */
     public void stateChanged(ChangeEvent e) {
         
           InterestedCustomersStateEvent event= (InterestedCustomersStateEvent)e;
