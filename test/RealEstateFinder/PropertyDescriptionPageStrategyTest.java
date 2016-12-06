@@ -5,6 +5,7 @@
  */
 package RealEstateFinder;
 
+import javax.swing.JPanel;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class AccountTest {
+public class PropertyDescriptionPageStrategyTest {
     
-    public AccountTest() {
+    public PropertyDescriptionPageStrategyTest() {
     }
     
     @BeforeClass
@@ -38,31 +39,25 @@ public class AccountTest {
     }
 
     /**
-     * Test of getusername method, of class Account.
+     * Test of buildview method, of class PropertyDescriptionPageStrategy.
      */
     @Test
-    public void testGetusername() {
-        System.out.println("getusername");
-        Account instance = null;
-        String expResult = "";
-        String result = instance.getusername();
+    public void testBuildview() {
+        System.out.println("buildview");
+        JPanel jpanel = null;
+        PropertyDescriptionPageStrategy instance = new PropertyDescriptionPageStrategyImpl();
+        JPanel expResult = null;
+        JPanel result = instance.buildview(jpanel);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getpassword method, of class Account.
-     */
-    @Test
-    public void testGetpassword() {
-        System.out.println("getpassword");
-        Account instance = null;
-        String expResult = "";
-        String result = instance.getpassword();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public class PropertyDescriptionPageStrategyImpl implements PropertyDescriptionPageStrategy {
+
+        public JPanel buildview(JPanel jpanel) {
+            return null;
+        }
     }
     
 }

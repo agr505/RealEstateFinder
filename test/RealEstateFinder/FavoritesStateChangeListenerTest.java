@@ -5,6 +5,7 @@
  */
 package RealEstateFinder;
 
+import javax.swing.event.ChangeEvent;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class AccountTest {
+public class FavoritesStateChangeListenerTest {
     
-    public AccountTest() {
+    public FavoritesStateChangeListenerTest() {
     }
     
     @BeforeClass
@@ -38,29 +39,29 @@ public class AccountTest {
     }
 
     /**
-     * Test of getusername method, of class Account.
+     * Test of reassingproppage method, of class FavoritesStateChangeListener.
      */
     @Test
-    public void testGetusername() {
-        System.out.println("getusername");
-        Account instance = null;
-        String expResult = "";
-        String result = instance.getusername();
-        assertEquals(expResult, result);
+    public void testReassingproppage() {
+        System.out.println("reassingproppage");
+        PropertyDescriptionPage propertydespage = null;
+        PropertyDescriptionPageStrategyProvider strategyprov = null;
+        String prop = "";
+        FavoritesStateChangeListener instance = null;
+        instance.reassingproppage(propertydespage, strategyprov, prop);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getpassword method, of class Account.
+     * Test of stateChanged method, of class FavoritesStateChangeListener.
      */
     @Test
-    public void testGetpassword() {
-        System.out.println("getpassword");
-        Account instance = null;
-        String expResult = "";
-        String result = instance.getpassword();
-        assertEquals(expResult, result);
+    public void testStateChanged() {
+        System.out.println("stateChanged");
+        ChangeEvent e = null;
+        FavoritesStateChangeListener instance = null;
+        instance.stateChanged(e);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

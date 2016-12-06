@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class AccountTest {
+public class InterestedCustomersStateEventTest {
     
-    public AccountTest() {
+    public InterestedCustomersStateEventTest() {
     }
     
     @BeforeClass
@@ -38,28 +38,14 @@ public class AccountTest {
     }
 
     /**
-     * Test of getusername method, of class Account.
+     * Test of getSource method, of class InterestedCustomersStateEvent.
      */
     @Test
-    public void testGetusername() {
-        System.out.println("getusername");
-        Account instance = null;
-        String expResult = "";
-        String result = instance.getusername();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getpassword method, of class Account.
-     */
-    @Test
-    public void testGetpassword() {
-        System.out.println("getpassword");
-        Account instance = null;
-        String expResult = "";
-        String result = instance.getpassword();
+    public void testGetSource() {
+        System.out.println("getSource");
+        InterestedCustomersStateEvent instance = null;
+        InterestedCustomers expResult = null;
+        InterestedCustomers result = instance.getSource();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

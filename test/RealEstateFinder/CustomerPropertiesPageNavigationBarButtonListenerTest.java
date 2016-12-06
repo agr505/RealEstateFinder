@@ -5,6 +5,7 @@
  */
 package RealEstateFinder;
 
+import java.awt.event.ActionEvent;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class AccountTest {
+public class CustomerPropertiesPageNavigationBarButtonListenerTest {
     
-    public AccountTest() {
+    public CustomerPropertiesPageNavigationBarButtonListenerTest() {
     }
     
     @BeforeClass
@@ -38,29 +39,14 @@ public class AccountTest {
     }
 
     /**
-     * Test of getusername method, of class Account.
+     * Test of actionPerformed method, of class CustomerPropertiesPageNavigationBarButtonListener.
      */
     @Test
-    public void testGetusername() {
-        System.out.println("getusername");
-        Account instance = null;
-        String expResult = "";
-        String result = instance.getusername();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getpassword method, of class Account.
-     */
-    @Test
-    public void testGetpassword() {
-        System.out.println("getpassword");
-        Account instance = null;
-        String expResult = "";
-        String result = instance.getpassword();
-        assertEquals(expResult, result);
+    public void testActionPerformed() {
+        System.out.println("actionPerformed");
+        ActionEvent e = null;
+        CustomerPropertiesPageNavigationBarButtonListener instance = null;
+        instance.actionPerformed(e);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

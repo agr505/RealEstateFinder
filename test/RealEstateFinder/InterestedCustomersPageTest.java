@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class AccountTest {
+public class InterestedCustomersPageTest {
     
-    public AccountTest() {
+    public InterestedCustomersPageTest() {
     }
     
     @BeforeClass
@@ -38,29 +38,25 @@ public class AccountTest {
     }
 
     /**
-     * Test of getusername method, of class Account.
+     * Test of routetopage method, of class InterestedCustomersPage.
      */
     @Test
-    public void testGetusername() {
-        System.out.println("getusername");
-        Account instance = null;
-        String expResult = "";
-        String result = instance.getusername();
-        assertEquals(expResult, result);
+    public void testRoutetopage() {
+        System.out.println("routetopage");
+        InterestedCustomersPage instance = null;
+        instance.routetopage();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getpassword method, of class Account.
+     * Test of leavepage method, of class InterestedCustomersPage.
      */
     @Test
-    public void testGetpassword() {
-        System.out.println("getpassword");
-        Account instance = null;
-        String expResult = "";
-        String result = instance.getpassword();
-        assertEquals(expResult, result);
+    public void testLeavepage() {
+        System.out.println("leavepage");
+        InterestedCustomersPage instance = null;
+        instance.leavepage();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

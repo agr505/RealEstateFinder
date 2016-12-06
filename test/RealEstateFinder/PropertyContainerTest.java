@@ -5,6 +5,7 @@
  */
 package RealEstateFinder;
 
+import java.util.Iterator;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class AccountTest {
+public class PropertyContainerTest {
     
-    public AccountTest() {
+    public PropertyContainerTest() {
     }
     
     @BeforeClass
@@ -38,29 +39,28 @@ public class AccountTest {
     }
 
     /**
-     * Test of getusername method, of class Account.
+     * Test of getProperties method, of class PropertyContainer.
      */
     @Test
-    public void testGetusername() {
-        System.out.println("getusername");
-        Account instance = null;
-        String expResult = "";
-        String result = instance.getusername();
+    public void testGetProperties() {
+        System.out.println("getProperties");
+        PropertyContainer instance = new PropertyContainer();
+        Iterator<Property> expResult = null;
+        Iterator<Property> result = instance.getProperties();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getpassword method, of class Account.
+     * Test of addProperty method, of class PropertyContainer.
      */
     @Test
-    public void testGetpassword() {
-        System.out.println("getpassword");
-        Account instance = null;
-        String expResult = "";
-        String result = instance.getpassword();
-        assertEquals(expResult, result);
+    public void testAddProperty() {
+        System.out.println("addProperty");
+        Property property = null;
+        PropertyContainer instance = new PropertyContainer();
+        instance.addProperty(property);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }

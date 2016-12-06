@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author User
  */
-public class AccountTest {
+public class CustomerPropertiesPageTest {
     
-    public AccountTest() {
+    public CustomerPropertiesPageTest() {
     }
     
     @BeforeClass
@@ -38,29 +38,38 @@ public class AccountTest {
     }
 
     /**
-     * Test of getusername method, of class Account.
+     * Test of addbar method, of class CustomerPropertiesPage.
      */
     @Test
-    public void testGetusername() {
-        System.out.println("getusername");
-        Account instance = null;
-        String expResult = "";
-        String result = instance.getusername();
-        assertEquals(expResult, result);
+    public void testAddbar() {
+        System.out.println("addbar");
+        CustomerNavigationBar bar = null;
+        CustomerPropertiesPage instance = null;
+        instance.addbar(bar);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
 
     /**
-     * Test of getpassword method, of class Account.
+     * Test of routetopage method, of class CustomerPropertiesPage.
      */
     @Test
-    public void testGetpassword() {
-        System.out.println("getpassword");
-        Account instance = null;
-        String expResult = "";
-        String result = instance.getpassword();
-        assertEquals(expResult, result);
+    public void testRoutetopage() {
+        System.out.println("routetopage");
+        CustomerPropertiesPage instance = null;
+        instance.routetopage();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of leavepage method, of class CustomerPropertiesPage.
+     */
+    @Test
+    public void testLeavepage() {
+        System.out.println("leavepage");
+        CustomerPropertiesPage instance = null;
+        instance.leavepage();
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
