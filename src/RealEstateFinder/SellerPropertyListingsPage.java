@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package RealEstateFinder;
 
 import java.awt.BorderLayout;
@@ -21,36 +17,40 @@ public class SellerPropertyListingsPage extends JFrame {
     Application application;
     AvailableProperties avprop;
 
+    /**
+     * 
+     * @param app is the reference to Application
+     * @param ap  is the reference to Available Properties
+     * calls the matchownedproperties and gets the properties that the seller owns
+     */
     SellerPropertyListingsPage(Application app, AvailableProperties ap) {
         application = app;
         avprop = ap;
 
-       
-        //this.setLayout(n);
-
-        System.out.println("before In the sellerpage ");
-
         avprop.matchownedProperties(this);
-
-        // for(int i = 0; i <sellerOwnedProperties.getOwnedproperties().size(); i++){
-        System.out.println("In the sellerpage ");
-        // }
-        //FlowLayout fl = new FlowLayout(FlowLayout.LEFT, 20, 10);
-
-        // this.setLayout(new FlowLayout());
-    
+ 
         this.setTitle("Seller Property Page");
         this.pack();
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    /**
+     * 
+     * @param bar is the seller navigation bar that is attached to this page
+     */
 public void addbar(SellerNavigationBar bar)
 {
     this.add(bar, BorderLayout.NORTH);
 }
-{
-    
-}
+
+    /**
+     * 
+     * @param properties that are owned by the seller are passed in
+     * creates the property iterator
+     * iterates through properties and gets the name,image and property information
+     * adds the property to the panel one by one
+     * adds the button and the bar
+     */
     public void UpdateView(PropertyContainer properties) {
         PropertyContainer pc = properties;
 
@@ -76,17 +76,11 @@ public void addbar(SellerNavigationBar bar)
             
             JLabel name2 = new JLabel(text);
             panel.add(name2, BorderLayout.SOUTH);
-            
-            
-            
-            //panel.setBackground(Color.red);
-            //panel.setPreferredSize(new Dimension(100, 100));
+   
             validate();
-            //this.add(panel);
-
+  
             JButton b = new JButton("View Property Description");
             panel.add(b, BorderLayout.SOUTH);
-            //this.add(b, BorderLayout.SOUTH);
 
             PropertyDescriptionPage propertydescriptionpage = new PropertyDescriptionPage(p.getName(), p.getPicture(), p.getText());
             b.addActionListener(new ViewPropertyButtonListener(p.getName(), propertydescriptionpage, application, avprop));

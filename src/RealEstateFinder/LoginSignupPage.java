@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package RealEstateFinder;
 
 import java.awt.event.ActionListener;
@@ -25,7 +21,11 @@ public class LoginSignupPage extends JFrame {
     JLabel logLable = new JLabel("Log-In");
     JPanel panel = new JPanel();
     SignUpPage p;
-
+/**
+ * Constructor that sets up the page along with adding ActionListeners to buttons and adding buttons to the panel
+ * @param app reference to Application instance
+ * @param signup reference to SignUpPage instance
+ */
     LoginSignupPage(Application app, SignUpPage signup) {
 
         p = signup;

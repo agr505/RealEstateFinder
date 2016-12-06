@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package RealEstateFinder;
 
 import java.io.Serializable;
@@ -12,6 +8,11 @@ import java.util.Iterator;
 /**
  *
  * @author Aaron
+ */
+/**
+ * Model for holding Customers that are interested in the Seller's Properties and has methods to add a new Customer and
+ * see if a Customer is held in its ArrayList<Customer> field 
+ * 
  */
 public class InterestedCustomers implements Serializable{
       
@@ -24,20 +25,34 @@ public class InterestedCustomers implements Serializable{
     }
  
      
- 
+ /**
+  * Returns an Iterator to iterated through the Customers in the ArrayList<Customer> field
+  * @return 
+  */
     public Iterator<Customer> getCustomers()
     {
        return new
          Iterator<Customer>()          {
+              /**
+             * 
+             * @return checks the next available Customer if the size is within the bounds
+             */
             public boolean hasNext()
             {
                return current < customers.size();
            }
+              /**
+             * 
+             * @return the next available Customer and updates the current count
+             */
              public Customer next()
             {
                 return customers.get(current++);
             }
 
+             /**
+              * Unsupported operation if Customer is attemped to be removed from list
+              */
             public void remove()
              {
                throw new UnsupportedOperationException();
@@ -57,34 +72,16 @@ public class InterestedCustomers implements Serializable{
         System.out.println(customer.getusername()+"has contacted seller");
         customer.numofpropertiesinterestedin++;
         customers.add(customer.clone());
-        
-        
+     
         InterestedCustomersStateEvent event = new  InterestedCustomersStateEvent(this,customer.returnlatestpropertyinterestedin());
-      
-
-
-
-
-
-System.out.println("INSIDE INTERESTED CUST HASH IS"+this.hashCode());
-        
 
 for (int i=0;i<listeners.size();i++)
 {
     if(listeners.get(i).property.equals(customer.returnlatestpropertyinterestedin()))
-            {
-                System.out.println("number was called"+i);
+            {            
                 listeners.get(i).stateChanged(event);
             }
 }
-        
-        
-        
-       
-        
-        
-        
-        
         
         
     }
@@ -118,6 +115,10 @@ for (int i=0;i<listeners.size();i++)
         }
         return false;
     }
+    /**
+     * Gets the size of the ArrayList<Customer>
+     * @return int holding the value of the size of ArrayList<Customer>
+     */
     public int sizeget(){
         return customers.size();
     }

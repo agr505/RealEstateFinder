@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package RealEstateFinder;
 
 import java.awt.BorderLayout;
@@ -16,7 +12,12 @@ public class PropertyDescriptionPage extends JFrame {
 JPanel currentpanel;
 JPanel abovepanel;
  JLabel  Ptext;
-
+/**
+ * Constructor that initializes its fields with the Property's information
+ * @param name String holding the value of the Property's name
+ * @param pic String holding the value of the Property's image path
+ * @param text String holding the value of the Property's text description
+ */
     PropertyDescriptionPage(String name, String pic, String text) {
     JPanel currentpanel=new JPanel();
     JPanel imagePanel = new JPanel();
@@ -38,12 +39,16 @@ JPanel abovepanel;
        
         this.setTitle("Property Description Page");
         this.add(currentpanel, BorderLayout.SOUTH);
-        //this.pack();
+ 
         this.setSize(350, 400);
-      //  this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+   
 
     }
-
+/**
+ * Method utilizing the PropertyDescriptionPageStrategy to return the customized JPanel based on the PropertyDescriptionPageStrategy
+ * algorithm, then removes the current JPanel to add the newly created one
+ * @param strategy PropertyDescriptionPageStrategy used to return the customized JPanel based on its algorithm
+ */
     public void usestrategy(PropertyDescriptionPageStrategy strategy) {
         if(currentpanel!=null)
        {

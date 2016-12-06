@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package RealEstateFinder;
 
 import java.io.FileInputStream;
@@ -39,33 +35,32 @@ public class Application implements Serializable {
      *
      * @throws IOException
      * @throws ClassNotFoundException
+     * loads accounts from the text file
+     * hardcodes properties by calling createProperties
+     * initializes loginsignuppage, interestedCustomers, availableProperties and favorites
      */
     public Application() throws IOException, ClassNotFoundException {
 
         accounts = new ArrayList<Account>();
         loadaccounts();
         interestedcustomers = new InterestedCustomers();
-        System.out.println("BEGINNING HASH CODE" + interestedcustomers.hashCode());
+    
         loggedinaccount = null;
         createProperties();
         loginsignuppage = new LoginSignupPage(this, signuppage);
-        //signuppage = new SignUpPage(this);
-
+ 
         availableproperties = new AvailableProperties(this);
 
         favorites = new Favorites(availableproperties, this, interestedcustomers);
 
-        //  PropertyDescriptionPage pdp = new PropertyDescriptionPage(this);
         customerpropertiespage = null;
 
-        //  PropertyDescriptionPage pdp = new PropertyDescriptionPage(this);
-        // accounts.add(new Customer("joe", "bob", favorites));
-        // try {
-        // createProperties();
-        //}catch(IOException e){  
-        //}
     }
-
+    
+    /**
+     * 
+     * @return the accounts list
+     */
     public ArrayList<Account> getaccounts() {
         return accounts;
     }
@@ -86,9 +81,7 @@ public class Application implements Serializable {
         ObjectInputStream in = new ObjectInputStream(
                 new FileInputStream("accounts.txt"));
 
-        //ArrayList<Account> acc=new ArrayList<Account>();
-        // try
-        //{
+        
         for (int i = 0; i < numofacc; i++) {
             accounts.add((Account) in.readObject());
             System.out.println(accounts.get(i).getusername());
@@ -107,44 +100,38 @@ public class Application implements Serializable {
             }
 
         }
-
-        /*    catch(InvalidClassException e)
-      {
-         System.out.println( e.classname);
-             System.out.println( e.getCause());
-         System.out.println( e.getStackTrace());
-      StackTraceElement d[]=   e.getStackTrace();
-      for(int i=0;i<d.length;i++)
-   System.out.println(d[i]);
-      }
-         catch(Exception e)
-      {
-         System.out.println(e);
-      }
-         */
+       
         in.close();
     }
-    //String propertyInput = "First Property, Second Property";
-
+ 
+    /**
+     * 
+     * @param isseller gets the value from checkbox for seller account
+     * @param username gets the username 
+     * @param password gets the password
+     * @param propertyInput gets the properties pwned by seller, if seller is signing up
+     * @param phonenumber of the customer signing up
+     * @throws ClassNotFoundException 
+     * creates seller account if account type is seller else creates a customer account
+     */
     public void createaccount(boolean isseller, String username, String password, List propertyInput, String phonenumber) throws ClassNotFoundException {
         if (isseller == true) {
-            //Need code for getting text input about properties owned and having ownedproperties as a parameter to Seller Constructor
-            //add properties, list them in a textField seperated by comma
-            //seller constructor will have another paramerter textField
-            //accounts.add(new Seller(username,password, textField));
-
-            // ArrayList<String> arr = delimiterinput(propertyInput);
-            //accounts.add(new Seller(username, password, arr, interestedcustomers));
+          
             accounts.add(new Seller(username, password, propertyInput, interestedcustomers));
 
         } else {
-            //accounts.add(new Customer("joe", "bob", favorites));
+            
             accounts.add(new Customer(username, password, favorites, phonenumber));
 
-            // accounts.add(new Customer(username, password));
         }
     }
 
+
+ /**
+  * Used for delimiting Strings
+  * @param input String to be delimited
+  * @return delimited String
+  */
     public ArrayList<String> delimiterinput(String input) {
         //deliminate input
         ArrayList<String> x = new ArrayList<>();
@@ -158,7 +145,15 @@ public class Application implements Serializable {
 
         return x;
     }
-
+    /**
+     * 
+     * @param username is passed in
+     * @param password is passed in
+     * goes through the list of accounts saved and compares the username and password
+     * authenticates customers or sellers
+     * if seller is authenticated user is routed to sellerpropertypage 
+     * if customer is authenticated user is routed to customerpropertypage
+     */
     public void authenticate(String username, String password) {
         ArrayList<Account> accountslist = getaccounts();
 
@@ -205,11 +200,19 @@ public class Application implements Serializable {
 
         }
     }
-
+    /**
+     * 
+     * @return the current account thats logged in
+     */
     public Account provideLoggedinAccount() {
         return loggedinaccount;
     }
-
+    /**
+     * 
+     * @throws IOException for file not found
+     * hardcodes the properties objects
+     * objects are written into a file and serialized
+     */
     public void createProperties() throws IOException {
 
         Property p1 = new Property("First Property", "src\\img\\NYC_Empire_State_Building.jpg", "Empire State Building Office #1");
@@ -274,7 +277,14 @@ public class Application implements Serializable {
         out2.writeObject(numberofaccounts);  //writing the size of accounts in file
 
     }
-
+    /**
+     * 
+     * @param propname is the property that the customer contacted the seller in regards to
+     * gets the current customer thats logged in
+     * adds the property to propertyintersted in
+     * finds the owned of the property
+     * adds the customer to sellers interested buyers
+     */
     public void contactSeller(String propname) {
 
         Customer loggedincustomer = (Customer) provideLoggedinAccount();
@@ -287,6 +297,13 @@ public class Application implements Serializable {
 
     }
 
+    /**
+     * 
+     * @param propName is the propertyname
+     * @return the owned of the property selected
+     * goes through accounts list for all the sellers and matches the property selected with the owned 
+     * property by the seller
+     */
     public Seller findowner(String propName) {
         System.out.println("enteredfindowner");
         for (int i = 0; i < accounts.size(); i++) {
@@ -305,6 +322,13 @@ public class Application implements Serializable {
         return null;
     }
 
+    /**
+     * finds the owned of the property
+     * gets the customer thats logged in
+     * updates the latest propertyinterestedin
+     * @param propertyname
+     * @return true if the customer is in the interestedcustomers list
+     */
     public boolean hascontactedcustomer(String propertyname) {
         Seller s = findowner(propertyname);
         Customer c = (Customer) provideLoggedinAccount();

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package RealEstateFinder;
 
 import java.awt.event.ActionEvent;
@@ -12,6 +8,9 @@ import java.awt.event.ActionListener;
  *
  * @author Aaron
  */
+/**
+*Button Listener for handling click events to go to SellerPropertyListingsPage  
+ */
 public class SellerPropertyListingsPageNavigationBarButtonListener implements ActionListener {
 
  InterestedCustomersPage interestedcustomerspage;
@@ -19,13 +18,22 @@ public class SellerPropertyListingsPageNavigationBarButtonListener implements Ac
   
  
   
-
+/**
+ * Constructor initializing InterestedCustomersPage reference and SellerPropertyListingsPage reference
+ * @param icp InterestedCustomersPage reference
+ * @param slp SellerPropertyListingsPage reference
+ */
 SellerPropertyListingsPageNavigationBarButtonListener(InterestedCustomersPage icp,SellerPropertyListingsPage slp) {
       interestedcustomerspage=icp;
      sellerpropertyistingspage= slp;
     }
 
     @Override
+ /**
+ * Event handler for the user clicking to go to the SellerPropertyListingsPage
+ * @param e ActionEvent containing information about the event
+ */
+     
     public void actionPerformed(ActionEvent e) {
    interestedcustomerspage.leavepage();
               sellerpropertyistingspage.routetopage();

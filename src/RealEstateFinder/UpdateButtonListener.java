@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package RealEstateFinder;
 
 import java.awt.event.ActionEvent;
@@ -15,8 +11,8 @@ import javax.swing.JTextField;
  */
 /**
   * Button Listener for handling click events to update a
- * property 
- * @author Aaron
+ * Property 
+ * 
  */
 public class UpdateButtonListener implements ActionListener {
 
@@ -38,8 +34,7 @@ public class UpdateButtonListener implements ActionListener {
 
     @Override
     /**
-     * Seller clicked update property 
-     * event handler will update the seller property
+     * event handler which will handle events to update the Seller's Property 
      */
     public void actionPerformed(ActionEvent e) {
         availableproperties.updateProperty(textfield.getText(), propertyname);

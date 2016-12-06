@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package RealEstateFinder;
 
 //import java.awt.Checkbox;
@@ -52,7 +48,7 @@ public class SignUpPage extends JFrame {
     JCheckBox check = new JCheckBox("Check if you are a seller");
     JButton signUp = new JButton("Sign Up");
     JPanel panel = new JPanel();
-    //JButton movebutton;
+ 
 
     String[] myStrings = {"First Property", "Second Property", "Third Property", "Fourth Property",
                            "Fifth Property", "Sixth Property", "Seventh Property", "Eighth Property",
@@ -60,31 +56,25 @@ public class SignUpPage extends JFrame {
                     "Thirteenth Property", "Fourteenth Property", "Fifteenth Property", "Sixteenth Property"};
     
     JList leftlist;
-   // JList rightlist;
+
    
-   
+   /**
+    * 
+    * @param app is the reference to application
+    * @param p is the reference to login/signup page
+    * creates a JList called leftlist with the properties from mystrings
+    * gets the properties and puts it into a List
+    * adds the text boxes and button and the Jlist into the panel
+    * panel is added to the frame
+    * actionlistener for the signup button is attached
+    */
     SignUpPage(Application app, LoginSignupPage p) {
 
         leftlist = new JList(myStrings);
         leftlist.setVisibleRowCount(3);
         leftlist.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         getProperties();
-       //add( new JScrollPane(leftlist));
-       
-//       movebutton = new JButton("Move-->");
-//       movebutton.addActionListener( new ActionListener(){
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                rightlist.setListData((Object[]) leftlist.getSelectedValue());
-//                
-//            }
-//       });
-//       rightlist = new JList();
-//       rightlist.setVisibleRowCount(5);
-//       rightlist.setFixedCellWidth(100);
-//        rightlist.setFixedCellHeight(15);
-//        rightlist.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-      // panel.add(movebutton);
+   
       
         this.app = app;
         page = p;
@@ -97,8 +87,6 @@ public class SignUpPage extends JFrame {
         panel.add(phoneNum);
         panel.add(phoneNumber);
         panel.add(propertyNames);
-        //panel.add(tf3);
-        //panel.add(box);
         panel.add(new JScrollPane(leftlist));
         panel.add(check);
         
@@ -134,18 +122,20 @@ public class SignUpPage extends JFrame {
     public String getPhone() {
         return phoneNumber.getText();
     }
-    
+    /**
+     * 
+     * @return the List with all the selected values by the user
+     */
     public List getProperties() {
-        //ListModel model = leftlist.getModel();
         
         List  x  = leftlist.getSelectedValuesList();
-//        for(Object a: x){
-//            System.out.println(x);
-//        }
        
         return x;
     }
-
+/**
+ * See if checkbox is checked
+ * @return boolean based on if checkbox is checked
+ */
     public Boolean getCheck() {
 
         if (check.isSelected()) {

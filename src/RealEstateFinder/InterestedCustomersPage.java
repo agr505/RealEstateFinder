@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package RealEstateFinder;
 
 import java.awt.BorderLayout;
@@ -24,6 +20,12 @@ public class InterestedCustomersPage extends JFrame{
     JPanel panel = new JPanel();
     //create jscroll pane
     JScrollPane Sb = new JScrollPane(panel, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+     /**
+   * Constructor iterating through all of the InterestedCustomers adding their information to SellerPanels
+   * @param ic is an instance of InterestedCustomers applicable to logged in Seller
+   * @param app is an instance of Application 
+   * @param slp is an instance of SellerListingPage
+   */
     InterestedCustomersPage(InterestedCustomers ic,Application app,SellerPropertyListingsPage slp){
         
         SellerNavigationBar bar = new SellerNavigationBar(app,this,slp);
@@ -48,7 +50,7 @@ public class InterestedCustomersPage extends JFrame{
             System.out.println("tttttttttttttttttttttttt" + x);
             String y =c.returnphonenumber();
             String z = c.returnlatestpropertyinterestedin();
-            SellerPanel p = new SellerPanel(x,y,z);
+            CustomerPanel p = new CustomerPanel(x,y,z);
             // give the panel a border passing the param blackline giving a black border around it
             p.setBorder(blackline);
             panel.add(p);
@@ -56,7 +58,7 @@ public class InterestedCustomersPage extends JFrame{
         }
         
 
-      //  this.add(panel);
+    
         //add the scroll bar
         this.add(Sb);
         this.add(bar, BorderLayout.NORTH);
@@ -81,16 +83,19 @@ public class InterestedCustomersPage extends JFrame{
         this.setVisible(false);
     }
 }
-
-class SellerPanel extends JPanel {
+/**
+ * Class for displaying a Customer's information
+ * 
+ */
+class CustomerPanel extends JPanel {
 
 /**
-     * creates a seller panel
+     * Constructor adding Customer's information to JLabels and adding them to itself
      * @param x username
      * @param y phone number
      * @param z property
      */
-    SellerPanel(String x, String y, String z) {
+    CustomerPanel(String x, String y, String z) {
 
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 

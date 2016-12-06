@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package RealEstateFinder;
 
 import java.awt.BorderLayout;
@@ -15,6 +11,10 @@ import javax.swing.*;
 /**
  *
  * @author User
+ */
+/**
+ * Page that shows the Properties in the Customer's Favorites
+ * @author Aaron
  */
 public class FavoritesPage extends JFrame {
 
@@ -36,7 +36,7 @@ public class FavoritesPage extends JFrame {
      *
      */
     FavoritesPage(Favorites fav, AvailableProperties avproperties, Application app, InterestedCustomers interestedcust) {
-        //!! CustomerNavigationBar bar = new CustomerNavigationBar(app);
+     
         availableproperties = avproperties;
         application = app;
         favorites = fav;
@@ -45,17 +45,15 @@ public class FavoritesPage extends JFrame {
         Iterator<Property> iter = favorites.getProperties();
 
         while (iter.hasNext()) {
-            //  PropertyDescriptionPage  propertydescriptionpage = new PropertyDescriptionPage();
+          
             Property property = iter.next();
             String x = property.getName();
             String y = property.getPicture();
             String z = property.getText();
             PropertyPanel p = new PropertyPanel(x, y, z, app, favorites, favorites.listeners.get(1).propertydescriptionpage, avproperties, interestedcustomers);
-            //   PropertyDescriptionPageStrategyProvider strategyprovider= new PropertyDescriptionPageStrategyProvider(property.getName(),propertydescriptionpage,favorites,app,avproperties);
-            //  FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(propertydescriptionpage ,strategyprovider);
-            panel.add(p);
+           panel.add(p);
         }
-        //!!      this.add(bar, BorderLayout.NORTH);
+       
         this.add(panel);
         this.setTitle("Favorites Page");
         this.pack();
@@ -65,25 +63,29 @@ public class FavoritesPage extends JFrame {
 
     /**
      *
-     * Adds a customer navigation bar to the page
+     * Adds a CustomerNavigationBar to the page
      *
      * @param bar an instance of CustomerNavigationBar
      */
     public void addbar(CustomerNavigationBar bar) {
         this.add(bar, BorderLayout.NORTH);
     }
-
+ /**
+     * sets the page to visible
+     */
     public void routetopage() {
         this.setVisible(true);
     }
-
+ /**
+     * sets the page visibility to false
+     */
     public void leavepage() {
         this.setVisible(false);
     }
 
     /**
      *
-     * @param favorites container is passed Using the strategy pattern the
+     * @param favorites container is passed using the strategy pattern the
      * favorites button is added on the panel for all the properties
      */
     void createview(Favorites favorites) {
@@ -97,7 +99,7 @@ public class FavoritesPage extends JFrame {
         while (iter.hasNext()) {
 
             while (iter.hasNext()) {
-                //  PropertyDescriptionPage  propertydescriptionpage = new PropertyDescriptionPage();
+              
 
                 Property property = iter.next();
                 String x = property.getName();
@@ -114,43 +116,16 @@ public class FavoritesPage extends JFrame {
                 PropertyDescriptionPageStrategyProvider strategyprovider = new PropertyDescriptionPageStrategyProvider(property.getName(), page, favorites, application, availableproperties);
                 FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(page, strategyprovider, property.getName());
 
-                //   PropertyDescriptionPageStrategyProvider strategyprovider= new PropertyDescriptionPageStrategyProvider(property.getName(),propertydescriptionpage,favorites,application,availableproperties);
-                // FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(propertydescriptionpage ,strategyprovider, property.getName())
-                panel.add(p);
+              panel.add(p);
             }
 
             this.add(panel);
             this.setTitle("Favorites Page");
             this.pack();
-            // this.setVisible(false);
+           
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
 
-        class FavoritePropertyPanel extends JPanel {
-
-            JButton b;
-
-            FavoritePropertyPanel(String x, String y, String z, Application app, Favorites fav, PropertyDescriptionPage propertydescriptionpage, AvailableProperties availableProps) {
-
-                this.setLayout(new BorderLayout());
-
-                b = new JButton("View Property Description");
-
-                JLabel jl = new JLabel();
-                //  jl.setIcon(new ImageIcon(y));
-
-                JLabel description = new JLabel();
-                JLabel n = new JLabel();
-                this.add(n, BorderLayout.NORTH);
-                this.add(jl, BorderLayout.WEST);
-                this.add(description, BorderLayout.CENTER);
-                validate();
-
-                this.add(b, BorderLayout.SOUTH);
-                this.setBackground(Color.white);
-                this.setPreferredSize(new Dimension(250, 150));
-                //  b.addActionListener(new ViewPropertyButtonListener(x,propertydescriptionpage, fav, app, availableProps));
-            }
-        }
+  
     }
 }

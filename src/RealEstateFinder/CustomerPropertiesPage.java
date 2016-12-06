@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package RealEstateFinder;
 
 import java.awt.BorderLayout;
@@ -14,7 +10,10 @@ import java.util.Iterator;
 import javax.swing.JFrame;
 import javax.swing.*;
 import javax.swing.BoxLayout;
-
+/**
+ *  Page for displaying AvailableProperties
+ * 
+ */
 public class CustomerPropertiesPage extends JFrame {
 
     private static final long serialVersionUID = 14L;
@@ -32,16 +31,15 @@ public class CustomerPropertiesPage extends JFrame {
      * Creates a property container
      * iterates through all the properties and add them to a panel and attach the panel to frame
      * Adds a scroll bar to the page as well
-     * @param avproperties
-     * @param app
-     * @param fav
-     * @param interestedcustomers 
+     * @param avproperties reference to AvailableProperties instance
+     *    * @param app reference to Application instance
+     * @param fav reference to Favorites instance
+     * @param interestedcustomers reference to InterestedCustomers instance
      */
     CustomerPropertiesPage(AvailableProperties avproperties, Application app, Favorites fav, InterestedCustomers interestedcustomers) {
         availableproperties = avproperties;
         application = app;
         favorites = fav;
-        // CustomerNavigationBar bar = new CustomerNavigationBar(app);
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
         Iterator<Property> iter = availableproperties.getProperties();
@@ -58,8 +56,6 @@ public class CustomerPropertiesPage extends JFrame {
         }
 
         this.add(Sb);
-        //this.add(bar, BorderLayout.NORTH);
-        // this.add(panel);
         this.setTitle("Customer Property Page");
         this.pack();
         this.setVisible(true);
@@ -86,7 +82,10 @@ public class CustomerPropertiesPage extends JFrame {
     }
 
 }
-
+/**
+ * Panel for displaying Property information along with a button to view a Property's description
+ * 
+ */
 class PropertyPanel extends JPanel {
 
     JButton b;
@@ -94,21 +93,20 @@ class PropertyPanel extends JPanel {
     /**
      * Creates a panel with the property information and add a button for display
      * Adds a button listener to all the buttons on the properties
-     * @param x
-     * @param y
-     * @param z
-     * @param app
-     * @param fav
-     * @param propertydescriptionpage
-     * @param availableProps
-     * @param interestedcustomers 
+     * @param x Property's name
+     * @param y  Property's image path
+     * @param z  Property's text description
+     * @param app reference to Application instance
+     * @param fav reference to Favorites instance
+     * @param propertydescriptionpage reference to PropertyDescriptionPage instance
+     * @param availableProps reference to AvailableProperties instance
+     * @param interestedcustomers reference to InterestedCustomers instance
      */
     PropertyPanel(String x, String y, String z, Application app, Favorites fav, PropertyDescriptionPage propertydescriptionpage, AvailableProperties availableProps, InterestedCustomers interestedcustomers) {
 
         this.setLayout(new BorderLayout());
 
         b = new JButton("View Property Description");
-        //JButton xx = new JButton("button");
         JLabel jl = new JLabel();
         jl.setIcon(new ImageIcon(y));
 

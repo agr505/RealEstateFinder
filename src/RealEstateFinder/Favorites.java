@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package RealEstateFinder;
 
 import java.io.Serializable;
@@ -15,6 +11,11 @@ import javax.swing.event.ChangeListener;
  *
  * @author Aaron
  */
+/**
+ * Model for holding Properties that the Customer has favorited and methods to add a Property and
+ * see if a Property is in its PropertyContainer
+ * 
+ */
 public class Favorites extends PropertyContainer implements Serializable {
 
     private static final long serialVersionUID = 3L;
@@ -23,8 +24,13 @@ public class Favorites extends PropertyContainer implements Serializable {
     Application application;
     InterestedCustomers interestedcustomers;
     public ArrayList<FavoritesStateChangeListener> listeners;
-    //public ArrayList <PropertyPanel> panellist;
 
+/**
+ * Constructor that initializes the super class PropertyContainer along with other needed references
+ * @param avproperties reference to AvailableProperties instance
+ * @param app reference to Application instance
+ * @param interestedcust reference to InterestedCustomers instance
+ */
     Favorites(AvailableProperties avproperties, Application app, InterestedCustomers interestedcust) {
 
         super();
@@ -33,13 +39,13 @@ public class Favorites extends PropertyContainer implements Serializable {
         availableproperties = avproperties;
         application = app;
         interestedcustomers = interestedcust;
-        // panellist=null;
+     
 
-    }/*
-  public void getpanels(ArrayList <PropertyPanel> arrlist)
-  {
-      panellist=arrlist;
-  }*/
+    }
+/**
+ * Initializes the FavoritesPage and adds a FavoritesStateChangeListener to its ArrayList<FavoritesStateChangeListener> field
+ * @return 
+ */
     public FavoritesPage initializeFavoritesPage() {
         FavoritesPage fp = new FavoritesPage(this, availableproperties, application, interestedcustomers);
 
@@ -57,7 +63,7 @@ public class Favorites extends PropertyContainer implements Serializable {
     }
     /**
      * 
-     * @param propertyname
+     * @param propertyname holds value of the Property's name
      * @return true if the selected property matches the available property
      */
     public boolean containsproperty(String propertyname) {
@@ -82,7 +88,7 @@ public class Favorites extends PropertyContainer implements Serializable {
         FavoritesStateEvent event = new FavoritesStateEvent(this, property.getName());
 
         listeners.get(0).stateChanged(event);
-        System.out.println("SIZE=" + listeners.size());
+       
         for (int i = 1; i < listeners.size(); i++) {
 
             if (listeners.get(i).property.equals(property.getName())) {
@@ -90,12 +96,7 @@ public class Favorites extends PropertyContainer implements Serializable {
             }
         }
 
-//listeners.get(1).stateChanged(event);
-//listeners.get(2).stateChanged(event);
-//listeners.get(3).stateChanged(event);
-        //  for (ChangeListener listener : listeners) {
-        //     listener.stateChanged(event);
-        // }
+
     }
 
 }

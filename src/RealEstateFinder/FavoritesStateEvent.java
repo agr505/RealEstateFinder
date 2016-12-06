@@ -7,6 +7,10 @@ import javax.swing.event.ChangeEvent;
  *
  * @author Aaron
  */
+/**
+ * Event for a Favorites state change
+ * 
+ */
 public class FavoritesStateEvent extends ChangeEvent{
       Favorites favorites;
       public String currentproperty;

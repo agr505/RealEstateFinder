@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package RealEstateFinder;
 
 import java.io.Serializable;
@@ -11,10 +7,19 @@ import java.io.Serializable;
  *
  * @author Aaron
  */
+/**
+ * Class for holding Account information
+ *
+ */
 public class Account implements Serializable{
     private static final long serialVersionUID = 2L;
     private String username;
     private String password;
+    /**
+     * Constructor initializing the username and password fields
+     * @param uname String holding username 
+     * @param pass String holding password
+     */
     public Account(String uname,String pass)
           {
               username=uname;

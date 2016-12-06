@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package RealEstateFinder;
 
 import javax.swing.JMenu;
@@ -11,6 +7,10 @@ import javax.swing.*;
 /**
  *
  * @author Aaron
+ */
+/**
+ * Customer's navigation bar
+ * 
  */
 public class CustomerNavigationBar extends JMenuBar {
 
@@ -28,20 +28,19 @@ public class CustomerNavigationBar extends JMenuBar {
         home = new JMenuItem("Home/Available Properties");
         home.addActionListener(new CustomerPropertiesPageNavigationBarButtonListener(fp, custpp));
         this.add(home);
-        // availablproperties.addSeparator();
+      
 
         favorites = new JMenuItem("Favorites");
         favorites.addActionListener(new FavoritesNavigationBarButtonListener(fp, custpp));
         this.add(favorites);
-        // favorites.addSeparator();
+       
 
         logout = new JMenuItem("Log Out");
         logout.addActionListener(new LogOutButtonListener(application));
         this.add(logout);
-        //  logout.addSeparator();
+     
 
-        // this.setSize(20, 10);
-        //this.setVisible(true);
+       
     }
 
 }

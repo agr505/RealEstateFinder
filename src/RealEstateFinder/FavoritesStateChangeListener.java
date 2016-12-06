@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package RealEstateFinder;
 
 import java.io.Serializable;
@@ -28,7 +24,7 @@ public class FavoritesStateChangeListener implements ChangeListener, Serializabl
     /**
      * Constructor which initializes the reference to the FavoritesPage instance and sets the PropertyDescriptionPage
      * and Property name fields to null since this listener is only for updating the FavoritesPage
-     * @param favpage 
+     * @param favpage reference to FavoritesPage instance
      */
     FavoritesStateChangeListener(FavoritesPage favpage)
     {
@@ -43,9 +39,9 @@ public class FavoritesStateChangeListener implements ChangeListener, Serializabl
      * and Property name fields and sets the FavoritesPage instance to null since this listener is only for updating
      * the PropertyDescriptionPage associated with the  relevant Property
      * 
-     * @param propertydespage
-     * @param strategyprov
-     * @param prop 
+     * @param propertydespage reference to PropertyDescriptionPage instance
+     * @param strategyprov reference to PropertyDescriptionPageStrategyProvider instance
+     * @param prop reference to Property name 
      */
     FavoritesStateChangeListener(PropertyDescriptionPage propertydespage,PropertyDescriptionPageStrategyProvider strategyprov,String prop)
     {
@@ -57,27 +53,7 @@ public class FavoritesStateChangeListener implements ChangeListener, Serializabl
          
          
     }
-    void reassingproppage(PropertyDescriptionPage propertydespage,PropertyDescriptionPageStrategyProvider strategyprov,String prop)
-    {
-         propertydescriptionpage=propertydespage;
-       strategyprovider=strategyprov;
-         favoritespage=null;
-         property=prop;
-    }
-  /*   void stateChanged(FavoritesStateEvent event) {
-        Favorites favorites = event.getSource();
-      if(favoritespage!=null)
-      {
-          System.out.println("!!!!!!!!!!!!!");
-          favoritespage.createview(favorites);
-      }
-      else if(propertydescriptionpage!=null)
-      {
-           System.out.println("other");
-          strategyprovider.createview(favorites);
-      }
-     
-    }*/
+
 /**
  * Method to be called upon a Favorites state change
  * @param e ChangeEvent that hold information about the event 
