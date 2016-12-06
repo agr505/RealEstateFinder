@@ -1,4 +1,3 @@
-
 package RealEstateFinder;
 
 import java.io.IOException;
@@ -9,12 +8,14 @@ import java.io.IOException;
  */
 /**
  * Class for that holds main() and calls the constructor for Application
+ *
  * @author Aaron
  */
 public class RealEstateFinder {
+
     public static void main(String[] args) throws ClassNotFoundException, IOException {
-     
-     Application app=new Application();
-   
+
+        Application app = new Application();
+
     }
 }

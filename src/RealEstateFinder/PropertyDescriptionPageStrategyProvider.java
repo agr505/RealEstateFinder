@@ -1,4 +1,3 @@
-
 package RealEstateFinder;
 
 import java.awt.BorderLayout;
@@ -12,23 +11,30 @@ import javax.swing.JTextField;
  * @author Aaron
  */
 /**
- * Provides the PropertyDescriptionPage strategy to build the PropertyDescriptionPage based on circumstances
+ * Provides the PropertyDescriptionPage strategy to build the
+ * PropertyDescriptionPage based on circumstances
  */
-public class PropertyDescriptionPageStrategyProvider implements Serializable{
-private static final long serialVersionUID = 6L;
+public class PropertyDescriptionPageStrategyProvider implements Serializable {
+
+    private static final long serialVersionUID = 6L;
     public String propertyname;
     public Favorites favorites;
     public Application application;
     public PropertyDescriptionPage propertydescriptionpage;
     public AvailableProperties availableProperties;
-/**
- * Constructor for this class which is used when a Customer is logged in 
- * @param pname String that holds the value of the Property being associated with
- * @param propertydescriptionp reference to the PropertyDescriptionPage instance associated with the Property
- * @param fav reference to the Favorites instance associated with the Customer
- * @param app reference to the Application instance
- * @param availableprops reference to the AvailableProperties instance
- */
+
+    /**
+     * Constructor for this class which is used when a Customer is logged in
+     *
+     * @param pname String that holds the value of the Property being associated
+     * with
+     * @param propertydescriptionp reference to the PropertyDescriptionPage
+     * instance associated with the Property
+     * @param fav reference to the Favorites instance associated with the
+     * Customer
+     * @param app reference to the Application instance
+     * @param availableprops reference to the AvailableProperties instance
+     */
     PropertyDescriptionPageStrategyProvider(String pname, PropertyDescriptionPage propertydescriptionp, Favorites fav, Application app, AvailableProperties availableprops) {
         this.propertyname = pname;
         propertydescriptionpage = propertydescriptionp;
@@ -36,10 +42,14 @@ private static final long serialVersionUID = 6L;
         application = app;
         availableProperties = availableprops;
     }
+
     /**
-     * Constructor for this class which is used when a Seller is logged in 
-    *@param pname String that holds the value of the Property being associated with
- * @param propertydescriptionp reference to the PropertyDescriptionPage instance associated with the Property
+     * Constructor for this class which is used when a Seller is logged in
+     *
+     * @param pname String that holds the value of the Property being associated
+     * with
+     * @param propertydescriptionp reference to the PropertyDescriptionPage
+     * instance associated with the Property
      * @param app reference to the Application instance
      */
     PropertyDescriptionPageStrategyProvider(String pname, PropertyDescriptionPage propertydescriptionp, Application app) {
@@ -49,10 +59,11 @@ private static final long serialVersionUID = 6L;
         application = app;
         availableProperties = null;
     }
-    
+
     /**
-     * Method for creating the anonymous class that implements the PropertyDescriptionPageStrategy interface
-     * and then invokes the PropertyDescriptionPage to use the strategy to help build itself
+     * Method for creating the anonymous class that implements the
+     * PropertyDescriptionPageStrategy interface and then invokes the
+     * PropertyDescriptionPage to use the strategy to help build itself
      */
     public void createview() {
 
@@ -61,27 +72,31 @@ private static final long serialVersionUID = 6L;
         if (application.provideLoggedinAccount() instanceof Customer) {
 
             PropertyDescriptionPageStrategy customerstrategy = new PropertyDescriptionPageStrategy() {
-              /**
-               * Method that implements the buildview method declared in the PropertyDescriptionPageStrategy interface
-               * and returns a JPanel based on if the Property is in the Customer's Favorites, is in the Customer's Favorites
-               * but has not contacted the Seller, and is in the Customer's Favorites and has contacted the Seller
-               * @param jpanel
-               * @return 
-               */
-                @Override               
+                /**
+                 * Method that implements the buildview method declared in the
+                 * PropertyDescriptionPageStrategy interface and returns a
+                 * JPanel based on if the Property is in the Customer's
+                 * Favorites, is in the Customer's Favorites but has not
+                 * contacted the Seller, and is in the Customer's Favorites and
+                 * has contacted the Seller
+                 *
+                 * @param jpanel
+                 * @return
+                 */
+                @Override
                 public JPanel buildview(JPanel jpanel) {
 
                     if (!favorites.containsproperty(propertyname)) {
                         //if (jpanel.)
                         JButton fddtoFavorites = new JButton("Add to Favorites");
-                        fddtoFavorites.addActionListener(new AddtoFavoritesButtonListener(propertyname,availableProperties));
+                        fddtoFavorites.addActionListener(new AddtoFavoritesButtonListener(propertyname, availableProperties));
                         jpanel.add(fddtoFavorites);
                         return jpanel;//attach addtofavorites button
 
-                    } else if (favorites.containsproperty(propertyname)&& application.hascontactedcustomer(propertyname) == false) {
+                    } else if (favorites.containsproperty(propertyname) && application.hascontactedcustomer(propertyname) == false) {
                         System.out.println("already");
-                             JButton contactSeller = new JButton("Contact Seller");
-                        contactSeller.addActionListener(new ContactSellerButtonListener(propertyname,application));
+                        JButton contactSeller = new JButton("Contact Seller");
+                        contactSeller.addActionListener(new ContactSellerButtonListener(propertyname, application));
                         jpanel.add(contactSeller);
                         return jpanel;//attach contactseller button
 
@@ -98,22 +113,23 @@ private static final long serialVersionUID = 6L;
         } else if (application.provideLoggedinAccount() instanceof Seller) {
             PropertyDescriptionPageStrategy sellerstrategy = new PropertyDescriptionPageStrategy() {
                 @Override
-                     /**
-               * Method that implements the buildview method declared in the PropertyDescriptionPageStrategy interface
-               * and returns a JPanel with an Update button
-               * @param jpanel JPanel which is to be returned 
-               * @return JPanel which has UpdateButton on it 
-               */
+                /**
+                 * Method that implements the buildview method declared in the
+                 * PropertyDescriptionPageStrategy interface and returns a
+                 * JPanel with an Update button
+                 *
+                 * @param jpanel JPanel which is to be returned
+                 * @return JPanel which has UpdateButton on it
+                 */
                 public JPanel buildview(JPanel jpanel) {
                     //always attach update button
                     JButton updateProperty = new JButton("Update Property");
-                       JTextField tf = new JTextField(50);
-                    UpdateButtonListener listener=new UpdateButtonListener(availableProperties,tf,propertyname);
+                    JTextField tf = new JTextField(50);
+                    UpdateButtonListener listener = new UpdateButtonListener(availableProperties, tf, propertyname);
                     updateProperty.addActionListener(listener);
                     jpanel.add(tf, BorderLayout.NORTH);
                     jpanel.add(updateProperty, BorderLayout.SOUTH);
-                    
-     
+
                     return jpanel;
                 } //textfield added as well with Avpropstatechange listener getting reference to this tex
             ;
@@ -126,34 +142,41 @@ private static final long serialVersionUID = 6L;
     }
 
     /**
-     * Overloaded Method using the update Favorites model and a FavoritesStateEvent to get the
-     * associated Property name and the method is used for creating the anonymous class that implements the PropertyDescriptionPageStrategy interface
-     * and then invokes the PropertyDescriptionPage to use the strategy to help build itself
+     * Overloaded Method using the update Favorites model and a
+     * FavoritesStateEvent to get the associated Property name and the method is
+     * used for creating the anonymous class that implements the
+     * PropertyDescriptionPageStrategy interface and then invokes the
+     * PropertyDescriptionPage to use the strategy to help build itself
+     *
      * @param fav Favorites reference
-     * @param e FavoritesStateEvent containing associated Property name 
-     * @param propdescriptionpage PropertyDescriptionPage associated with the Property name
+     * @param e FavoritesStateEvent containing associated Property name
+     * @param propdescriptionpage PropertyDescriptionPage associated with the
+     * Property name
      */
     public void createview(Favorites fav, FavoritesStateEvent e, PropertyDescriptionPage propdescriptionpage) {
         String propertyn = e.currentproperty;
 
-     
         propdescriptionpage.setVisible(false);
         if (application.provideLoggedinAccount() instanceof Customer) {
 
             PropertyDescriptionPageStrategy customerstrategy = new PropertyDescriptionPageStrategy() {
-               /**
-                * 
-                * @param jpanel
-                * @return 
-                */
+                /**
+                 *
+                 * @param jpanel
+                 * @return
+                 */
                 @Override
-             /**
-               * Method that implements the buildview method declared in the PropertyDescriptionPageStrategy interface
-               * and returns a JPanel based on if the Property is in the Customer's Favorites, is in the Customer's Favorites
-               * but has not contacted the Seller, and is in the Customer's Favorites and has contacted the Seller
-               * @param jpanel
-               * @return 
-               */
+                /**
+                 * Method that implements the buildview method declared in the
+                 * PropertyDescriptionPageStrategy interface and returns a
+                 * JPanel based on if the Property is in the Customer's
+                 * Favorites, is in the Customer's Favorites but has not
+                 * contacted the Seller, and is in the Customer's Favorites and
+                 * has contacted the Seller
+                 *
+                 * @param jpanel
+                 * @return
+                 */
                 public JPanel buildview(JPanel jpanel) {
 
                     if (!fav.containsproperty(propertyn)) {
@@ -164,10 +187,10 @@ private static final long serialVersionUID = 6L;
 
                         return jpanel;//attach addtofavorites button
 
-                    } else if (fav.containsproperty(propertyn)&& application.hascontactedcustomer(propertyname) == false) {
+                    } else if (fav.containsproperty(propertyn) && application.hascontactedcustomer(propertyname) == false) {
 
                         JButton contactSeller = new JButton("Contact Seller");
-                        contactSeller.addActionListener(new ContactSellerButtonListener(propertyn,application));
+                        contactSeller.addActionListener(new ContactSellerButtonListener(propertyn, application));
                         jpanel.add(contactSeller);
                         return jpanel;//attach contactseller button
 
@@ -184,12 +207,14 @@ private static final long serialVersionUID = 6L;
         } else if (application.provideLoggedinAccount() instanceof Seller) {
             PropertyDescriptionPageStrategy sellerstrategy = new PropertyDescriptionPageStrategy() {
                 @Override
-                       /**
-               * Method that implements the buildview method declared in the PropertyDescriptionPageStrategy interface
-               * and returns a JPanel with an Update button
-               * @param jpanel JPanel which is to be returned 
-               * @return JPanel which has UpdateButton on it 
-               */
+                /**
+                 * Method that implements the buildview method declared in the
+                 * PropertyDescriptionPageStrategy interface and returns a
+                 * JPanel with an Update button
+                 *
+                 * @param jpanel JPanel which is to be returned
+                 * @return JPanel which has UpdateButton on it
+                 */
                 public JPanel buildview(JPanel jpanel) {
                     //always attach update button
                     JButton updateProperty = new JButton("Update Property");
@@ -204,29 +229,38 @@ private static final long serialVersionUID = 6L;
 
         }
     }
-        /**
+
+    /**
      * Overloaded Method using a InterestedCustomersStateEvent to get the
-     * associated Property name and the method is used for creating the anonymous class that implements the PropertyDescriptionPageStrategy interface
-     * and then invokes the PropertyDescriptionPage to use the strategy to help build itself
-     * @param e InterestedCustomersStateEvent containing associated Property name 
-     * @param propdescriptionpage PropertyDescriptionPage associated with the Property name
+     * associated Property name and the method is used for creating the
+     * anonymous class that implements the PropertyDescriptionPageStrategy
+     * interface and then invokes the PropertyDescriptionPage to use the
+     * strategy to help build itself
+     *
+     * @param e InterestedCustomersStateEvent containing associated Property
+     * name
+     * @param propdescriptionpage PropertyDescriptionPage associated with the
+     * Property name
      */
-     public void createview( InterestedCustomersStateEvent e, PropertyDescriptionPage propdescriptionpage) {
+    public void createview(InterestedCustomersStateEvent e, PropertyDescriptionPage propdescriptionpage) {
         String propertyn = e.currentproperty;
 
-     
         propdescriptionpage.setVisible(false);
         if (application.provideLoggedinAccount() instanceof Customer) {
 
             PropertyDescriptionPageStrategy customerstrategy = new PropertyDescriptionPageStrategy() {
                 @Override
-                 /**
-               * Method that implements the buildview method declared in the PropertyDescriptionPageStrategy interface
-               * and returns a JPanel based on if the Property is in the Customer's Favorites, is in the Customer's Favorites
-               * but has not contacted the Seller, and is in the Customer's Favorites and has contacted the Seller
-               * @param jpanel
-               * @return 
-               */
+                /**
+                 * Method that implements the buildview method declared in the
+                 * PropertyDescriptionPageStrategy interface and returns a
+                 * JPanel based on if the Property is in the Customer's
+                 * Favorites, is in the Customer's Favorites but has not
+                 * contacted the Seller, and is in the Customer's Favorites and
+                 * has contacted the Seller
+                 *
+                 * @param jpanel
+                 * @return
+                 */
                 public JPanel buildview(JPanel jpanel) {
 
                     if (!favorites.containsproperty(propertyn)) {
@@ -237,10 +271,9 @@ private static final long serialVersionUID = 6L;
 
                         return jpanel;//attach addtofavorites button
 
-                    } else if (favorites.containsproperty(propertyn)&& application.hascontactedcustomer(propertyname) == false) 
-                    {
+                    } else if (favorites.containsproperty(propertyn) && application.hascontactedcustomer(propertyname) == false) {
                         JButton contactSeller = new JButton("Contact Seller");
-                        contactSeller.addActionListener(new ContactSellerButtonListener(propertyn,application));
+                        contactSeller.addActionListener(new ContactSellerButtonListener(propertyn, application));
                         jpanel.add(contactSeller);
                         return jpanel;//attach contactseller button
 
@@ -257,19 +290,21 @@ private static final long serialVersionUID = 6L;
         } else if (application.provideLoggedinAccount() instanceof Seller) {
             PropertyDescriptionPageStrategy sellerstrategy = new PropertyDescriptionPageStrategy() {
                 @Override
-                       /**
-               * Method that implements the buildview method declared in the PropertyDescriptionPageStrategy interface
-               * and returns a JPanel with an Update button
-               * @param jpanel JPanel which is to be returned 
-               * @return JPanel which has UpdateButton on it 
-               */
+                /**
+                 * Method that implements the buildview method declared in the
+                 * PropertyDescriptionPageStrategy interface and returns a
+                 * JPanel with an Update button
+                 *
+                 * @param jpanel JPanel which is to be returned
+                 * @return JPanel which has UpdateButton on it
+                 */
                 public JPanel buildview(JPanel jpanel) {
                     //always attach update button
                     JButton updateProperty = new JButton("Update Property");
-                 
+
                     jpanel.add(updateProperty);
                     return jpanel;
-                   
+
                 }
             ;
 

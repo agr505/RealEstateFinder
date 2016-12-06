@@ -1,4 +1,3 @@
-
 package RealEstateFinder;
 
 import java.awt.BorderLayout;
@@ -10,9 +9,10 @@ import java.util.Iterator;
 import javax.swing.JFrame;
 import javax.swing.*;
 import javax.swing.BoxLayout;
+
 /**
- *  Page for displaying AvailableProperties
- * 
+ * Page for displaying AvailableProperties
+ *
  */
 public class CustomerPropertiesPage extends JFrame {
 
@@ -28,9 +28,10 @@ public class CustomerPropertiesPage extends JFrame {
     Application application;
 
     /**
-     * Creates a property container
-     * iterates through all the properties and add them to a panel and attach the panel to frame
-     * Adds a scroll bar to the page as well
+     * Creates a property container iterates through all the properties and add
+     * them to a panel and attach the panel to frame Adds a scroll bar to the
+     * page as well
+     *
      * @param avproperties reference to AvailableProperties instance
      *    * @param app reference to Application instance
      * @param fav reference to Favorites instance
@@ -61,19 +62,22 @@ public class CustomerPropertiesPage extends JFrame {
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
     /**
-     * 
+     *
      * @param bar is added to the north of the page
      */
     public void addbar(CustomerNavigationBar bar) {
         this.add(bar, BorderLayout.NORTH);
     }
+
     /**
      * sets the page to visible
      */
     public void routetopage() {
         this.setVisible(true);
     }
+
     /**
      * sets the page visibility to false
      */
@@ -82,23 +86,27 @@ public class CustomerPropertiesPage extends JFrame {
     }
 
 }
+
 /**
- * Panel for displaying Property information along with a button to view a Property's description
- * 
+ * Panel for displaying Property information along with a button to view a
+ * Property's description
+ *
  */
 class PropertyPanel extends JPanel {
 
     JButton b;
-    
+
     /**
-     * Creates a panel with the property information and add a button for display
-     * Adds a button listener to all the buttons on the properties
+     * Creates a panel with the property information and add a button for
+     * display Adds a button listener to all the buttons on the properties
+     *
      * @param x Property's name
-     * @param y  Property's image path
-     * @param z  Property's text description
+     * @param y Property's image path
+     * @param z Property's text description
      * @param app reference to Application instance
      * @param fav reference to Favorites instance
-     * @param propertydescriptionpage reference to PropertyDescriptionPage instance
+     * @param propertydescriptionpage reference to PropertyDescriptionPage
+     * instance
      * @param availableProps reference to AvailableProperties instance
      * @param interestedcustomers reference to InterestedCustomers instance
      */

@@ -1,4 +1,3 @@
-
 package RealEstateFinder;
 
 import java.awt.BorderLayout;
@@ -10,6 +9,7 @@ import javax.swing.*;
 
 /**
  * Shows the seller property listings and extends JFrame
+ *
  * @author User
  */
 public class SellerPropertyListingsPage extends JFrame {
@@ -18,38 +18,37 @@ public class SellerPropertyListingsPage extends JFrame {
     AvailableProperties avprop;
 
     /**
-     * 
+     *
      * @param app is the reference to Application
-     * @param ap  is the reference to Available Properties
-     * calls the matchownedproperties and gets the properties that the seller owns
+     * @param ap is the reference to Available Properties calls the
+     * matchownedproperties and gets the properties that the seller owns
      */
     SellerPropertyListingsPage(Application app, AvailableProperties ap) {
         application = app;
         avprop = ap;
 
         avprop.matchownedProperties(this);
- 
+
         this.setTitle("Seller Property Page");
         this.pack();
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    /**
-     * 
-     * @param bar is the seller navigation bar that is attached to this page
-     */
-public void addbar(SellerNavigationBar bar)
-{
-    this.add(bar, BorderLayout.NORTH);
-}
 
     /**
-     * 
-     * @param properties that are owned by the seller are passed in
-     * creates the property iterator
-     * iterates through properties and gets the name,image and property information
-     * adds the property to the panel one by one
-     * adds the button and the bar
+     *
+     * @param bar is the seller navigation bar that is attached to this page
+     */
+    public void addbar(SellerNavigationBar bar) {
+        this.add(bar, BorderLayout.NORTH);
+    }
+
+    /**
+     *
+     * @param properties that are owned by the seller are passed in creates the
+     * property iterator iterates through properties and gets the name,image and
+     * property information adds the property to the panel one by one adds the
+     * button and the bar
      */
     public void UpdateView(PropertyContainer properties) {
         PropertyContainer pc = properties;
@@ -61,7 +60,7 @@ public void addbar(SellerNavigationBar bar)
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
 
         while (iter.hasNext()) {
-            
+
             Property p = iter.next();
             String name = p.getName();
             String pic = p.getPicture();
@@ -72,13 +71,13 @@ public void addbar(SellerNavigationBar bar)
 
             JLabel pic2 = new JLabel();
             pic2.setIcon(new ImageIcon(pic));
-            panel.add(pic2,BorderLayout.CENTER );
-            
+            panel.add(pic2, BorderLayout.CENTER);
+
             JLabel name2 = new JLabel(text);
             panel.add(name2, BorderLayout.SOUTH);
-   
+
             validate();
-  
+
             JButton b = new JButton("View Property Description");
             panel.add(b, BorderLayout.SOUTH);
 
@@ -89,15 +88,17 @@ public void addbar(SellerNavigationBar bar)
         System.out.println("While loop ended");
 
     }
-/**
- * Routing method used to leave this page
- */
+
+    /**
+     * Routing method used to leave this page
+     */
     public void leavepage() {
         this.setVisible(false);
     }
-/**
- * Routing method used to go to this page
- */
+
+    /**
+     * Routing method used to go to this page
+     */
     public void routetopage() {
         this.setVisible(true);
 

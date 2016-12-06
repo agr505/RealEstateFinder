@@ -1,4 +1,3 @@
-
 package RealEstateFinder;
 
 //import java.awt.Checkbox;
@@ -24,10 +23,11 @@ import javax.swing.ListSelectionModel;
 
 /**
  * Allows the user to create an account and extends JFrame
+ *
  * @author Sam
  */
 /**
- * 
+ *
  * @author Aaron
  */
 public class SignUpPage extends JFrame {
@@ -48,34 +48,30 @@ public class SignUpPage extends JFrame {
     JCheckBox check = new JCheckBox("Check if you are a seller");
     JButton signUp = new JButton("Sign Up");
     JPanel panel = new JPanel();
- 
 
     String[] myStrings = {"First Property", "Second Property", "Third Property", "Fourth Property",
-                           "Fifth Property", "Sixth Property", "Seventh Property", "Eighth Property",
-                         "Ninthth Property", "Tenth Property", "Eleventh Property", "Twelfth Property",
-                    "Thirteenth Property", "Fourteenth Property", "Fifteenth Property", "Sixteenth Property"};
-    
+        "Fifth Property", "Sixth Property", "Seventh Property", "Eighth Property",
+        "Ninthth Property", "Tenth Property", "Eleventh Property", "Twelfth Property",
+        "Thirteenth Property", "Fourteenth Property", "Fifteenth Property", "Sixteenth Property"};
+
     JList leftlist;
 
-   
-   /**
-    * 
-    * @param app is the reference to application
-    * @param p is the reference to login/signup page
-    * creates a JList called leftlist with the properties from mystrings
-    * gets the properties and puts it into a List
-    * adds the text boxes and button and the Jlist into the panel
-    * panel is added to the frame
-    * actionlistener for the signup button is attached
-    */
+    /**
+     *
+     * @param app is the reference to application
+     * @param p is the reference to login/signup page creates a JList called
+     * leftlist with the properties from mystrings gets the properties and puts
+     * it into a List adds the text boxes and button and the Jlist into the
+     * panel panel is added to the frame actionlistener for the signup button is
+     * attached
+     */
     SignUpPage(Application app, LoginSignupPage p) {
 
         leftlist = new JList(myStrings);
         leftlist.setVisibleRowCount(3);
         leftlist.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
         getProperties();
-   
-      
+
         this.app = app;
         page = p;
 
@@ -89,7 +85,6 @@ public class SignUpPage extends JFrame {
         panel.add(propertyNames);
         panel.add(new JScrollPane(leftlist));
         panel.add(check);
-        
 
         signUp.addActionListener(new SignupButtonListener(app, this, page));
         panel.add(signUp);
@@ -101,41 +96,50 @@ public class SignUpPage extends JFrame {
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
     /**
-     * accessor for  username
+     * accessor for username
+     *
      * @return string holding the value of accounts username
      */
     public String getusernameinput() {
         return username.getText();
     }
+
     /**
      * accessor for password
+     *
      * @return string holding the value of accounts password
      */
     public String getpasswordinput() {
         return password.getText();
     }
+
     /**
      * accessor for phone number
+     *
      * @return string holding the value of accounts phone number
      */
     public String getPhone() {
         return phoneNumber.getText();
     }
+
     /**
-     * 
+     *
      * @return the List with all the selected values by the user
      */
     public List getProperties() {
-        
-        List  x  = leftlist.getSelectedValuesList();
-       
+
+        List x = leftlist.getSelectedValuesList();
+
         return x;
     }
-/**
- * See if checkbox is checked
- * @return boolean based on if checkbox is checked
- */
+
+    /**
+     * See if checkbox is checked
+     *
+     * @return boolean based on if checkbox is checked
+     */
     public Boolean getCheck() {
 
         if (check.isSelected()) {
@@ -144,9 +148,10 @@ public class SignUpPage extends JFrame {
             return false;
         }
     }
-/**
- * Routing method used to leave this page
- */
+
+    /**
+     * Routing method used to leave this page
+     */
     public void setToVisible() {
         this.setVisible(false);
     }

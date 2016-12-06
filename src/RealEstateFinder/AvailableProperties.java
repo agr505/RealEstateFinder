@@ -1,4 +1,3 @@
-
 package RealEstateFinder;
 
 import java.io.FileInputStream;
@@ -13,9 +12,9 @@ import java.util.Iterator;
  * @author Aaron
  */
 /**
- * Model for holding Properties that are available and methods for loading Properties, matching owned Properties,
- * and updating Properties
- * 
+ * Model for holding Properties that are available and methods for loading
+ * Properties, matching owned Properties, and updating Properties
+ *
  */
 public class AvailableProperties extends PropertyContainer {
 
@@ -37,16 +36,21 @@ public class AvailableProperties extends PropertyContainer {
         favorites = null;
         loadProperties();
     }
-/**
- * Adds a View listener to the ArrayList<AvailablePropertiesStateChangeListener> that will listen to Model state change event 
- * @param listener 
- */
+
+    /**
+     * Adds a View listener to the
+     * ArrayList<AvailablePropertiesStateChangeListener> that will listen to
+     * Model state change event
+     *
+     * @param listener
+     */
     public void addListener(AvailablePropertiesStateChangeListener listener) {
         listeners.add(listener);
     }
 
     /**
      * Assigns a reference to favorites
+     *
      * @param fav
      */
     public void assignFavorites(Favorites fav) {
@@ -56,6 +60,7 @@ public class AvailableProperties extends PropertyContainer {
     /**
      * Loads properties from property text file calls add property function is
      * propertContainer
+     *
      * @throws IOException
      * @throws ClassNotFoundException
      */
@@ -71,15 +76,16 @@ public class AvailableProperties extends PropertyContainer {
         }
         in.close();
     }
-/**
- * gets the seller thats currently logged in
- * gets the sellers owned properties
- * creates an iterator for available properties
- * Matches the properties that are owned by the seller from all the available properties
- * put all the matched properties in matchedproperties container
- * calls update view function for the sellers listings page
- * @param p 
- */
+
+    /**
+     * gets the seller thats currently logged in gets the sellers owned
+     * properties creates an iterator for available properties Matches the
+     * properties that are owned by the seller from all the available properties
+     * put all the matched properties in matchedproperties container calls
+     * update view function for the sellers listings page
+     *
+     * @param p
+     */
     public void matchownedProperties(SellerPropertyListingsPage p) {
         SellerPropertyListingsPage pg;
         pg = p;
@@ -106,12 +112,14 @@ public class AvailableProperties extends PropertyContainer {
         }
         pg.UpdateView(matchedproperties);
     }
-/**
- * creates an iterator for available properties
- * goes through all the properties and matches the property that was selected to add to favorites
- * sends the property to Favorites add function
- * @param propertyname 
- */
+
+    /**
+     * creates an iterator for available properties goes through all the
+     * properties and matches the property that was selected to add to favorites
+     * sends the property to Favorites add function
+     *
+     * @param propertyname
+     */
     public void addtoFav(String propertyname) {
         Iterator<Property> iter = getProperties();
 

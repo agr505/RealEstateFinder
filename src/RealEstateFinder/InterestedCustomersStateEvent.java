@@ -1,4 +1,3 @@
-
 package RealEstateFinder;
 
 import javax.swing.event.ChangeEvent;
@@ -9,22 +8,22 @@ import javax.swing.event.ChangeEvent;
  */
 /**
  * Event for a InterestedCustomers state change
- * 
+ *
  */
-public class InterestedCustomersStateEvent extends ChangeEvent{
-   
-      public String currentproperty;
+public class InterestedCustomersStateEvent extends ChangeEvent {
+
+    public String currentproperty;
 
     /**
-     * Overrided constructor allowing for an object of type InterestedCustomers to be a
-     * parameter
+     * Overrided constructor allowing for an object of type InterestedCustomers
+     * to be a parameter
      *
      * @param source of type Favorites
      */
-    public InterestedCustomersStateEvent(InterestedCustomers source,String property) {
-       super(source);
-        currentproperty=property;
-          
+    public InterestedCustomersStateEvent(InterestedCustomers source, String property) {
+        super(source);
+        currentproperty = property;
+
     }
 
     @Override

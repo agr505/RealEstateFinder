@@ -1,4 +1,3 @@
-
 package RealEstateFinder;
 
 import java.awt.event.ActionListener;
@@ -8,6 +7,7 @@ import javax.swing.*;
 
 /**
  * Lets the user login or create an account extends JFrame
+ *
  * @author Sam
  */
 public class LoginSignupPage extends JFrame {
@@ -21,11 +21,14 @@ public class LoginSignupPage extends JFrame {
     JLabel logLable = new JLabel("Log-In");
     JPanel panel = new JPanel();
     SignUpPage p;
-/**
- * Constructor that sets up the page along with adding ActionListeners to buttons and adding buttons to the panel
- * @param app reference to Application instance
- * @param signup reference to SignUpPage instance
- */
+
+    /**
+     * Constructor that sets up the page along with adding ActionListeners to
+     * buttons and adding buttons to the panel
+     *
+     * @param app reference to Application instance
+     * @param signup reference to SignUpPage instance
+     */
     LoginSignupPage(Application app, SignUpPage signup) {
 
         p = signup;
@@ -42,30 +45,35 @@ public class LoginSignupPage extends JFrame {
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
+
     /**
-     * accessor for  username
-     * @return string holding the value of  username
+     * accessor for username
+     *
+     * @return string holding the value of username
      */
     public String getusernameinput() {
         return tf1.getText();
     }
+
     /**
      * accessor for Accounts password
+     *
      * @return string holding the value of accounts password
      */
     public String getpasswordinput() {
         return tf2.getText();
     }
-/**
- * Routing method used to go to this page
- */
+
+    /**
+     * Routing method used to go to this page
+     */
     public void routetopage() {
         this.setVisible(true);
     }
-/**
- *  Routing method used to leave this page
- */
+
+    /**
+     * Routing method used to leave this page
+     */
     public void leavepage() {
         this.setVisible(false);
     }

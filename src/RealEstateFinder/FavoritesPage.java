@@ -1,4 +1,3 @@
-
 package RealEstateFinder;
 
 import java.awt.BorderLayout;
@@ -14,6 +13,7 @@ import javax.swing.*;
  */
 /**
  * Page that shows the Properties in the Customer's Favorites
+ *
  * @author Aaron
  */
 public class FavoritesPage extends JFrame {
@@ -36,7 +36,7 @@ public class FavoritesPage extends JFrame {
      *
      */
     FavoritesPage(Favorites fav, AvailableProperties avproperties, Application app, InterestedCustomers interestedcust) {
-     
+
         availableproperties = avproperties;
         application = app;
         favorites = fav;
@@ -45,15 +45,15 @@ public class FavoritesPage extends JFrame {
         Iterator<Property> iter = favorites.getProperties();
 
         while (iter.hasNext()) {
-          
+
             Property property = iter.next();
             String x = property.getName();
             String y = property.getPicture();
             String z = property.getText();
             PropertyPanel p = new PropertyPanel(x, y, z, app, favorites, favorites.listeners.get(1).propertydescriptionpage, avproperties, interestedcustomers);
-           panel.add(p);
+            panel.add(p);
         }
-       
+
         this.add(panel);
         this.setTitle("Favorites Page");
         this.pack();
@@ -70,13 +70,15 @@ public class FavoritesPage extends JFrame {
     public void addbar(CustomerNavigationBar bar) {
         this.add(bar, BorderLayout.NORTH);
     }
- /**
+
+    /**
      * sets the page to visible
      */
     public void routetopage() {
         this.setVisible(true);
     }
- /**
+
+    /**
      * sets the page visibility to false
      */
     public void leavepage() {
@@ -99,7 +101,6 @@ public class FavoritesPage extends JFrame {
         while (iter.hasNext()) {
 
             while (iter.hasNext()) {
-              
 
                 Property property = iter.next();
                 String x = property.getName();
@@ -116,16 +117,15 @@ public class FavoritesPage extends JFrame {
                 PropertyDescriptionPageStrategyProvider strategyprovider = new PropertyDescriptionPageStrategyProvider(property.getName(), page, favorites, application, availableproperties);
                 FavoritesStateChangeListener statechangelistener = new FavoritesStateChangeListener(page, strategyprovider, property.getName());
 
-              panel.add(p);
+                panel.add(p);
             }
 
             this.add(panel);
             this.setTitle("Favorites Page");
             this.pack();
-           
+
             this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
 
-  
     }
 }

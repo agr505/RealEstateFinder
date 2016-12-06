@@ -1,4 +1,3 @@
-
 package RealEstateFinder;
 
 import javax.swing.event.ChangeEvent;
@@ -9,11 +8,12 @@ import javax.swing.event.ChangeEvent;
  */
 /**
  * Event for a Favorites state change
- * 
+ *
  */
-public class FavoritesStateEvent extends ChangeEvent{
-      Favorites favorites;
-      public String currentproperty;
+public class FavoritesStateEvent extends ChangeEvent {
+
+    Favorites favorites;
+    public String currentproperty;
 
     /**
      * Overrided constructor allowing for an object of type Favorites to be a
@@ -21,9 +21,9 @@ public class FavoritesStateEvent extends ChangeEvent{
      *
      * @param source of type Favorites
      */
-    public FavoritesStateEvent(Favorites source,String property) {
+    public FavoritesStateEvent(Favorites source, String property) {
         super(source);
-        currentproperty=property;
+        currentproperty = property;
     }
 
     @Override
