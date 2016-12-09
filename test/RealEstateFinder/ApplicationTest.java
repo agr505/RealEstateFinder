@@ -5,6 +5,7 @@
  */
 package RealEstateFinder;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
@@ -115,7 +116,7 @@ public class ApplicationTest {
      * Test of provideLoggedinAccount method, of class Application.
      */
     @Test
-    public void testProvideLoggedinAccount() {
+    public void testProvideLoggedinAccount() throws IOException, ClassNotFoundException {
         System.out.println("provideLoggedinAccount");
         Application instance = new Application();
         Account expResult = null;
