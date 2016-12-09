@@ -5,7 +5,6 @@
  */
 package RealEstateFinder;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
@@ -44,7 +43,7 @@ public class ApplicationTest {
      * Test of getaccounts method, of class Application.
      */
     @Test
-    public void testGetaccounts() throws IOException, ClassNotFoundException {
+    public void testGetaccounts() {
         System.out.println("getaccounts");
         Application instance = new Application();
         ArrayList<Account> expResult = null;
@@ -71,32 +70,23 @@ public class ApplicationTest {
      */
     @Test
     public void testCreateaccount() throws Exception {
-        Application app=new Application();
-         InterestedCustomers interestedcustomers = new InterestedCustomers();
-         AvailableProperties availableproperties = new AvailableProperties(app);
-
-         Favorites favorites = new Favorites(availableproperties, app, interestedcustomers);
         System.out.println("createaccount");
-        boolean isseller = true;
-        String username = "bob";
-        String password = "joe";
-       
-        ArrayList propertyInput = new ArrayList<Property>();
-        String phonenumber = "999";
+        boolean isseller = false;
+        String username = "";
+        String password = "";
+        List propertyInput = null;
+        String phonenumber = "";
         Application instance = new Application();
         instance.createaccount(isseller, username, password, propertyInput, phonenumber);
         // TODO review the generated test code and remove the default call to fail.
-       
-       Customer acc = new Customer("bob", "joe", favorites,  "999");
-       assertTrue(acc.equals(instance)== false);
-        
+        fail("The test case is a prototype.");
     }
 
     /**
      * Test of delimiterinput method, of class Application.
      */
     @Test
-    public void testDelimiterinput() throws IOException, ClassNotFoundException {
+    public void testDelimiterinput() {
         System.out.println("delimiterinput");
         String input = "";
         Application instance = new Application();
@@ -111,37 +101,21 @@ public class ApplicationTest {
      * Test of authenticate method, of class Application.
      */
     @Test
-    public void testAuthenticate() throws IOException, ClassNotFoundException{
-        
-         Application app=new Application();
-         InterestedCustomers interestedcustomers = new InterestedCustomers();
-         AvailableProperties availableproperties = new AvailableProperties(app);
-          ArrayList propertyInput = new ArrayList<Property>();
-         Favorites favorites = new Favorites(availableproperties, app, interestedcustomers);
-         
-        System.out.println("createaccount");
-        boolean isseller = true;
-        String username = "bob";
-        String password = "joe";
-        String phonenumber = "999";
-        Application instance = new Application();
-        instance.createaccount(isseller, username, password, propertyInput, phonenumber);
-       Seller expResult =new Seller("bobby","joe",propertyInput,interestedcustomers);
+    public void testAuthenticate() {
         System.out.println("authenticate");
-        String testusername = "bob";
-        String testpassword = "joe";
-       // Application instance = new Application();
-       // instance.authenticate(testusername, testpassword);
+        String username = "";
+        String password = "";
+        Application instance = new Application();
+        instance.authenticate(username, password);
         // TODO review the generated test code and remove the default call to fail.
-        assertTrue(instance.equals(expResult)== false);
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
      * Test of provideLoggedinAccount method, of class Application.
      */
     @Test
-    public void testProvideLoggedinAccount() throws IOException, ClassNotFoundException{
+    public void testProvideLoggedinAccount() {
         System.out.println("provideLoggedinAccount");
         Application instance = new Application();
         Account expResult = null;
@@ -179,10 +153,9 @@ public class ApplicationTest {
      * Test of contactSeller method, of class Application.
      */
     @Test
-    public void testContactSeller() throws IOException, ClassNotFoundException{
+    public void testContactSeller() {
         System.out.println("contactSeller");
         String propname = "";
-        
         Application instance = new Application();
         instance.contactSeller(propname);
         // TODO review the generated test code and remove the default call to fail.
@@ -193,7 +166,7 @@ public class ApplicationTest {
      * Test of findowner method, of class Application.
      */
     @Test
-    public void testFindowner() throws IOException, ClassNotFoundException{
+    public void testFindowner() {
         System.out.println("findowner");
         String propName = "";
         Application instance = new Application();
@@ -208,7 +181,7 @@ public class ApplicationTest {
      * Test of hascontactedcustomer method, of class Application.
      */
     @Test
-    public void testHascontactedcustomer() throws IOException, ClassNotFoundException{
+    public void testHascontactedcustomer() {
         System.out.println("hascontactedcustomer");
         String propertyname = "";
         Application instance = new Application();
