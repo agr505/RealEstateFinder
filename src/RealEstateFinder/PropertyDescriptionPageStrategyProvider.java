@@ -22,6 +22,8 @@ public class PropertyDescriptionPageStrategyProvider implements Serializable{
 private static final long serialVersionUID = 6L;
     public String propertyname;
     public Favorites favorites;
+    
+    
     public Application application;
     public PropertyDescriptionPage propertydescriptionpage;
     public AvailableProperties availableProperties;
